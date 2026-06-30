@@ -6,3 +6,7 @@
   - Flame Orb [WHITE]: Chance to burn enemies on hit.
   - Air Balloon [WHITE]: Limits your falling speed, but will pop at low health.
 - <b>NOTE:</b> None of the items have 3D models or sprites, so they tend to appear as mystery placeholders.
+
+## Developer Release (Hotfix) - 0.0.2
+
+- Added R2API as a dependancy for this plugin.
