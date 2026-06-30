@@ -1,0 +1,28 @@
+// <style=cIsHealth> <style=cIsDamage> <style=cIsHealing>
+// <style=cIsUtility> <style=cIsVoid>  <style=cHumanObjective>
+// <style=cLunarObjective> <style=cStack> <style=cWorldEvent>
+// <style=cArtifact> <style=cUserSetting> <style=cDeath>
+// <style=cSub> <style=cMono> <style=cShrine> <style=cEvent>
+{
+  "en": {
+    "ITEM_LEFTOVERS_NAME": "Leftovers",
+    "ITEM_LEFTOVERS_PICKUP": "Increase health regeneration by a flat amount.",
+    "ITEM_LEFTOVERS_DESC": "Increase health regeneration by <style=cIsHealing>{0} HP/s</style> <style=cStack>(+{1} HP/s per level)</style>.",
+    "ITEM_LEFTOVERS_LORE": "Insert lore here.",
+
+    "ITEM_FLAMEORB_NAME": "Flame Orb",
+    "ITEM_FLAMEORB_PICKUP": "Chance to burn enemies on hit.",
+    "ITEM_FLAMEORB_DESC": "<style=cIsDamage>{0}%</style> <style=cStack>(+{0}% per stack)</style> chance to <style=cIsDamage>burn</style> an enemy.",
+    "ITEM_FLAMEORB_LORE": "Insert lore here.",
+
+    "ITEM_AIRBALLOON_NAME": "Air Balloon",
+    "ITEM_AIRBALLOON_PICKUP": "Limits your falling speed, but will pop at low health.",
+    "ITEM_AIRBALLOON_DESC": "Limits your <style=cIsUtility>falling speed</style> by <style=cIsUtility>{0} m/s</style> <style=cStack>(-{1}% per stack)</style>. However, it will <style=cDeath>pop</style> when under <style=cIsHealth>{2}% HP</style>.",
+    "ITEM_AIRBALLOON_LORE": "Insert lore here.",
+
+    "ITEM_POPPEDAIRBALLOON_NAME": "Air Balloon (Popped)",
+    "ITEM_POPPEDAIRBALLOON_PICKUP": "As the saying goes, what comes up must come down.",
+    "ITEM_POPPEDAIRBALLOON_DESC": "Balloon that is popped, no longer an air balloon but a ground balloon.",
+    "ITEM_POPPEDAIRBALLOON_LORE": "Insert lore here."
+  }
+}
