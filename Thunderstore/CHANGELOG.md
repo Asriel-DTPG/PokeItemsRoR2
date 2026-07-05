@@ -1,3 +1,14 @@
+## Developer Release with GitHub - 0.0.3
+
+- Added GitHub link to the repository containing project files.
+- Readjusted changelog to reverse the order (oldest first -> latest first).
+- Added a Spawn Keys section in README to describe the use of F-keys to spawn the desired items.
+- Slightly adjusted item descriptions.
+
+## Developer Release (Hotfix) - 0.0.2
+
+- Added R2API as a dependancy for this plugin.
+
 ## Developer Release - 0.0.1
 
 - First release.
@@ -6,7 +17,3 @@
   - Flame Orb [WHITE]: Chance to burn enemies on hit.
   - Air Balloon [WHITE]: Limits your falling speed, but will pop at low health.
 - <b>NOTE:</b> None of the items have 3D models or sprites, so they tend to appear as mystery placeholders.
-
-## Developer Release (Hotfix) - 0.0.2
-
-- Added R2API as a dependancy for this plugin.

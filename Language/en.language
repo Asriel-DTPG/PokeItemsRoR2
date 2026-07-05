@@ -7,12 +7,12 @@
   "en": {
     "ITEM_LEFTOVERS_NAME": "Leftovers",
     "ITEM_LEFTOVERS_PICKUP": "Increase health regeneration by a flat amount.",
-    "ITEM_LEFTOVERS_DESC": "Increase health regeneration by <style=cIsHealing>{0} HP/s</style> <style=cStack>(+{1} HP/s per level)</style>.",
+    "ITEM_LEFTOVERS_DESC": "Increase health regeneration by <style=cIsHealing>{0} HP/s</style> <style=cStack>(+{1} HP/s per stack)</style>.",
     "ITEM_LEFTOVERS_LORE": "Insert lore here.",
 
     "ITEM_FLAMEORB_NAME": "Flame Orb",
     "ITEM_FLAMEORB_PICKUP": "Chance to burn enemies on hit.",
-    "ITEM_FLAMEORB_DESC": "<style=cIsDamage>{0}%</style> <style=cStack>(+{0}% per stack)</style> chance to <style=cIsDamage>burn</style> an enemy.",
+    "ITEM_FLAMEORB_DESC": "<style=cIsDamage>{0}%</style> <style=cStack>(+{0}% per stack)</style> chance to <style=cIsDamage>burn</style> an enemy on hit.",
     "ITEM_FLAMEORB_LORE": "Insert lore here.",
 
     "ITEM_AIRBALLOON_NAME": "Air Balloon",
