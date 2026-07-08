@@ -15,6 +15,7 @@
     - Renamed PoppedAirBalloon class to AirBalloonBroken.
     - ModelPanelParameter is added and is automatically added to custom items for display (coding based on shirograhm's mod).
     - Readjusted comments to necessary codes (in case other developers want to see and understand this).
+    - Lore is now defaulted to 'Lore not found...'
 
 ## Developer Release with GitHub - 0.0.3
 
