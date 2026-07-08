@@ -16,7 +16,7 @@ Press the following keys to spawn the item:
 <table>
 	<tr>
 		<td>
-			<img src="./Textures/AirBalloon.png" alt="Air Balloon" width="192px"/>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Textures/AirBalloon.png" alt="Air Balloon" width="192px"/>
 		</td>
 		<td>
 			<b>Air Balloon</b>
@@ -27,7 +27,7 @@ Press the following keys to spawn the item:
 	</tr>
 	<tr>
 		<td>
-			<img src="./Textures/FlameOrb.png" alt="Flame Orb" width="192px"/>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Textures/FlameOrb.png" width="192px"/>
 		</td>
 		<td>
 			<b>Flame Orb</b>
@@ -38,7 +38,7 @@ Press the following keys to spawn the item:
 	</tr>
 	<tr>
 		<td>
-			<img src="./Textures/Leftovers.png" alt="Leftovers" width="192px"/>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Textures/Leftovers.png" width="192px"/>
 		</td>
 		<td>
 			<b>Leftovers</b>
