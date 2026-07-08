@@ -24,11 +24,11 @@ namespace PokeItems.Items
             itemDef.loreToken = "Item_" + itemDef.name + "_Lore"; // Lore Token
             tokenMap[itemDef.descriptionToken] = itemTokens; // Parse Tokens
 
-            // Grab item model from assetbundle (replace with mystery if it doesn't exist or it's a no-tier item)
+            // Grab item model from assetbundle (replace with mystery if it doesn't exist. No-tier items not having a prefab is normal)
             GameObject prefab = AssetManager.bundle.LoadAsset<GameObject>(name + ".prefab");
-            if (prefab == null || tier == ItemTier.NoTier)
+            if (prefab == null)
             {
-                if (prefab == null)
+                if (tier != ItemTier.NoTier)
                     Log.Warning("Missing prefab file for item " + itemDef.name + ". Substituting default...");
 
                 prefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mystery/PickupMystery.prefab").WaitForCompletion();
