@@ -18,7 +18,7 @@ namespace PokeItems.Items
         public static void Init()
         {
             // Create the itemDef via ItemManager
-            itemDef = ItemManager.CreateItemDef("LEFTOVERS", tier, true, false,
+            itemDef = ItemManager.CreateItemDef("Leftovers", tier, true, false,
                 [ItemTag.Healing, ItemTag.CanBeTemporary],
                 regenBonusPerStack, regenBonusPerExtraStack);
 

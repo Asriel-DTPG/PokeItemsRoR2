@@ -1,3 +1,21 @@
+## Alpha Release - 0.1.0
+
+- Alpha release.
+- New mod icon!
+- AssetBundle is now being used. As a result, all Pokemon items have models and icons (including the popped Air Balloon, but just the icon). Now they don't have to be mysteries!
+- Further completed the description of the mod.
+- Forgot to credit shirograhm for some of the TooManyItems being borrowed and modified for this mod. Shoutout to shirograhm for the amazing work of bringing lots of their custom items to the game!
+- More changes in coding:
+    - Changed README to include more description of the plugin.
+    - Set to current version number in manifest and PokeItems.
+	- Added AssetBundle class to handle pathfinding to the assetbundle file.
+    - Added Textures folder with item icons for use in description.
+    - All tokens are renamed to have 'words with capital first letter' instead of all capitals. This is done to support the file namings in the AssetBundle.
+    - Removed unused Potion class.
+    - Renamed PoppedAirBalloon class to AirBalloonBroken.
+    - ModelPanelParameter is added and is automatically added to custom items for display (coding based on shirograhm's mod).
+    - Readjusted comments to necessary codes (in case other developers want to see and understand this).
+
 ## Developer Release with GitHub - 0.0.3
 
 - Added GitHub link to the repository containing project files.
@@ -13,7 +31,7 @@
 
 - First release.
 - 3 Pokemon items included:
-  - Leftovers [GREEN]: Increase health regeneration by a flat amount.
-  - Flame Orb [WHITE]: Chance to burn enemies on hit.
-  - Air Balloon [WHITE]: Limits your falling speed, but will pop at low health.
+    - Leftovers [GREEN]: Increase health regeneration by a flat amount.
+	- Flame Orb [WHITE]: Chance to burn enemies on hit.
+    - Air Balloon [WHITE]: Limits your falling speed, but will pop at low health.
 - <b>NOTE:</b> None of the items have 3D models or sprites, so they tend to appear as mystery placeholders.

@@ -6,7 +6,7 @@ using UnityEngine.AddressableAssets;
 
 namespace PokeItems.Items
 {
-    internal class PoppedAirBalloon
+    internal class AirBalloonBroken
     {
         public static ItemDef itemDef;
 
@@ -16,7 +16,7 @@ namespace PokeItems.Items
         public static void Init()
         {
             // Create the itemDef via ItemManager
-            itemDef = ItemManager.CreateItemDef("POPPEDAIRBALLOON", tier, false, false,
+            itemDef = ItemManager.CreateItemDef("AirBalloonBroken", tier, false, false,
                 []);
         }
     }

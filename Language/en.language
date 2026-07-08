@@ -5,24 +5,24 @@
 // <style=cSub> <style=cMono> <style=cShrine> <style=cEvent>
 {
   "en": {
-    "ITEM_LEFTOVERS_NAME": "Leftovers",
-    "ITEM_LEFTOVERS_PICKUP": "Increase health regeneration by a flat amount.",
-    "ITEM_LEFTOVERS_DESC": "Increase health regeneration by <style=cIsHealing>{0} HP/s</style> <style=cStack>(+{1} HP/s per stack)</style>.",
-    "ITEM_LEFTOVERS_LORE": "Insert lore here.",
+    "Item_Leftovers_Name": "Leftovers",
+    "Item_Leftovers_Pickup": "Increase health regeneration by a flat amount.",
+    "Item_Leftovers_Desc": "Increase health regeneration by <style=cIsHealing>{0} HP/s</style> <style=cStack>(+{1} HP/s per stack)</style>.",
+    "Item_Leftovers_Lore": "Insert lore here.",
 
-    "ITEM_FLAMEORB_NAME": "Flame Orb",
-    "ITEM_FLAMEORB_PICKUP": "Chance to burn enemies on hit.",
-    "ITEM_FLAMEORB_DESC": "<style=cIsDamage>{0}%</style> <style=cStack>(+{0}% per stack)</style> chance to <style=cIsDamage>burn</style> an enemy on hit.",
-    "ITEM_FLAMEORB_LORE": "Insert lore here.",
+    "Item_FlameOrb_Name": "Flame Orb",
+    "Item_FlameOrb_Pickup": "Chance to burn enemies on hit.",
+    "Item_FlameOrb_Desc": "<style=cIsDamage>{0}%</style> <style=cStack>(+{0}% per stack)</style> chance to <style=cIsDamage>burn</style> an enemy on hit.",
+    "Item_FlameOrb_Lore": "Insert lore here.",
 
-    "ITEM_AIRBALLOON_NAME": "Air Balloon",
-    "ITEM_AIRBALLOON_PICKUP": "Limits your falling speed, but will pop at low health.",
-    "ITEM_AIRBALLOON_DESC": "Limits your <style=cIsUtility>falling speed</style> by <style=cIsUtility>{0} m/s</style> <style=cStack>(-{1}% per stack)</style>. However, it will <style=cDeath>pop</style> when under <style=cIsHealth>{2}% HP</style>.",
-    "ITEM_AIRBALLOON_LORE": "Insert lore here.",
+    "Item_AirBalloon_Name": "Air Balloon",
+    "Item_AirBalloon_Pickup": "Limits your falling speed, but will pop at low health.",
+    "Item_AirBalloon_Desc": "Limits your <style=cIsUtility>falling speed</style> by <style=cIsUtility>{0} m/s</style> <style=cStack>(-{1}% per stack)</style>. However, it will <style=cDeath>pop</style> when under <style=cIsHealth>{2}% HP</style>.",
+    "Item_AirBallon_Lore": "Insert lore here.",
 
-    "ITEM_POPPEDAIRBALLOON_NAME": "Air Balloon (Popped)",
-    "ITEM_POPPEDAIRBALLOON_PICKUP": "As the saying goes, what comes up must come down.",
-    "ITEM_POPPEDAIRBALLOON_DESC": "Balloon that is popped, no longer an air balloon but a ground balloon.",
-    "ITEM_POPPEDAIRBALLOON_LORE": "Insert lore here."
+    "Item_AirBalloonBroken_Name": "Air Balloon (Popped)",
+    "Item_AirBalloonBroken_Pickup": "As the saying goes, what comes up must come down.",
+    "Item_AirBalloonBroken_Desc": "Balloon that is popped, no longer an air balloon but a ground balloon.",
+    "Item_AirBalloonBroken_Lore": "Insert lore here."
   }
 }

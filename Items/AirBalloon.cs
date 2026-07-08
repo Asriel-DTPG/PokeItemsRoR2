@@ -19,7 +19,7 @@ namespace PokeItems.Items
         public static void Init()
         {
             // Create the itemDef via ItemManager
-            itemDef = ItemManager.CreateItemDef("AIRBALLOON", tier, true, false,
+            itemDef = ItemManager.CreateItemDef("AirBalloon", tier, true, false,
                 [ItemTag.Utility, ItemTag.CanBeTemporary],
                 fallSpeedLimit, fallPercentReductionPerExtraStack, hpThresholdPercent);
 
@@ -70,7 +70,7 @@ namespace PokeItems.Items
             Log.Info($"Removing {itemCount} Air Balloons");
             inventory.RemoveItem(itemDef, itemCount);
             Log.Info($"Giving {itemCount} Popped Balloons");
-            inventory.GiveItem(PoppedAirBalloon.itemDef, itemCount);
+            inventory.GiveItem(AirBalloonBroken.itemDef, itemCount);
 
             // Begin setting up the pickup notification for the transformation
             CharacterMaster master = inventory.GetComponent<CharacterMaster>();
@@ -83,7 +83,7 @@ namespace PokeItems.Items
                     CharacterMasterNotificationQueue.PushItemTransformNotification(
                         master,
                         itemDef.itemIndex,
-                        PoppedAirBalloon.itemDef.itemIndex,
+                        AirBalloonBroken.itemDef.itemIndex,
                         CharacterMasterNotificationQueue.TransformationType.Default);
                 }
             }

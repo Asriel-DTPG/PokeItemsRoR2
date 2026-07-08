@@ -17,19 +17,49 @@ namespace PokeItems.Items
             itemDef = ScriptableObject.CreateInstance<ItemDef>();
 
             // Tokens
-            itemDef.name = name;
-            itemDef.nameToken = "ITEM_" + itemDef.name + "_NAME";
-            itemDef.pickupToken = "ITEM_" + itemDef.name + "_PICKUP";
-            itemDef.descriptionToken = "ITEM_" + itemDef.name + "_DESC";
-            itemDef.loreToken = "ITEM_" + itemDef.name + "_LORE";
-            tokenMap[itemDef.descriptionToken] = itemTokens;
+            itemDef.name = name; // Item Name
+            itemDef.nameToken = "Item_" + itemDef.name + "_Name"; // Name Token
+            itemDef.pickupToken = "Item_" + itemDef.name + "_Pickup"; // Pickup Token
+            itemDef.descriptionToken = "Item_" + itemDef.name + "_Desc"; // Description Token
+            itemDef.loreToken = "Item_" + itemDef.name + "_Lore"; // Lore Token
+            tokenMap[itemDef.descriptionToken] = itemTokens; // Parse Tokens
 
-            // Item Tier
+            // Grab item model from assetbundle (replace with mystery if it doesn't exist or it's a no-tier item)
+            GameObject prefab = AssetManager.bundle.LoadAsset<GameObject>(name + ".prefab");
+            if (prefab == null || tier == ItemTier.NoTier)
+            {
+                if (prefab == null)
+                    Log.Warning("Missing prefab file for item " + itemDef.name + ". Substituting default...");
+
+                prefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mystery/PickupMystery.prefab").WaitForCompletion();
+            }
+
+            // Grab item sprite from assetbundle (replace with mystery if it doesn't exist)
+            Sprite sprite = AssetManager.bundle.LoadAsset<Sprite>(name + ".png");
+            if (sprite == null)
+            {
+                Log.Warning("Missing sprite file for item " + itemDef.name + ". Substituting default...");
+                sprite = itemDef.pickupIconSprite = Addressables.LoadAssetAsync<Sprite>("RoR2/Base/Common/MiscIcons/texMysteryIcon.png").WaitForCompletion();
+            }
+
+            // Give ModePanelParameters for item display.
+            ModelPanelParameters modelPanelParameters = prefab.AddComponent<ModelPanelParameters>();
+            modelPanelParameters.focusPointTransform = prefab.transform;
+            modelPanelParameters.cameraPositionTransform = prefab.transform;
+            modelPanelParameters.maxDistance = 10f;
+            modelPanelParameters.minDistance = 5f;
+
+            // Grab item sprite from assetbundle (replace with mystery if it doesn't exist)
+            itemDef.pickupIconSprite = sprite;
+            itemDef.pickupModelPrefab = prefab;
+
+            // Item Tier (If item is a DLC tier, make it a DLC requirement)
             itemDef.deprecatedTier = tier;
-
-            // You can create your own icons and prefabs through assetbundles, but to keep this example plugin brief, we'll be using question marks.
-            itemDef.pickupIconSprite = Addressables.LoadAssetAsync<Sprite>("RoR2/Base/Common/MiscIcons/texMysteryIcon.png").WaitForCompletion();
-            itemDef.pickupModelPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mystery/PickupMystery.prefab").WaitForCompletion();
+            if (itemDef.tier == ItemTier.VoidBoss || itemDef.tier == ItemTier.VoidTier1 ||
+                itemDef.tier == ItemTier.VoidTier2 || itemDef.tier == ItemTier.VoidTier3)
+            {
+                itemDef.requiredExpansion = PokeItems.sotvDLC;
+            }
 
             // If this item can be removed by any means in-game (typically for no-tier items)
             itemDef.canRemove = canRemove;

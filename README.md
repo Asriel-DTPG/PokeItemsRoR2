@@ -1,12 +1,55 @@
 # PokeItems - RoR2
-
 Pokemon items in Risk of Rain 2.
 
-## Spawn Keys
+[This is still a work-in-progress mod, so this mod will continue to change and will be balanced throughout the patches]
 
+## Inspiration
+- [<b>TooManyItems</b> by shirograhm](https://thunderstore.io/c/riskofrain2/p/shirograhm/TooManyItems/)
+
+## Spawn Keys
 Press the following keys to spawn the item:
 - <b>F2</b>: Air Balloon
 - <b>F3</b>: Flame Orb
 - <b>F4</b>: Leftovers
 
-<br>[Description in progress...]
+## Items
+<table>
+	<tr>
+		<td>
+			<img src="./Textures/AirBalloon.png" alt="Air Balloon" width="192px"/>
+		</td>
+		<td>
+			<b>Air Balloon</b>
+		</td>
+		<td>
+			Limits your falling speed by <b>50</b> m/s (-<b>10</b>% per stack). However, it will pop when under <b>35</b>% HP.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="./Textures/FlameOrb.png" alt="Flame Orb" width="192px"/>
+		</td>
+		<td>
+			<b>Flame Orb</b>
+		</td>
+		<td>
+			<b>10</b>% (+<b>10</b>% per stack) chance to burn an enemy on hit.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="./Textures/Leftovers.png" alt="Leftovers" width="192px"/>
+		</td>
+		<td>
+			<b>Leftovers</b>
+		</td>
+		<td>
+			Increase health regeneration by <b>4</b> HP/s (+<b>2</b> HP/s per stack).
+		</td>
+	</tr>
+</table>
+
+## Credits
+- <b>Programming</b>: Asriel_DTPG
+- <b>Modelling</b>: EclipticCosmos
+- <b>Assets & Shading</b>: Asriel_DTPG

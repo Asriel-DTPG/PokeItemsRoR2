@@ -19,7 +19,7 @@ namespace PokeItems.Items
         public static void Init()
         {
             // Create the itemDef via ItemManager
-            itemDef = ItemManager.CreateItemDef("FLAMEORB", tier, true, false,
+            itemDef = ItemManager.CreateItemDef("FlameOrb", tier, true, false,
                 [ItemTag.Damage, ItemTag.CanBeTemporary],
                 procPercentPerStack);
 
