@@ -1,3 +1,12 @@
+## Alpha Release (Hotfix) - 0.1.1
+
+- Fixed a bug where explosions occasionally explode infinitely on itself (and damage itself somehow).
+- Air Balloon logging for damaged hook has been repositioned.
+- Readjusted the math logic for exponential reduction stacking.
+- Flame Orb description now includes how long an individual burn debuff lasts.
+- Added Testers in credit.
+- Added a link to a Google Forms where users can provide reviews and suggestions to improve the mod.
+
 ## Alpha Release - 0.1.0
 
 - Alpha release.

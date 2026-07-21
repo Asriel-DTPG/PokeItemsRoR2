@@ -21,7 +21,7 @@ namespace PokeItems.Items
             // Create the itemDef via ItemManager
             itemDef = ItemManager.CreateItemDef("FlameOrb", tier, true, false,
                 [ItemTag.Damage, ItemTag.CanBeTemporary],
-                procPercentPerStack);
+                procPercentPerStack, debuffDuration);
 
             // Add the functionality
             On.RoR2.GlobalEventManager.OnHitEnemy += HitHooks;

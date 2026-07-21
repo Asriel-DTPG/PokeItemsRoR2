@@ -33,7 +33,7 @@ Press the following keys to spawn the item:
 			<b>Flame Orb</b>
 		</td>
 		<td>
-			<b>10</b>% (+<b>10</b>% per stack) chance to burn an enemy on hit.
+			<b>10</b>% (+<b>10</b>% per stack) chance to burn an enemy on hit. Debuff stack individually lasts for <b>4</b> seconds.
 		</td>
 	</tr>
 	<tr>
@@ -49,7 +49,13 @@ Press the following keys to spawn the item:
 	</tr>
 </table>
 
+## Suggestions?
+If you like to share your reviews and suggestions about this mod, please post your responses under this link. I'd be more than happy to listen to your ideas!
+
+[Click here to view the form!](https://docs.google.com/forms/d/e/1FAIpQLSf3XJybH-HHiqVKOapujpag7YSNg0_WbX8M-D5hPSU6mHRc2g/viewform?usp=dialog)
+
 ## Credits
 - <b>Programming</b>: Asriel_DTPG
 - <b>Modelling</b>: EclipticCosmos
 - <b>Assets & Shading</b>: Asriel_DTPG
+- <b>Testers</b>: Asriel_DTPG, 4adamninja

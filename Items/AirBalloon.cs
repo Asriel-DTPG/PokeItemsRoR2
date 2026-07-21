@@ -32,12 +32,11 @@ namespace PokeItems.Items
         private static void DamagedHooks(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
         {
             orig(self, damageInfo);
-            Log.Info("Air Balloon damage hook fired");
 
             CharacterBody body = self.body;
 
-            // Mandatory check
-            if (body == null)
+            // Mandatory check for player body with inventory
+            if (body == null || body.inventory == null || body.healthComponent == null)
                 return;
 
             // Get the count of how many of this item is in the inventory
@@ -45,6 +44,8 @@ namespace PokeItems.Items
 
             if (itemCount <= 0)
                 return;
+
+            Log.Info("Air Balloon damage hook fired");
 
             // Grab the HP fraction
             float hpFraction = self.combinedHealth / self.fullCombinedHealth;
@@ -110,9 +111,7 @@ namespace PokeItems.Items
             if (self.velocity.y < 0f)
             {
                 // Grab the percentage reduction from extra stacks
-                float reductionMultiplier = 1f;
-                if (itemCount >= 2)
-                    reductionMultiplier = MathUtility.GetExponentialPercentReductionStacking(fallPercentReductionPerExtraStack, itemCount - 1);
+                float reductionMultiplier = MathUtility.GetExponentialPercentReductionStacking(fallPercentReductionPerExtraStack, itemCount);
                 
                 // Get the total terminalvelocity
                 float terminalVelocity = -fallSpeedLimit * reductionMultiplier;

@@ -30,7 +30,7 @@ namespace PokeItems.Items
         private static void StatHooks(CharacterBody body, RecalculateStatsAPI.StatHookEventArgs args)
         {
             // Mandatory check
-            if (!body.inventory)
+            if (body == null || !body.inventory)
                 return;
 
             // Get the count of how many of this item is in the inventory

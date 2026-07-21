@@ -22,7 +22,7 @@ namespace PokeItems
 
         public static float GetExponentialPercentReductionStacking(float percent, float count)
         {
-            return Mathf.Pow(1f - (percent / 100f), count);
+            return Mathf.Pow(1f - (percent / 100f), count - 1);
         }
     }
 }

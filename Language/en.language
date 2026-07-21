@@ -12,7 +12,7 @@
 
     "Item_FlameOrb_Name": "Flame Orb",
     "Item_FlameOrb_Pickup": "Chance to burn enemies on hit.",
-    "Item_FlameOrb_Desc": "<style=cIsDamage>{0}%</style> <style=cStack>(+{0}% per stack)</style> chance to <style=cIsDamage>burn</style> an enemy on hit.",
+    "Item_FlameOrb_Desc": "<style=cIsDamage>{0}%</style> <style=cStack>(+{0}% per stack)</style> chance to <style=cIsDamage>burn</style> an enemy on hit. Debuff stack individually lasts for <style=cIsUtility>{1}</style> seconds.",
     "Item_FlameOrb_Lore": "Lore not found...",
 
     "Item_AirBalloon_Name": "Air Balloon",
