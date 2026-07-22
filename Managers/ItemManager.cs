@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace PokeItems.Items
+namespace PokeItems.Managers
 {
     internal class ItemManager
     {

@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using UnityEngine;
 
-namespace PokeItems.Items
+namespace PokeItems.Managers
 {
     // This code is based on shirograhm's TooManyItems mod (slightly altered to reference the assetbundle file)
     // https://github.com/shirograhm/TooManyItemsRoR2/blob/master/TooManyItems/Managers/AssetManager.cs

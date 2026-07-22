@@ -1,4 +1,5 @@
-﻿using R2API;
+﻿using PokeItems.Managers;
+using R2API;
 using RoR2;
 using System.Runtime.CompilerServices;
 using UnityEngine;
@@ -49,8 +50,16 @@ namespace PokeItems.Items
             // Get the count of how many of this item is in the inventory
             int itemCount = attackerBody.inventory.GetItemCountEffective(itemDef);
 
+            // Ignore this if this item is not in inventory
             if (itemCount <= 0)
                 return;
+
+            // Check if custom values are enabled
+            if (ConfigManager.CustomValuesEnabled.Value)
+            {
+                procPercentPerStack = ConfigManager.FlameOrb_ProcPercentPerStack.Value;
+                debuffDuration = ConfigManager.FlameOrb_DebuffDuration.Value;
+            }
 
             // Check for proc chance
             float chance = MathUtility.GetLinearStacking(procPercentPerStack, itemCount, damageInfo.procCoefficient);

@@ -1,4 +1,5 @@
-﻿using R2API;
+﻿using PokeItems.Managers;
+using R2API;
 using RoR2;
 using System.Runtime.CompilerServices;
 using UnityEngine;
@@ -46,6 +47,14 @@ namespace PokeItems.Items
                 return;
 
             Log.Info("Air Balloon damage hook fired");
+
+            // Check if custom values are enabled
+            if (ConfigManager.CustomValuesEnabled.Value)
+            {
+                fallSpeedLimit = ConfigManager.AirBalloon_FallSpeedLimit.Value;
+                fallPercentReductionPerExtraStack = ConfigManager.AirBalloon_FallPercentReductionPerExtraStack.Value;
+                hpThresholdPercent = ConfigManager.AirBalloon_HpThresholdPercent.Value;
+            }
 
             // Grab the HP fraction
             float hpFraction = self.combinedHealth / self.fullCombinedHealth;

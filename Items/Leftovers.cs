@@ -1,4 +1,5 @@
-﻿using R2API;
+﻿using PokeItems.Managers;
+using R2API;
 using RoR2;
 using System.Runtime.CompilerServices;
 using UnityEngine;
@@ -40,6 +41,13 @@ namespace PokeItems.Items
             if (itemCount <= 0)
                 return;
 
+            // Check if custom values are enabled
+            if (ConfigManager.CustomValuesEnabled.Value)
+            {
+                regenBonusPerStack = ConfigManager.Leftovers_RegenBonusPerStack.Value;
+                regenBonusPerExtraStack = ConfigManager.Leftovers_RegenBonusPerExtraStack.Value;
+            }
+            
             // Add HP/s per stack
             args.baseRegenAdd += MathUtility.GetLinearWithExtraStacking(regenBonusPerStack, regenBonusPerExtraStack, itemCount);
         }

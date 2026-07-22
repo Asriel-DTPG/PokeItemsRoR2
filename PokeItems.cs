@@ -1,5 +1,7 @@
 ﻿using BepInEx;
+using BepInEx.Configuration;
 using PokeItems.Items;
+using PokeItems.Managers;
 using R2API;
 using R2API.Utils;
 using RoR2;
@@ -20,9 +22,10 @@ namespace PokeItems
         public const string PluginGUID = PluginAuthor + "." + PluginName;
         public const string PluginAuthor = "DTPGStudios";
         public const string PluginName = "PokeItems";
-        public const string PluginVersion = "0.1.1";
+        public const string PluginVersion = "0.2.0";
 
         public static PluginInfo PInfo { get; private set; }
+        public static ConfigFile PConfig { get; private set; }
 
         public static ExpansionDef sotvDLC;
         public static ExpansionDef sotsDLC;
@@ -33,6 +36,9 @@ namespace PokeItems
             // Get the plugin info
             PInfo = Info;
 
+            // Get the config file
+            PConfig = Config;
+
             // Get DLC variables
             sotvDLC = Addressables.LoadAssetAsync<ExpansionDef>("RoR2/DLC1/Common/DLC1.asset").WaitForCompletion();
             sotsDLC = Addressables.LoadAssetAsync<ExpansionDef>("RoR2/DLC2/Common/DLC2.asset").WaitForCompletion();
@@ -40,6 +46,10 @@ namespace PokeItems
             // Init our logging class so that we can properly log for debugging
             Log.Init(Logger);
 
+            // Config
+            ConfigManager.Init();
+            
+            // Assets
             AssetManager.Init();
 
             // Items
@@ -55,6 +65,10 @@ namespace PokeItems
         // The Update() method is run on every frame of the game.
         private void Update()
         {
+            // Ignore everything in update if Spawn Mode is disabled.
+            if (!ConfigManager.SpawnModeEnabled.Value)
+                return;
+            
             // This if statement checks if the player has currently pressed the desired key.
 
             // Air Balloon
