@@ -1,3 +1,21 @@
+## Config Support and Early-Access Items - 0.2.0
+- Second alpha release.
+- Cfg support is now implemented, allowing configurations for Spawn Mode (item spawning via F-keys will now need to be enabled first) and custom values for items.
+- All custom items now have dithering and GPU instancing.
+- Readjusted some colors for Leftovers.
+- Early-access items are now implemented (these items are currently in development and may change over patches)
+    - EXP Share [RED]: Gain more EXP via rewards and kills. Also passively gain EXP per second.
+    - Amulet Coin [RED]: Gain more gold from rewards and kills.
+- More changes in coding:
+    - Added ConfigManager
+    - All Manager classes are now inside Managers folder
+    - Every variables defined in Items are now configurable (unless custom values are turned off)
+    - ExpShare and AmuletCoin classes added
+    - ConfigManager includes a setting to enable unfinished items
+    - General renamed to ! Important !
+    - More F-Keys in use for unfinished items if enabled
+    - Item hooks are renamed to be more unique
+
 ## Alpha Release (Hotfix) - 0.1.1
 
 - Fixed a bug where explosions occasionally explode infinitely on itself (and damage itself somehow).

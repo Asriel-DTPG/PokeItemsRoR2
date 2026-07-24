@@ -23,6 +23,16 @@
     "Item_AirBalloonBroken_Name": "Air Balloon (Popped)",
     "Item_AirBalloonBroken_Pickup": "As the saying goes, what comes up must come down.",
     "Item_AirBalloonBroken_Desc": "Balloon that is popped, no longer an air balloon but a ground balloon.",
-    "Item_AirBalloonBroken_Lore": "Lore not found..."
+    "Item_AirBalloonBroken_Lore": "Lore not found...",
+
+    "Item_ExpShare_Name": "EXP Share",
+    "Item_ExpShare_Pickup": "Gain more EXP via rewards and kills. Also passively gain EXP per second.",
+    "Item_ExpShare_Desc": "Gain <style=cIsUtility>{0}%</style> <style=cStack>(+{1}% per stack)</style> more EXP. Also gain <style=cIsUtility>{2}%</style> required EXP per second <style=cSub>(Early levels offer more EXP due to rounding)</style>.",
+    "Item_ExpShare_Lore": "Lore not found...",
+
+    "Item_AmuletCoin_Name": "Amulet Coin",
+    "Item_AmuletCoin_Pickup": "Gain more gold from rewards and kills.",
+    "Item_AmuletCoin_Desc": "Gain <style=cIsUtility>{0}%</style> <style=cStack>(+{0}% per stack)</style> more gold.",
+    "Item_AmuletCoin_Lore": "Lore not found..."
   }
 }

@@ -24,11 +24,11 @@ namespace PokeItems.Items
                 regenBonusPerStack, regenBonusPerExtraStack);
 
             // Add the functionality
-            RecalculateStatsAPI.GetStatCoefficients += StatHooks;
+            RecalculateStatsAPI.GetStatCoefficients += LeftoversHook;
         }
 
         // Apply health regeneration bonus
-        private static void StatHooks(CharacterBody body, RecalculateStatsAPI.StatHookEventArgs args)
+        private static void LeftoversHook(CharacterBody body, RecalculateStatsAPI.StatHookEventArgs args)
         {
             // Mandatory check
             if (body == null || !body.inventory)

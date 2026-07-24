@@ -9,6 +9,7 @@ namespace PokeItems.Managers
         // GENERAL
         public static ConfigEntry<bool> CustomValuesEnabled;
         public static ConfigEntry<bool> SpawnModeEnabled;
+        public static ConfigEntry<bool> UnfinishedItemsEnabled;
         
         // LEFTOVERS
         public static ConfigEntry<float> Leftovers_RegenBonusPerStack;
@@ -30,16 +31,22 @@ namespace PokeItems.Managers
 
             // GENERAL CONFIG
             CustomValuesEnabled = Config.Bind(
-                "General",
+                "! Important !",
                 "Use Custom Values",
                 false,
                 "Whether items utilise user-inputted/custom values instead of the preferred values [TURN THIS ON IF YOU WANT TO CUSTOMIZE VALUES]."
             );
             SpawnModeEnabled = Config.Bind(
-                "General",
+                "! Important !",
                 "Spawn Mode",
                 false,
                 "Enable Spawn Mode to allow spawning custom items via F-keys."
+            );
+            UnfinishedItemsEnabled = Config.Bind(
+                "! Important !",
+                "Enable Unfinished Items",
+                false,
+                "Allow early-access items that are either unfinished or currently being developed. NOTE: If you are using Risk of Options, you will still need to restart your game."
             );
 
             // LEFTOVERS CONFIG

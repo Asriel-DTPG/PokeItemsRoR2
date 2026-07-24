@@ -25,11 +25,11 @@ namespace PokeItems.Items
                 procPercentPerStack, debuffDuration);
 
             // Add the functionality
-            On.RoR2.GlobalEventManager.OnHitEnemy += HitHooks;
+            On.RoR2.GlobalEventManager.OnHitEnemy += FlameOrbHook;
         }
 
         // Chance on inflicting burn to affected enemy
-        private static void HitHooks(
+        private static void FlameOrbHook(
             On.RoR2.GlobalEventManager.orig_OnHitEnemy orig,
             GlobalEventManager self,
             DamageInfo damageInfo,

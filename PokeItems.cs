@@ -58,6 +58,13 @@ namespace PokeItems
             AirBalloonBroken.Init();
             AirBalloon.Init();
 
+            // Unfinished Items
+            if (ConfigManager.UnfinishedItemsEnabled.Value)
+            {
+                ExpShare.Init();
+                AmuletCoin.Init();
+            }
+
             // Log that the mod is ready
             Log.Message("PokeItems mod is ready!");
         }
@@ -105,6 +112,30 @@ namespace PokeItems
 
                 Log.Info($"Player pressed key. Spawning custom item at coordinates {transform.position}");
                 PickupDropletController.CreatePickupDroplet(PickupCatalog.FindPickupIndex(Leftovers.itemDef.itemIndex), transform.position, transform.forward * 30f);
+            }
+
+            // EXP Share
+            if (Input.GetKeyDown(KeyCode.F5) && ConfigManager.UnfinishedItemsEnabled.Value)
+            {
+                // Get the player body to use a position:
+                var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
+
+                // And then drop our defined item in front of the player.
+
+                Log.Info($"Player pressed key. Spawning custom item at coordinates {transform.position}");
+                PickupDropletController.CreatePickupDroplet(PickupCatalog.FindPickupIndex(ExpShare.itemDef.itemIndex), transform.position, transform.forward * 30f);
+            }
+
+            // Amulet Coin
+            if (Input.GetKeyDown(KeyCode.F6) && ConfigManager.UnfinishedItemsEnabled.Value)
+            {
+                // Get the player body to use a position:
+                var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
+
+                // And then drop our defined item in front of the player.
+
+                Log.Info($"Player pressed key. Spawning custom item at coordinates {transform.position}");
+                PickupDropletController.CreatePickupDroplet(PickupCatalog.FindPickupIndex(AmuletCoin.itemDef.itemIndex), transform.position, transform.forward * 30f);
             }
         }
     }

@@ -25,12 +25,12 @@ namespace PokeItems.Items
                 fallSpeedLimit, fallPercentReductionPerExtraStack, hpThresholdPercent);
 
             // Add the functionality
-            On.RoR2.HealthComponent.TakeDamage += DamagedHooks;
-            On.RoR2.CharacterMotor.FixedUpdate += BehaviorHooks;
+            On.RoR2.HealthComponent.TakeDamage += AirBalloonDamagedHook;
+            On.RoR2.CharacterMotor.FixedUpdate += AirBalloonHook;
         }
 
         // Check for HP threshold when taking damage, and if under, pop the balloons
-        private static void DamagedHooks(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
+        private static void AirBalloonDamagedHook(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
         {
             orig(self, damageInfo);
 
@@ -100,7 +100,7 @@ namespace PokeItems.Items
         }
 
         // Enable falling speed cap
-        private static void BehaviorHooks(On.RoR2.CharacterMotor.orig_FixedUpdate orig, CharacterMotor self)
+        private static void AirBalloonHook(On.RoR2.CharacterMotor.orig_FixedUpdate orig, CharacterMotor self)
         {
             orig(self);
 
