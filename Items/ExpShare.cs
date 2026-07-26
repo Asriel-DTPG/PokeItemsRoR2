@@ -19,14 +19,14 @@ namespace PokeItems.Items
         public static float expPercentBonusPerExtraStack = 100f; // EXP Bonus Percent per extra stack
         public static float expRateBonus = 0.5f; // Passive EXP percent per second (scaled by requirement)
 
-        private static readonly Dictionary<CharacterMaster, float> timers = new();
+        private static readonly Dictionary<CharacterMaster, float> timersDict = new();
         private static bool isPassiveEXP = false;
 
         public static void Init()
         {
             // Create the itemDef via ItemManager
             itemDef = ItemManager.CreateItemDef("ExpShare", tier, true, false,
-                [ItemTag.Healing, ItemTag.CanBeTemporary],
+                [ItemTag.Utility, ItemTag.CanBeTemporary],
                 expPercentBonusPerStack, expPercentBonusPerExtraStack, expRateBonus);
 
             // Add the functionality
@@ -88,16 +88,16 @@ namespace PokeItems.Items
             CharacterMaster master = self.master;
 
             // Save personal timer to dictionary list
-            if (!timers.ContainsKey(master))
-                timers[master] = 0f;
+            if (!timersDict.ContainsKey(master))
+                timersDict[master] = 0f;
 
             // Increment timer
-            timers[master] += Time.fixedDeltaTime;
+            timersDict[master] += Time.fixedDeltaTime;
 
             // Check if timer has reached a second. If so, decrement by a second and initiate passive gain
-            if (timers[master] >= 1f)
+            if (timersDict[master] >= 1f)
             {
-                timers[master] -= 1f;
+                timersDict[master] -= 1f;
                 GainPassiveEXP(self, itemCount);
             }
         }
@@ -133,11 +133,12 @@ namespace PokeItems.Items
             isPassiveEXP = false;
         }
 
+        // Destroy reference from dictionary if it no longer exists
         private static void DictionaryDestroy(
             On.RoR2.CharacterMaster.orig_OnDestroy orig,
             CharacterMaster self)
         {
-            timers.Remove(self);
+            timersDict.Remove(self);
             orig(self);
         }
     }

@@ -63,6 +63,7 @@ namespace PokeItems
             {
                 ExpShare.Init();
                 AmuletCoin.Init();
+                HeavyDutyBoots.Init();
             }
 
             // Log that the mod is ready
@@ -136,6 +137,18 @@ namespace PokeItems
 
                 Log.Info($"Player pressed key. Spawning custom item at coordinates {transform.position}");
                 PickupDropletController.CreatePickupDroplet(PickupCatalog.FindPickupIndex(AmuletCoin.itemDef.itemIndex), transform.position, transform.forward * 30f);
+            }
+
+            // Heavy Duty Boots
+            if (Input.GetKeyDown(KeyCode.F7) && ConfigManager.UnfinishedItemsEnabled.Value)
+            {
+                // Get the player body to use a position:
+                var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
+
+                // And then drop our defined item in front of the player.
+
+                Log.Info($"Player pressed key. Spawning custom item at coordinates {transform.position}");
+                PickupDropletController.CreatePickupDroplet(PickupCatalog.FindPickupIndex(HeavyDutyBoots.itemDef.itemIndex), transform.position, transform.forward * 30f);
             }
         }
     }

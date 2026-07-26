@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.Networking;
 
 namespace PokeItems.Items
 {
@@ -20,8 +19,8 @@ namespace PokeItems.Items
         public static void Init()
         {
             // Create the itemDef via ItemManager
-            itemDef = ItemManager.CreateItemDef("ExpShare", tier, true, false,
-                [ItemTag.Healing, ItemTag.CanBeTemporary],
+            itemDef = ItemManager.CreateItemDef("AmuletCoin", tier, true, false,
+                [ItemTag.Utility, ItemTag.CanBeTemporary],
                 goldMulPercentPerStack);
 
             // Add the functionality
