@@ -46,7 +46,7 @@ namespace PokeItems.Managers
                 "! Important !",
                 "Enable Unfinished Items",
                 false,
-                "Allow early-access items that are either unfinished or currently being developed. NOTE: If you are using Risk of Options, you will still need to restart your game."
+                "Allow early-access items that are either unfinished or currently being developed. NOTE: You will need to restart your game."
             );
 
             // LEFTOVERS CONFIG
