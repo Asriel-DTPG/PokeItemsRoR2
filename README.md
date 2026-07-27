@@ -85,7 +85,7 @@ Items within this section are currently in development and so will include defau
 			<b>RED</b>
 		</td>
 		<td>
-			Gain <b>200</b>% (+<b>100%</b> per stack) more EXP. Also gain <b{2}</b>% required EXP per second (Early levels offer more EXP due to rounding).
+			Gain <b>200</b>% (+<b>100%</b> per stack) more EXP. Also gain <b>0.5</b>% required EXP per second (Early levels offer more EXP due to rounding).
 		</td>
 	</tr>
 </table>
