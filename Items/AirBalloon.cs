@@ -46,13 +46,9 @@ namespace PokeItems.Items
             if (itemCount <= 0)
                 return;
 
-            Log.Info("Air Balloon damage hook fired");
-
             // Check if custom values are enabled
             if (ConfigManager.CustomValuesEnabled.Value)
             {
-                fallSpeedLimit = ConfigManager.AirBalloon_FallSpeedLimit.Value;
-                fallPercentReductionPerExtraStack = ConfigManager.AirBalloon_FallPercentReductionPerExtraStack.Value;
                 hpThresholdPercent = ConfigManager.AirBalloon_HpThresholdPercent.Value;
             }
 
@@ -77,9 +73,7 @@ namespace PokeItems.Items
                 return;
 
             // Replace all Air Balloons with Popped Air Balloons
-            Log.Info($"Removing {itemCount} Air Balloons");
             inventory.RemoveItem(itemDef, itemCount);
-            Log.Info($"Giving {itemCount} Popped Balloons");
             inventory.GiveItem(AirBalloonBroken.itemDef, itemCount);
 
             // Begin setting up the pickup notification for the transformation
@@ -119,6 +113,13 @@ namespace PokeItems.Items
             // Affect falling speed with a set cap
             if (self.velocity.y < 0f)
             {
+                // Check if custom values are enabled
+                if (ConfigManager.CustomValuesEnabled.Value)
+                {
+                    fallSpeedLimit = ConfigManager.AirBalloon_FallSpeedLimit.Value;
+                    fallPercentReductionPerExtraStack = ConfigManager.AirBalloon_FallPercentReductionPerExtraStack.Value;
+                }
+
                 // Grab the percentage reduction from extra stacks
                 float reductionMultiplier = MathUtility.GetExponentialPercentReductionStacking(fallPercentReductionPerExtraStack, itemCount);
                 

@@ -1,6 +1,7 @@
 ﻿using BepInEx;
 using BepInEx.Configuration;
 using System.IO;
+using PokeItems.Items;
 
 namespace PokeItems.Managers
 {
@@ -23,6 +24,18 @@ namespace PokeItems.Managers
         public static ConfigEntry<float> AirBalloon_FallSpeedLimit;
         public static ConfigEntry<float> AirBalloon_FallPercentReductionPerExtraStack;
         public static ConfigEntry<float> AirBalloon_HpThresholdPercent;
+
+        // EXP SHARE
+        public static ConfigEntry<float> ExpShare_ExpPercentBonusPerStack;
+        public static ConfigEntry<float> ExpShare_ExpPercentBonusPerExtraStack;
+        public static ConfigEntry<float> ExpShare_ExpRateBonus;
+
+        // AMULET COIN
+        public static ConfigEntry<float> AmuletCoin_GoldMulPercentPerStack;
+
+        // HEAVY-DUTY BOOTS
+        public static ConfigEntry<float> HeavyDutyBoots_ArmorBonusPerStack;
+        public static ConfigEntry<float> HeavyDutyBoots_ArmorBonusPerExtraStack;
 
         public static void Init()
         {
@@ -53,27 +66,27 @@ namespace PokeItems.Managers
             Leftovers_RegenBonusPerStack = Config.Bind(
                 "Leftovers",
                 "Initial Regeneration Bonus",
-                4f,
-                "How much health regeneration is applied from initial stack."
+                Leftovers.regenBonusPerStack,
+                "Health regeneration applied from initial stack."
             );
             Leftovers_RegenBonusPerExtraStack = Config.Bind(
                 "Leftovers",
                 "Regeneration Bonus Per Extra Stack",
-                2f,
-                "How much health regeneration is applied per extra stack."
+                Leftovers.regenBonusPerExtraStack,
+                "Health regeneration applied per extra stack."
             );
 
             // FLAME ORB CONFIG
             FlameOrb_ProcPercentPerStack = Config.Bind(
                 "Flame Orb",
                 "Burn Chance Percent Per Stack",
-                10f,
+                FlameOrb.procPercentPerStack,
                 "Chance to inflict burn per stack."
             );
             FlameOrb_DebuffDuration = Config.Bind(
                 "Flame Orb",
                 "Burn Duration",
-                4f,
+                FlameOrb.debuffDuration,
                 "How long the burn debuff lasts."
             );
 
@@ -81,20 +94,62 @@ namespace PokeItems.Managers
             AirBalloon_FallSpeedLimit = Config.Bind(
                 "Air Balloon",
                 "Fall Speed Limit",
-                50f,
-                "How much limit is applied to falling speed (m/s)."
+                AirBalloon.fallSpeedLimit,
+                "Limit applied to falling speed (m/s)."
             );
             AirBalloon_FallPercentReductionPerExtraStack = Config.Bind(
                 "Air Balloon",
                 "Fall Percent Reduction Per Extra Stack",
-                10f,
-                "How much the reduction percent over falling speed limit is exponentially applied."
+                AirBalloon.fallPercentReductionPerExtraStack,
+                "Reduction percent over falling speed limit exponentially applied."
             );
             AirBalloon_HpThresholdPercent = Config.Bind(
                 "Air Balloon",
                 "HP Threshold Percent",
-                35f,
+                AirBalloon.hpThresholdPercent,
                 "How low the HP can deplete before the balloon pops."
+            );
+
+            // EXP SHARE CONFIG
+            ExpShare_ExpPercentBonusPerStack = Config.Bind(
+                "EXP Share",
+                "Initial EXP Percent Bonus",
+                ExpShare.expPercentBonusPerStack,
+                "Extra percent of EXP is applied from initial stack."
+            );
+            ExpShare_ExpPercentBonusPerExtraStack = Config.Bind(
+                "EXP Share",
+                "EXP Percent Bonus Per Extra Stack",
+                ExpShare.expPercentBonusPerExtraStack,
+                "Extra percent of EXP is applied per extra stack."
+            );
+            ExpShare_ExpRateBonus = Config.Bind(
+                "EXP Share",
+                "Required EXP Percent Rate",
+                ExpShare.expRateBonus,
+                "Percent amount of required EXP gained per second."
+            );
+
+            // AMULET COIN CONFIG
+            AmuletCoin_GoldMulPercentPerStack = Config.Bind(
+                "Amulet Coin",
+                "Gold Percent Bonus",
+                AmuletCoin.goldMulPercentPerStack,
+                "Extra percent of gold is applied per stack."
+            );
+
+            // HEAVY-DUTY BOOTS CONFIG
+            HeavyDutyBoots_ArmorBonusPerStack = Config.Bind(
+                "Heavy-Duty Boots",
+                "Initial Armor Bonus",
+                HeavyDutyBoots.armorBonusPerStack,
+                "Extra percent of EXP is applied from initial stack."
+            );
+            HeavyDutyBoots_ArmorBonusPerExtraStack = Config.Bind(
+                "Heavy-Duty Boots",
+                "Armor Bonus Per Extra Stack",
+                HeavyDutyBoots.armorBonusPerExtraStack,
+                "How long the burn debuff lasts."
             );
         }
     }

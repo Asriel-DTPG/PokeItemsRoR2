@@ -52,6 +52,13 @@ namespace PokeItems.Items
                 // Ignore this if this item is not in inventory
                 if (itemCount > 0)
                 {
+                    // Check if custom values are enabled
+                    if (ConfigManager.CustomValuesEnabled.Value)
+                    {
+                        expPercentBonusPerStack = ConfigManager.ExpShare_ExpPercentBonusPerStack.Value;
+                        expPercentBonusPerExtraStack = ConfigManager.ExpShare_ExpPercentBonusPerExtraStack.Value;
+                    }
+
                     // Set multiplier of the EXP gain
                     float multiplier = 1f + (MathUtility.GetLinearWithExtraStacking(expPercentBonusPerStack, expPercentBonusPerExtraStack, itemCount)) / 100f;
 
@@ -108,6 +115,12 @@ namespace PokeItems.Items
             // Handled on server
             if (!NetworkServer.active)
                 return;
+
+            // Check if custom values are enabled
+            if (ConfigManager.CustomValuesEnabled.Value)
+            {
+                expRateBonus = ConfigManager.ExpShare_ExpRateBonus.Value;
+            }
 
             // Get amount of EXP required
             uint level = (uint)Mathf.FloorToInt(body.level);

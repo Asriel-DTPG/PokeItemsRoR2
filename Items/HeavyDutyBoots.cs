@@ -53,6 +53,13 @@ namespace PokeItems.Items
             if (!grounded)
                 return;
 
+            // Check if custom values are enabled
+            if (ConfigManager.CustomValuesEnabled.Value)
+            {
+                armorBonusPerStack = ConfigManager.HeavyDutyBoots_ArmorBonusPerStack.Value;
+                armorBonusPerExtraStack = ConfigManager.HeavyDutyBoots_ArmorBonusPerExtraStack.Value;
+            }
+
             // Add HP/s per stack
             args.armorAdd += MathUtility.GetLinearWithExtraStacking(armorBonusPerStack, armorBonusPerExtraStack, itemCount);
         }
