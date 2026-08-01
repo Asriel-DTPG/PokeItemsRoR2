@@ -22,7 +22,7 @@ namespace PokeItems
         public const string PluginGUID = PluginAuthor + "." + PluginName;
         public const string PluginAuthor = "DTPGStudios";
         public const string PluginName = "PokeItems";
-        public const string PluginVersion = "0.2.0";
+        public const string PluginVersion = "0.2.1";
 
         public static PluginInfo PInfo { get; private set; }
         public static ConfigFile PConfig { get; private set; }
@@ -57,13 +57,14 @@ namespace PokeItems
             FlameOrb.Init();
             AirBalloonBroken.Init();
             AirBalloon.Init();
+            ExpShare.Init();
+            AmuletCoin.Init();
+            HeavyDutyBoots.Init();
 
             // Unfinished Items
             if (ConfigManager.UnfinishedItemsEnabled.Value)
             {
-                ExpShare.Init();
-                AmuletCoin.Init();
-                HeavyDutyBoots.Init();
+                
             }
 
             // Log that the mod is ready
@@ -116,7 +117,7 @@ namespace PokeItems
             }
 
             // EXP Share
-            if (Input.GetKeyDown(KeyCode.F5) && ConfigManager.UnfinishedItemsEnabled.Value)
+            if (Input.GetKeyDown(KeyCode.F5))
             {
                 // Get the player body to use a position:
                 var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
@@ -128,7 +129,7 @@ namespace PokeItems
             }
 
             // Amulet Coin
-            if (Input.GetKeyDown(KeyCode.F6) && ConfigManager.UnfinishedItemsEnabled.Value)
+            if (Input.GetKeyDown(KeyCode.F6))
             {
                 // Get the player body to use a position:
                 var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
@@ -140,7 +141,7 @@ namespace PokeItems
             }
 
             // Heavy Duty Boots
-            if (Input.GetKeyDown(KeyCode.F7) && ConfigManager.UnfinishedItemsEnabled.Value)
+            if (Input.GetKeyDown(KeyCode.F7))
             {
                 // Get the player body to use a position:
                 var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;

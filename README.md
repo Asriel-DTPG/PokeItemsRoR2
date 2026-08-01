@@ -38,24 +38,8 @@ Pokemon items in Risk of Rain 2.
 	</tr>
 	<tr>
 		<td>
-			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Textures/Leftovers.png" width="192px"/>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Textures/HeavyDutyBoots.png" width="192px"/>
 		</td>
-		<td>
-			<b>Leftovers</b>
-		</td>
-		<td>
-			<b>GREEN</b>
-		</td>
-		<td>
-			Increase health regeneration by <b>4</b> HP/s (+<b>2</b> HP/s per stack).
-		</td>
-	</tr>
-</table>
-
-## Early-Access Items
-Items within this section are currently in development and so will include default sprites and models (mystery question marks).
-<table>
-	<tr>
 		<td>
 			<b>Heavy-Duty Boots</b>
 		</td>
@@ -68,6 +52,23 @@ Items within this section are currently in development and so will include defau
 	</tr>
 	<tr>
 		<td>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Textures/Leftovers.png" width="192px"/>
+		</td>
+		<td>
+			<b>Leftovers</b>
+		</td>
+		<td>
+			<b>GREEN</b>
+		</td>
+		<td>
+			Increase health regeneration by <b>4</b> HP/s (+<b>2</b> HP/s per stack).
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Textures/AmuletCoin.png" width="192px"/>
+		</td>
+		<td>
 			<b>Amulet Coin</b>
 		</td>
 		<td>
@@ -79,6 +80,9 @@ Items within this section are currently in development and so will include defau
 	</tr>
 	<tr>
 		<td>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Textures/EXPShare.png" width="192px"/>
+		</td>
+		<td>
 			<b>EXP Share</b>
 		</td>
 		<td>
@@ -89,6 +93,11 @@ Items within this section are currently in development and so will include defau
 		</td>
 	</tr>
 </table>
+
+## Early-Access Items
+Items within this section are currently in development and so will include default sprites and models (mystery question marks).
+
+No early-access items are listed at this time.
 
 ## Spawn Mode
 Press the following keys to spawn the item (early-access items will need to be enabled first):
