@@ -38,7 +38,7 @@ Pokemon items in Risk of Rain 2.
 	</tr>
 	<tr>
 		<td>
-			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Textures/HeavyDutyBoots.png" width="192px"/>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Textures/HeavyDutyBoots.png" width="192px"/>
 		</td>
 		<td>
 			<b>Heavy-Duty Boots</b>
@@ -66,7 +66,7 @@ Pokemon items in Risk of Rain 2.
 	</tr>
 	<tr>
 		<td>
-			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Textures/AmuletCoin.png" width="192px"/>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Textures/AmuletCoin.png" width="192px"/>
 		</td>
 		<td>
 			<b>Amulet Coin</b>
@@ -80,7 +80,7 @@ Pokemon items in Risk of Rain 2.
 	</tr>
 	<tr>
 		<td>
-			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Textures/EXPShare.png" width="192px"/>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Textures/EXPShare.png" width="192px"/>
 		</td>
 		<td>
 			<b>EXP Share</b>
