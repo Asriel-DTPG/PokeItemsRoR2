@@ -1,3 +1,13 @@
+## New Models and Re-Rendered Icons - 0.2.1
+- EXP Share, Amulet Coin, and Heavy-Duty Boots now have models and icons. They are now fully accessible.
+- Cfg support has now been implemented for EXP Share, Amulet Coin, and Heavy-Duty Boots.
+- All new and existing icons are re-rendered to have proportional sizes and rarity outlines that closely resemble the official look.
+- Fixed a cfg bug where in Air Balloon, custom values of fall speed limit and fall percent reduction per extra stack were ignored.
+- Cfg descriptions have been slightly improved.
+- As a result of the new icons, README and the mod icon has been changed.
+- More changes in coding:
+    - Cfg now contain variables borrowed from item classes instead of magic values.
+
 ## Config Support and Early-Access Items - 0.2.0
 
 - Second alpha release.
