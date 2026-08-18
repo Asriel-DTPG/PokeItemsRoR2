@@ -38,6 +38,21 @@
     "Item_HeavyDutyBoots_Name": "Heavy-Duty Boots",
     "Item_HeavyDutyBoots_Pickup": "Reduce damage taken when grounded.",
     "Item_HeavyDutyBoots_Desc": "Gain <style=cIsUtility>{0}</style> <style=cStack>(+{0} per stack)</style> armor when on ground.",
-    "Item_HeavyDutyBoots_Lore": "Lore not found..."
+    "Item_HeavyDutyBoots_Lore": "Lore not found...",
+
+    "Item_ChoiceBand_Name": "Choice Band",
+    "Item_ChoiceBand_Pickup": "Deal more Primary and Secondary damage... <style=cDeath>BUT all non-preferred skills have increased cooldown.</style>",
+    "Item_ChoiceBand_Desc": "Deal <style=cIsDamage>{0}%</style> <style=cStack>(+{1}% per stack)</style> more damage for Primary and Secondary skills. Choosing a skill will create a choice lock for that skill, and all other skills will have <style=cIsUtility>{2}%</style> <style=cStack>(+{2}% per stack)</style> more cooldown. Choice lock resets next stage or respawn.",
+    "Item_ChoiceBand_Lore": "Lore not found...",
+
+    "Item_ChoiceSpecs_Name": "Choice Specs",
+    "Item_ChoiceSpecs_Pickup": "Deal more Utility and Special damage... <style=cDeath>BUT all non-preferred skills have increased cooldown.</style>",
+    "Item_ChoiceSpecs_Desc": "Deal <style=cIsDamage>{0}%</style> <style=cStack>(+{1}% per stack)</style> more damage for Utility and Special skills. Choosing a skill will create a choice lock for that skill, and all other skills will have <style=cIsUtility>{2}%</style> <style=cStack>(+{2}% per stack)</style> more cooldown. Choice lock resets next stage or respawn.",
+    "Item_ChoiceSpecs_Lore": "Lore not found...",
+
+    "Item_ChoiceScarf_Name": "Choice Scarf",
+    "Item_ChoiceScarf_Pickup": "Increase movement speed... <style=cDeath>BUT all non-preferred skills have increased cooldown.</style>",
+    "Item_ChoiceScarf_Desc": "Increase movement speed by <style=cIsUtility>{0}%</style> <style=cStack>(+{1}% per stack)</style>. Choosing a skill will create a choice lock for that skill, and all other skills will have <style=cIsUtility>{2}%</style> <style=cStack>(+{2}% per stack)</style> more cooldown. Choice lock resets next stage or respawn.",
+    "Item_ChoiceScarf_Lore": "Lore not found..."
   }
 }

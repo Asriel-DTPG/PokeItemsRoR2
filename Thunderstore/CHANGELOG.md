@@ -1,3 +1,15 @@
+## Choice Items - 0.3.0
+- Third alpha release.
+- Early-access items are now implemented (these items are currently in development and may change over patches)
+    - Choice Band [LUNAR]: Deal more Primary and Secondary damage... BUT all non-preferred skills have increased cooldown.
+    - Choice Specs [LUNAR]: Deal more Utility and Special damage... BUT all non-preferred skills have increased cooldown.
+    - Choice Scarf [LUNAR]: Increase movement speed... BUT all non-preferred skills have increased cooldown.
+- More changes in coding:
+    - Added ChoiceBuffs and ChoiceManager
+    - ChoiceBand, ChoiceSpecs, and ChoiceScarf classes added
+    - PrimaryLock, SecondaryLock, UtilityLock, and SpecialLock added in Buffs
+    - Language file adjusted
+
 ## New Models and Re-Rendered Icons - 0.2.1
 - EXP Share, Amulet Coin, and Heavy-Duty Boots now have models and icons. They are now fully accessible.
 - Cfg support has now been implemented for EXP Share, Amulet Coin, and Heavy-Duty Boots.
