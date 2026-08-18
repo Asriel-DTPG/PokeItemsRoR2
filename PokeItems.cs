@@ -18,6 +18,9 @@ namespace PokeItems
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
 
+    // Optional Dependencies
+    [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
+
     public class PokeItems : BaseUnityPlugin
     {
         public const string PluginGUID = PluginAuthor + "." + PluginName;
@@ -49,6 +52,9 @@ namespace PokeItems
 
             // Config
             ConfigManager.Init();
+
+            // Risk Of Options (Optional)
+            RiskOfOptionsManager.Init();
             
             // Assets
             AssetManager.Init();

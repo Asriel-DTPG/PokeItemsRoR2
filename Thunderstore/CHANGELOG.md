@@ -1,10 +1,13 @@
-## Choice Items - 0.3.0
+## Risk Of Options Support and Choice Items - 0.3.0
 - Third alpha release.
+- Risk Of Options is now compatible with this mod, allowing options to be visible in-game via the mod menu.
 - Early-access items are now implemented (these items are currently in development and may change over patches)
     - Choice Band [LUNAR]: Deal more Primary and Secondary damage... BUT all non-preferred skills have increased cooldown.
     - Choice Specs [LUNAR]: Deal more Utility and Special damage... BUT all non-preferred skills have increased cooldown.
     - Choice Scarf [LUNAR]: Increase movement speed... BUT all non-preferred skills have increased cooldown.
 - More changes in coding:
+    - Added RiskOfOptionsManager
+    - RiskOfOptions has been added as a soft dependency
     - Added ChoiceBuffs and ChoiceManager
     - ChoiceBand, ChoiceSpecs, and ChoiceScarf classes added
     - PrimaryLock, SecondaryLock, UtilityLock, and SpecialLock added in Buffs
