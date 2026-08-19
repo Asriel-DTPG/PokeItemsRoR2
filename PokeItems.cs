@@ -55,11 +55,11 @@ namespace PokeItems
             // Config
             ConfigManager.Init();
 
-            // Risk Of Options (Optional)
-            RiskOfOptionsManager.Init();
-            
             // Assets
             AssetManager.Init();
+
+            // Risk Of Options (Optional)
+            RiskOfOptionsManager.Init();
 
             // Items
             Leftovers.Init();
