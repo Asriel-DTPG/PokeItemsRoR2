@@ -13,7 +13,7 @@ namespace PokeItems.Items
 
         // Item Settings
         private static ItemTier tier = ItemTier.Tier1; // Tier1 = WHITE; Tier2 = GREEN; Tier3 = RED; NoTier = UNUSABLE
-        public static float procPercentPerStack = 10f; // Chance to proc
+        public static float procPercentPerStack = 7f; // Chance to proc
         public static float debuffDuration = 4f; // Duration of burn debuff
         public static float damageMul = 1f; // Damage multipler
 
