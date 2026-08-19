@@ -1,6 +1,11 @@
 ## Risk Of Options Support and Choice Items - 0.3.0
+
 - Third alpha release.
 - Risk Of Options is now compatible with this mod, allowing options to be visible in-game via the mod menu.
+- FlameOrb
+    - Reduced proc percent: <b>10%</b> -> <b>7%</b>
+- EXP Share
+    - EXP rate amount now shows per minute instead of second. Amount remains the same.
 - Early-access items are now implemented (these items are currently in development and may change over patches)
     - Choice Band [LUNAR]: Deal more Primary and Secondary damage... BUT all non-preferred skills have increased cooldown.
     - Choice Specs [LUNAR]: Deal more Utility and Special damage... BUT all non-preferred skills have increased cooldown.
@@ -15,6 +20,7 @@
     - UnfinishedItemsEnabled from cfg is now saved in a variable so that it remains unchanged from RiskOfOptions until restart
 
 ## New Models and Re-Rendered Icons - 0.2.1
+
 - EXP Share, Amulet Coin, and Heavy-Duty Boots now have models and icons. They are now fully accessible.
 - Cfg support has now been implemented for EXP Share, Amulet Coin, and Heavy-Duty Boots.
 - All new and existing icons are re-rendered to have proportional sizes and rarity outlines that closely resemble the official look.

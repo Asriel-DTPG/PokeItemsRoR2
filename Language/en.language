@@ -27,7 +27,7 @@
 
     "Item_ExpShare_Name": "EXP Share",
     "Item_ExpShare_Pickup": "Gain more EXP via rewards and kills. Also passively gain EXP per second.",
-    "Item_ExpShare_Desc": "Gain <style=cIsUtility>{0}%</style> <style=cStack>(+{1}% per stack)</style> more EXP. Also gain <style=cIsUtility>{2}%</style> required EXP per second <style=cSub>(Early levels offer more EXP due to rounding)</style>.",
+    "Item_ExpShare_Desc": "Gain <style=cIsUtility>{0}%</style> <style=cStack>(+{1}% per stack)</style> more EXP. Also gain <style=cIsUtility>{2}%</style> required EXP per minute <style=cSub>(Early levels offer more EXP due to rounding)</style>.",
     "Item_ExpShare_Lore": "Lore not found...",
 
     "Item_AmuletCoin_Name": "Amulet Coin",

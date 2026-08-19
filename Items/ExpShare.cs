@@ -17,7 +17,7 @@ namespace PokeItems.Items
         private static ItemTier tier = ItemTier.Tier3; // 1 = WHITE; 2 = GREEN; 3 = RED
         public static float expPercentBonusPerStack = 200f; // EXP Bonus Percent
         public static float expPercentBonusPerExtraStack = 100f; // EXP Bonus Percent per extra stack
-        public static float expRateBonus = 0.5f; // Passive EXP percent per second (scaled by requirement)
+        public static float expRateBonus = 30f; // Passive EXP percent per minute (scaled by requirement)
 
         private static readonly Dictionary<CharacterMaster, float> timersDict = new();
         private static bool isPassiveEXP = false;
@@ -128,8 +128,8 @@ namespace PokeItems.Items
             ulong nextXP = TeamManager.GetExperienceForLevel(level + 1);
             ulong requiredEXP = nextXP - currentXP;
 
-            // Multiply required EXP into bonus percent
-            ulong experience = (ulong)(requiredEXP * (expRateBonus / 100f));
+            // Multiply required EXP into bonus percent (convert amount into per second)
+            ulong experience = (ulong)(requiredEXP * (expRateBonus / 100f / 60f));
 
             // If experience is too low, compensate for ceiling round
             if (experience <= 0)
