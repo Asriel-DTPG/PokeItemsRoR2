@@ -43,7 +43,7 @@ namespace PokeItems.Items
             // Mandatory check for attacker body with inventory
             CharacterBody attackerBody = damageInfo.attacker.GetComponent<CharacterBody>();
 
-            if (attackerBody != null || attackerBody.inventory == null)
+            if (attackerBody == null || attackerBody.inventory == null)
             {
                 orig(self, damageInfo);
                 return;

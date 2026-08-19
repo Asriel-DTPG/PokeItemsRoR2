@@ -11,18 +11,20 @@ namespace PokeItems.Managers
 {
     internal static class ChoiceManager
     {
-        public static float cooldownPenaltyPerStack = 25f;
+        public static float cooldownPenaltyPerStack = 15f;
+        public static float cooldownPenaltyPercentLimit = 1f;
 
         private static readonly Dictionary<CharacterBody, GenericSkill> chosenSkills = new();
 
         public static void Init()
         {
             On.RoR2.GenericSkill.OnExecute += SkillUsed;
-            On.RoR2.GenericSkill.CalculateFinalRechargeInterval += ModifyCooldown;
+            On.RoR2.GenericSkill.RunRecharge += ModifyCooldown;
             On.RoR2.Stage.Start += StageStart;
             On.RoR2.CharacterMaster.OnBodyStart += BodyStart;
         }
 
+        // Record the chosen skill into a choice lock if it doesn't exist
         private static void SkillUsed(
             On.RoR2.GenericSkill.orig_OnExecute orig,
             GenericSkill self)
@@ -32,15 +34,19 @@ namespace PokeItems.Managers
 
             CharacterBody body = self.characterBody;
 
+            // Mandatory check
             if (body == null || body.inventory == null)
                 return;
 
+            // Get the count of how many of choice items is in the inventory
             if (GetTotalChoiceStacks(body) <= 0)
                 return;
 
+            // Proceed if they do not have a choice lock
             if (ChoiceBuffs.HasChoiceLock(body))
                 return;
 
+            // Add choice lock based on chosen skill
             if (body.skillLocator.primary == self)
                 body.AddBuff(ChoiceBuffs.ChoicePrimaryLock);
             else if (body.skillLocator.secondary == self)
@@ -51,40 +57,51 @@ namespace PokeItems.Managers
                 body.AddBuff(ChoiceBuffs.ChoiceSpecialLock);
         }
 
-        private static float ModifyCooldown(
-            On.RoR2.GenericSkill.orig_CalculateFinalRechargeInterval orig,
-            GenericSkill self)
+        // Modify the recharge time based on non-chosen skill and number of choice items
+        private static void ModifyCooldown(
+            On.RoR2.GenericSkill.orig_RunRecharge orig,
+            GenericSkill self,
+            float rechargeTime)
         {
-            // Run vanilla logic
-            float cooldown = orig(self);
-
-            // Check if this has no meaningful recharge interval
-            if (!self.skillDef.mustKeyPress && cooldown <= 0f)
-                return cooldown;
+            // Check if this skill has no meaningful recharge
+            if (rechargeTime <= 0f)
+            {
+                orig(self, rechargeTime);
+                return;
+            }
 
             CharacterBody body = self.characterBody;
 
+            // Mandatory check
             if (body == null || body.inventory == null)
-                return cooldown;
+            {
+                orig(self, rechargeTime);
+                return;
+            }
 
-            if (!ChoiceBuffs.HasChoiceLock(body))
-                return cooldown;
+            // Get total Choice item stacks
+            int choiceStacks = GetTotalChoiceStacks(body);
 
-            if (IsChosenSkill(body, self))
-                return cooldown;
+            if (!ChoiceBuffs.HasChoiceLock(body) || IsChosenSkill(body, self))
+            {
+                orig(self, rechargeTime);
+                return;
+            }
 
-            int stacks = GetTotalChoiceStacks(body);
+            // Calculate percentage reduction exponentially
+            float multiplier = MathUtility.GetExponentialPercentReductionStacking(cooldownPenaltyPerStack, Math.Max(2, choiceStacks + 1));
 
-            float multiplier = 1f;
+            // Set limit to multiplier
+            multiplier = Mathf.Max(multiplier, cooldownPenaltyPercentLimit / 100f);
 
-            if (stacks <= 0)
-                multiplier += cooldownPenaltyPerStack / 100f;
+            // Set new recharge time
+            float newRechargeTime = rechargeTime * multiplier;
 
-            multiplier += (MathUtility.GetLinearStacking(cooldownPenaltyPerStack, stacks) / 100f);
-
-            return cooldown * multiplier;
+            // Continue vanilla logic
+            orig(self, newRechargeTime);
         }
 
+        // Reset choice lock on new stage
         private static IEnumerator StageStart(
             On.RoR2.Stage.orig_Start orig,
             Stage self)
@@ -101,6 +118,7 @@ namespace PokeItems.Managers
             }
         }
 
+        // Reset choice lock on respawn
         private static void BodyStart(
             On.RoR2.CharacterMaster.orig_OnBodyStart orig,
             CharacterMaster self,
@@ -113,6 +131,7 @@ namespace PokeItems.Managers
                 ChoiceBuffs.RemoveAllChoiceLocks(body);
         }
 
+        // Check if this skill has a choice lock associated with it
         private static bool IsChosenSkill(
             CharacterBody body,
             GenericSkill skill)
@@ -132,6 +151,7 @@ namespace PokeItems.Managers
             return false;
         }
 
+        // Get the total number of choice item stacks
         public static int GetTotalChoiceStacks(CharacterBody body)
         {
             Inventory inventory = body.inventory;

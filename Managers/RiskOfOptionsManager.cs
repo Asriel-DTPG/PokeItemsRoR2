@@ -2,9 +2,9 @@
 using BepInEx.Bootstrap;
 using BepInEx.Configuration;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Reflection;
+using RiskOfOptions;
+using RiskOfOptions.Options;
+using RiskOfOptions.OptionConfigs;
 
 namespace PokeItems.Managers
 {
@@ -21,6 +21,10 @@ namespace PokeItems.Managers
 
             initialized = true;
 
+            // Ignore all of this if Risk Of Options is not installed
+            if (!Chainloader.PluginInfos.ContainsKey(RiskOfOptionsGUID))
+                return;
+            
             try
             {
                 RegisterOptions();
@@ -35,79 +39,165 @@ namespace PokeItems.Managers
 
         private static void RegisterOptions()
         {
-            // Get Risk Of Options assembly
-            Assembly assembly = Chainloader.PluginInfos[RiskOfOptionsGUID].Instance.GetType().Assembly;
-
-            Type modSettingsManager = assembly.GetType("RiskOfOptions.ModSettingsManager");
-            Type checkBoxOption = assembly.GetType("RiskOfOptions.Options.CheckBoxOption");
-            Type sliderOption = assembly.GetType("RiskOfOptions.Options.SliderOption");
-
-            if (modSettingsManager == null ||
-                checkBoxOption == null ||
-                sliderOption == null)
-            {
-                throw new Exception("Unable to find the required Risk Of Options types.");
-            }
-
-            // Find AddOption
-            MethodInfo addOption = modSettingsManager.GetMethod("AddOption", BindingFlags.Public | BindingFlags.Static);
-
-            if (addOption == null)
-            {
-                throw new Exception("Unable to find RiskOfOptions.ModSettingsManager.AddOption.");
-            }
 
             // General
-            AddBool(addOption, checkBoxOption, ConfigManager.CustomValuesEnabled);
-            AddBool(addOption, checkBoxOption, ConfigManager.SpawnModeEnabled);
-            AddBool(addOption, checkBoxOption, ConfigManager.UnfinishedItemsEnabled);
+            ModSettingsManager.AddOption(
+                new CheckBoxOption(
+                    ConfigManager.CustomValuesEnabled
+                )
+            );
+            ModSettingsManager.AddOption(
+                new CheckBoxOption(
+                    ConfigManager.SpawnModeEnabled
+                )
+            );
+            ModSettingsManager.AddOption(
+                new CheckBoxOption(
+                    ConfigManager.UnfinishedItemsEnabled
+                )
+            );
 
             // Leftovers
-            AddFloat(addOption, sliderOption, ConfigManager.Leftovers_RegenBonusPerStack);
-            AddFloat(addOption, sliderOption, ConfigManager.Leftovers_RegenBonusPerExtraStack);
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.Leftovers_RegenBonusPerStack,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 100f
+                    }
+                )
+            );
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.Leftovers_RegenBonusPerExtraStack,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 100f
+                    }
+                )
+            );
 
             // Flame Orb
-            AddFloat(addOption, sliderOption, ConfigManager.FlameOrb_ProcPercentPerStack);
-            AddFloat(addOption, sliderOption, ConfigManager.FlameOrb_DebuffDuration);
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.FlameOrb_ProcPercentPerStack,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 100f
+                    }
+                )
+            );
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.FlameOrb_DebuffDuration,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 30f
+                    }
+                )
+            );
 
             // Air Balloon
-            AddFloat(addOption, sliderOption, ConfigManager.AirBalloon_FallSpeedLimit);
-            AddFloat(addOption, sliderOption, ConfigManager.AirBalloon_FallPercentReductionPerExtraStack);
-            AddFloat(addOption, sliderOption, ConfigManager.AirBalloon_HpThresholdPercent);
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.AirBalloon_FallSpeedLimit,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 200f
+                    }
+                )
+            );
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.AirBalloon_FallPercentReductionPerExtraStack,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 100f
+                    }
+                )
+            );
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.AirBalloon_HpThresholdPercent,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 100f
+                    }
+                )
+            );
 
             // EXP Share
-            AddFloat(addOption, sliderOption, ConfigManager.ExpShare_ExpPercentBonusPerStack);
-            AddFloat(addOption, sliderOption, ConfigManager.ExpShare_ExpPercentBonusPerExtraStack);
-            AddFloat(addOption, sliderOption, ConfigManager.ExpShare_ExpRateBonus);
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.ExpShare_ExpPercentBonusPerStack,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 1000f
+                    }
+                )
+            );
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.ExpShare_ExpPercentBonusPerExtraStack,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 1000f
+                    }
+                )
+            );
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.ExpShare_ExpRateBonus,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 100f
+                    }
+                )
+            );
 
             // Amulet Coin
-            AddFloat(addOption, sliderOption, ConfigManager.AmuletCoin_GoldMulPercentPerStack);
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.AmuletCoin_GoldMulPercentPerStack,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 1000f
+                    }
+                )
+            );
 
             // Heavy-Duty Boots
-            AddFloat(addOption, sliderOption, ConfigManager.HeavyDutyBoots_ArmorBonusPerStack);
-            AddFloat(addOption, sliderOption, ConfigManager.HeavyDutyBoots_ArmorBonusPerExtraStack);
-        }
-
-        // Add Invoke to Bool
-        private static void AddBool(MethodInfo addOption, Type optionType, ConfigEntry<bool> config)
-        {
-            if (config == null)
-                return;
-
-            object option = Activator.CreateInstance(optionType, config);
-
-            addOption.Invoke(null, [option]);
-        }
-
-        // Add Invoke to Float
-        private static void AddFloat(MethodInfo addOption, Type optionType, ConfigEntry<float> config)
-        {
-            if (config == null)
-                return;
-
-            object option = Activator.CreateInstance(optionType, config);
-
-            addOption.Invoke(null, [option]);
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.HeavyDutyBoots_ArmorBonusPerStack,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 1000f
+                    }
+                )
+            );
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.HeavyDutyBoots_ArmorBonusPerExtraStack,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 1000f
+                    }
+                )
+            );
         }
     }
 }

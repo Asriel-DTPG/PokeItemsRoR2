@@ -12,6 +12,7 @@
     - ChoiceBand, ChoiceSpecs, and ChoiceScarf classes added
     - PrimaryLock, SecondaryLock, UtilityLock, and SpecialLock added in Buffs
     - Language file adjusted
+    - UnfinishedItemsEnabled from cfg is now saved in a variable so that it remains unchanged from RiskOfOptions until restart
 
 ## New Models and Re-Rendered Icons - 0.2.1
 - EXP Share, Amulet Coin, and Heavy-Duty Boots now have models and icons. They are now fully accessible.

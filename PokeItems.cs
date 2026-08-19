@@ -26,13 +26,15 @@ namespace PokeItems
         public const string PluginGUID = PluginAuthor + "." + PluginName;
         public const string PluginAuthor = "DTPGStudios";
         public const string PluginName = "PokeItems";
-        public const string PluginVersion = "0.2.1";
+        public const string PluginVersion = "0.3.0";
 
         public static PluginInfo PInfo { get; private set; }
         public static ConfigFile PConfig { get; private set; }
 
         public static ExpansionDef sotvDLC;
         public static ExpansionDef sotsDLC;
+
+        private static bool isUnfinishedEnabled;
 
         // The Awake() method is run at the very start when the game is initialized.
         public void Awake()
@@ -68,8 +70,10 @@ namespace PokeItems
             AmuletCoin.Init();
             HeavyDutyBoots.Init();
 
+            isUnfinishedEnabled = ConfigManager.UnfinishedItemsEnabled.Value;
+
             // Unfinished Items
-            if (ConfigManager.UnfinishedItemsEnabled.Value)
+            if (isUnfinishedEnabled)
             {
                 ChoiceBuffs.Init();
                 ChoiceManager.Init();
@@ -163,7 +167,8 @@ namespace PokeItems
                 PickupDropletController.CreatePickupDroplet(PickupCatalog.FindPickupIndex(HeavyDutyBoots.itemDef.itemIndex), transform.position, transform.forward * 30f);
             }
 
-            if (ConfigManager.UnfinishedItemsEnabled.Value)
+            // Unfinished items
+            if (isUnfinishedEnabled)
             {
                 // Choice Band
                 if (Input.GetKeyDown(KeyCode.F8))
