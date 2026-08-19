@@ -18,6 +18,7 @@ namespace PokeItems.Managers
 
         public static void Init()
         {
+            // Add functionality
             On.RoR2.GenericSkill.OnExecute += SkillUsed;
             On.RoR2.GenericSkill.RunRecharge += ModifyCooldown;
             On.RoR2.Stage.Start += StageStart;
@@ -89,7 +90,7 @@ namespace PokeItems.Managers
             }
 
             // Calculate percentage reduction exponentially
-            float multiplier = MathUtility.GetExponentialPercentReductionStacking(cooldownPenaltyPerStack, Math.Max(2, choiceStacks + 1));
+            float multiplier = MathUtility.GetExponentialPercentReductionStacking(cooldownPenaltyPerStack, Math.Max(2, choiceStacks));
 
             // Set limit to multiplier
             multiplier = Mathf.Max(multiplier, cooldownPenaltyPercentLimit / 100f);

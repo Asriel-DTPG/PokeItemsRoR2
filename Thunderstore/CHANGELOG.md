@@ -6,10 +6,10 @@
     - Reduced proc percent: <b>10%</b> -> <b>7%</b>
 - EXP Share
     - EXP rate amount now shows per minute instead of second. Amount remains the same.
-- Early-access items are now implemented (these items are currently in development and may change over patches)
-    - Choice Band [LUNAR]: Deal more Primary and Secondary damage... BUT all non-preferred skills have increased cooldown.
-    - Choice Specs [LUNAR]: Deal more Utility and Special damage... BUT all non-preferred skills have increased cooldown.
-    - Choice Scarf [LUNAR]: Increase movement speed... BUT all non-preferred skills have increased cooldown.
+- More early-access items are implemented (these items are currently in development and may change over patches)
+    - Choice Band [LUNAR]: Deal more Primary and Secondary damage... BUT all non-preferred skills recharges slower.
+    - Choice Specs [LUNAR]: Deal more Utility and Special damage... BUT all non-preferred skills recharges slower.
+    - Choice Scarf [LUNAR]: Increase movement speed... BUT all non-preferred skills recharges slower.
 - More changes in coding:
     - Added RiskOfOptionsManager
     - RiskOfOptions has been added as a soft dependency
@@ -18,6 +18,7 @@
     - PrimaryLock, SecondaryLock, UtilityLock, and SpecialLock added in Buffs
     - Language file adjusted
     - UnfinishedItemsEnabled from cfg is now saved in a variable so that it remains unchanged from RiskOfOptions until restart
+    - Readjusted ExponentialPercentReductionStacking formula
 
 ## New Models and Re-Rendered Icons - 0.2.1
 

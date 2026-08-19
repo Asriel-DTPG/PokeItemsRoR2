@@ -5,12 +5,15 @@ using System;
 using RiskOfOptions;
 using RiskOfOptions.Options;
 using RiskOfOptions.OptionConfigs;
+using UnityEngine;
 
 namespace PokeItems.Managers
 {
     internal static class RiskOfOptionsManager
     {
         private const string RiskOfOptionsGUID = "com.rune580.riskofoptions";
+
+        private const string IconName = "ModIcon";
 
         private static bool initialized = false;
 
@@ -27,6 +30,11 @@ namespace PokeItems.Managers
             
             try
             {
+                // Attempt to add icon
+                Sprite icon = AssetManager.bundle.LoadAsset<Sprite>(IconName + ".png");
+                ModSettingsManager.SetModIcon(icon);
+                
+                // Attempt to register options according to ConfigManager
                 RegisterOptions();
 
                 Log.Info("Risk of Options detected. Added PokeItems configuration to mod menu.");
@@ -37,6 +45,7 @@ namespace PokeItems.Managers
             }
         }
 
+        // Make existing options according to ConfigManager visible in-game
         private static void RegisterOptions()
         {
 

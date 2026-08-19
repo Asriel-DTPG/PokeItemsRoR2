@@ -22,19 +22,19 @@ namespace PokeItems.Buffs
         public static void Init()
         {
             ChoicePrimaryLock = CreateChoiceLock(
-                "Primary Lock",
+                "PrimaryLock",
                 TryGetSprite("PrimaryLock")
             );
             ChoiceSecondaryLock = CreateChoiceLock(
-                "Secondary Lock",
+                "SecondaryLock",
                 TryGetSprite("SecondaryLock")
             );
             ChoiceUtilityLock = CreateChoiceLock(
-                "Utility Lock",
+                "UtilityLock",
                 TryGetSprite("UtilityLock")
             );
             ChoiceSpecialLock = CreateChoiceLock(
-                "Special Lock",
+                "SpecialLock",
                 TryGetSprite("SpecialLock")
             );
 
@@ -60,6 +60,7 @@ namespace PokeItems.Buffs
             return sprite;
         }
 
+        // Create buff/debuff based on choice lock
         private static BuffDef CreateChoiceLock(string name, Sprite icon)
         {
             BuffDef buff = ScriptableObject.CreateInstance<BuffDef>();
@@ -78,6 +79,7 @@ namespace PokeItems.Buffs
             return buff;
         }
 
+        // Remove any and all choice locks
         public static void RemoveAllChoiceLocks(CharacterBody body)
         {
             foreach (BuffDef buff in ChoiceLocks)
@@ -87,6 +89,7 @@ namespace PokeItems.Buffs
             }
         }
 
+        // Checks if player has any choice lock
         public static bool HasChoiceLock(CharacterBody body)
         {
             return

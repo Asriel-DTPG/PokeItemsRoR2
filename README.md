@@ -33,7 +33,7 @@ Pokemon items in Risk of Rain 2.
 			<b>WHITE</b>
 		</td>
 		<td>
-			<b>10</b>% (+<b>10</b>% per stack) chance to burn an enemy on hit. Debuff stack individually lasts for <b>4</b> seconds.
+			<b>7</b>% (+<b>7</b>% per stack) chance to burn an enemy on hit. Debuff stack individually lasts for <b>4</b> seconds.
 		</td>
 	</tr>
 	<tr>
@@ -89,7 +89,7 @@ Pokemon items in Risk of Rain 2.
 			<b>RED</b>
 		</td>
 		<td>
-			Gain <b>200</b>% (+<b>100%</b> per stack) more EXP. Also gain <b>0.5</b>% required EXP per second (Early levels offer more EXP due to rounding).
+			Gain <b>200</b>% (+<b>100%</b> per stack) more EXP. Also gain <b>30</b>% required EXP per minute (Early levels offer more EXP due to rounding).
 		</td>
 	</tr>
 </table>
@@ -97,7 +97,41 @@ Pokemon items in Risk of Rain 2.
 ## Early-Access Items
 Items within this section are currently in development and so will include default sprites and models (mystery question marks).
 
-No early-access items are listed at this time.
+<table>
+	<tr>
+		<td>
+			<b>Choice Band</b>
+		</td>
+		<td>
+			<b>LUNAR</b>
+		</td>
+		<td>
+			Deal <b>100</b>% (+<b>50</b>% per stack) more damage for Primary and Secondary skills. Choosing a skill will create a choice lock for that skill, and all other skills will recharge <b>15</b>% (+<b>15</b>% per stack) slower. Choice lock resets next stage or respawn.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>Choice Scarf</b>
+		</td>
+		<td>
+			<b>LUNAR</b>
+		</td>
+		<td>
+			Increase movement speed by <b>30</b>% (+<b>20</b>% per stack). Choosing a skill will create a choice lock for that skill, and all other skills will recharge <b>15</b>% (+<b>15</b>% per stack) slower. Choice lock resets next stage or respawn.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>Choice Specs</b>
+		</td>
+		<td>
+			<b>LUNAR</b>
+		</td>
+		<td>
+			Deal <b>100</b>% (+<b>50</b>% per stack) more damage for Utility and Special skills. Choosing a skill will create a choice lock for that skill, and all other skills will recharge <b>15</b>% (+<b>15</b>% per stack) slower. Choice lock resets next stage or respawn.
+		</td>
+	</tr>
+</table>
 
 ## Spawn Mode
 Press the following keys to spawn the item (early-access items will need to be enabled first):
@@ -107,6 +141,9 @@ Press the following keys to spawn the item (early-access items will need to be e
 - <b>F5</b>: EXP Share
 - <b>F6</b>: Amulet Coin
 - <b>F7</b>: Heavy-Duty Boots
+- <b>F8</b>: Choice Band
+- <b>F9</b>: Choice Specs
+- <b>F10</b>: Choice Scarf
 
 ## Suggestions?
 If you like to share your reviews and suggestions about this mod, please post your responses under this link. I'd be more than happy to listen to your ideas!
@@ -118,3 +155,4 @@ If you like to share your reviews and suggestions about this mod, please post yo
 - <b>Modelling</b>: EclipticCosmos
 - <b>Assets & Shading</b>: Asriel_DTPG
 - <b>Testers</b>: Asriel_DTPG, 4adamninja
+- <b>Special Thanks</b>: CrashMate, Sensler, WackyZackyBoy

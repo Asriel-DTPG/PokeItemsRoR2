@@ -121,7 +121,7 @@ namespace PokeItems.Items
                 }
 
                 // Grab the percentage reduction from extra stacks
-                float reductionMultiplier = MathUtility.GetExponentialPercentReductionStacking(fallPercentReductionPerExtraStack, itemCount);
+                float reductionMultiplier = MathUtility.GetExponentialPercentReductionStacking(fallPercentReductionPerExtraStack, itemCount - 1);
                 
                 // Get the total terminalvelocity
                 float terminalVelocity = -fallSpeedLimit * reductionMultiplier;
