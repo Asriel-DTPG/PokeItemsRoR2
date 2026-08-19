@@ -55,14 +55,15 @@ namespace PokeItems.Items
                 return;
 
             // Check if custom values are enabled
-            if (ConfigManager.CustomValuesEnabled.Value)
-            {
-                procPercentPerStack = ConfigManager.FlameOrb_ProcPercentPerStack.Value;
-                debuffDuration = ConfigManager.FlameOrb_DebuffDuration.Value;
-            }
+            float procPercent = ConfigManager.GetFloatValue(
+                ConfigManager.FlameOrb_ProcPercentPerStack,
+                procPercentPerStack);
+            float debuffTime = ConfigManager.GetFloatValue(
+                ConfigManager.FlameOrb_DebuffDuration,
+                debuffDuration);
 
             // Check for proc chance
-            float chance = MathUtility.GetLinearStacking(procPercentPerStack, itemCount, damageInfo.procCoefficient);
+            float chance = MathUtility.GetLinearStacking(procPercent, itemCount, damageInfo.procCoefficient);
 
             if (Util.CheckRoll(chance, attackerBody.master))
             {
@@ -72,7 +73,7 @@ namespace PokeItems.Items
                     victimObject = victim,
                     attackerObject = damageInfo.attacker,
                     dotIndex = DotController.DotIndex.Burn,
-                    duration = debuffDuration,
+                    duration = debuffTime,
                     damageMultiplier = damageMul
                 };
 

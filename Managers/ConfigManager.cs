@@ -127,7 +127,7 @@ namespace PokeItems.Managers
                 "EXP Share",
                 "Required EXP Percent Rate",
                 ExpShare.expRateBonus,
-                "Percent amount of required EXP gained per second."
+                "Percent amount of required EXP gained per minute."
             );
 
             // AMULET COIN CONFIG
@@ -151,6 +151,15 @@ namespace PokeItems.Managers
                 HeavyDutyBoots.armorBonusPerExtraStack,
                 "How long the burn debuff lasts."
             );
+        }
+
+        // Fetch float value from either cfg or default depending on the setting enabled
+        public static float GetFloatValue(ConfigEntry<float> config, float defaultValue)
+        {
+            if (CustomValuesEnabled.Value)
+                return config.Value;
+
+            return defaultValue;
         }
     }
 }

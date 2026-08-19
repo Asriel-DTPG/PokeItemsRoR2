@@ -54,14 +54,15 @@ namespace PokeItems.Items
                 return;
 
             // Check if custom values are enabled
-            if (ConfigManager.CustomValuesEnabled.Value)
-            {
-                armorBonusPerStack = ConfigManager.HeavyDutyBoots_ArmorBonusPerStack.Value;
-                armorBonusPerExtraStack = ConfigManager.HeavyDutyBoots_ArmorBonusPerExtraStack.Value;
-            }
+            float armorBonus = ConfigManager.GetFloatValue(
+                ConfigManager.HeavyDutyBoots_ArmorBonusPerStack,
+                armorBonusPerStack);
+            float armorExtraBonus = ConfigManager.GetFloatValue(
+                ConfigManager.HeavyDutyBoots_ArmorBonusPerExtraStack,
+                armorBonusPerExtraStack);
 
             // Add HP/s per stack
-            args.armorAdd += MathUtility.GetLinearWithExtraStacking(armorBonusPerStack, armorBonusPerExtraStack, itemCount);
+            args.armorAdd += MathUtility.GetLinearWithExtraStacking(armorBonus, armorExtraBonus, itemCount);
         }
 
         // Check for grounded state

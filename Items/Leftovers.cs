@@ -42,14 +42,15 @@ namespace PokeItems.Items
                 return;
 
             // Check if custom values are enabled
-            if (ConfigManager.CustomValuesEnabled.Value)
-            {
-                regenBonusPerStack = ConfigManager.Leftovers_RegenBonusPerStack.Value;
-                regenBonusPerExtraStack = ConfigManager.Leftovers_RegenBonusPerExtraStack.Value;
-            }
+            float regenBonus = ConfigManager.GetFloatValue(
+                ConfigManager.Leftovers_RegenBonusPerStack,
+                regenBonusPerStack);
+            float regenExtraBonus = ConfigManager.GetFloatValue(
+                ConfigManager.Leftovers_RegenBonusPerExtraStack,
+                regenBonusPerExtraStack);
             
             // Add HP/s per stack
-            args.baseRegenAdd += MathUtility.GetLinearWithExtraStacking(regenBonusPerStack, regenBonusPerExtraStack, itemCount);
+            args.baseRegenAdd += MathUtility.GetLinearWithExtraStacking(regenBonus, regenExtraBonus, itemCount);
         }
     }
 }

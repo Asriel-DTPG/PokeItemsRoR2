@@ -45,13 +45,12 @@ namespace PokeItems.Items
                 if (itemCount > 0)
                 {
                     // Check if custom values are enabled
-                    if (ConfigManager.CustomValuesEnabled.Value)
-                    {
-                        goldMulPercentPerStack = ConfigManager.AmuletCoin_GoldMulPercentPerStack.Value;
-                    }
+                    float goldMul = ConfigManager.GetFloatValue(
+                        ConfigManager.AmuletCoin_GoldMulPercentPerStack,
+                        goldMulPercentPerStack);
 
                     // Set multiplier of the gold gain
-                    float multiplier = 1f + (MathUtility.GetLinearStacking(goldMulPercentPerStack, itemCount) / 100f);
+                    float multiplier = 1f + (MathUtility.GetLinearStacking(goldMul, itemCount) / 100f);
 
                     // Multiply the gold gain
                     self.goldReward = (uint)Mathf.RoundToInt(self.goldReward * multiplier);

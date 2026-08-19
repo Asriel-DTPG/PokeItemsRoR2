@@ -47,16 +47,15 @@ namespace PokeItems.Items
                 return;
 
             // Check if custom values are enabled
-            if (ConfigManager.CustomValuesEnabled.Value)
-            {
-                hpThresholdPercent = ConfigManager.AirBalloon_HpThresholdPercent.Value;
-            }
+            float hpThreshold = ConfigManager.GetFloatValue(
+                ConfigManager.AirBalloon_HpThresholdPercent,
+                hpThresholdPercent);
 
             // Grab the HP fraction
             float hpFraction = self.combinedHealth / self.fullCombinedHealth;
 
             // Check against the HP threshold of the item
-            if (hpFraction <= (hpThresholdPercent / 100f))
+            if (hpFraction <= (hpThreshold / 100f))
             {
                 // Pop the balloons
                 PopAllBalloons(body.inventory);
@@ -114,17 +113,18 @@ namespace PokeItems.Items
             if (self.velocity.y < 0f)
             {
                 // Check if custom values are enabled
-                if (ConfigManager.CustomValuesEnabled.Value)
-                {
-                    fallSpeedLimit = ConfigManager.AirBalloon_FallSpeedLimit.Value;
-                    fallPercentReductionPerExtraStack = ConfigManager.AirBalloon_FallPercentReductionPerExtraStack.Value;
-                }
+                float fallLimit = ConfigManager.GetFloatValue(
+                    ConfigManager.AirBalloon_FallSpeedLimit,
+                    fallSpeedLimit);
+                float fallLimitReduction = ConfigManager.GetFloatValue(
+                    ConfigManager.AirBalloon_FallPercentReductionPerExtraStack,
+                    fallPercentReductionPerExtraStack);
 
                 // Grab the percentage reduction from extra stacks
-                float reductionMultiplier = MathUtility.GetExponentialPercentReductionStacking(fallPercentReductionPerExtraStack, itemCount - 1);
+                float reductionMultiplier = MathUtility.GetExponentialPercentReductionStacking(fallLimitReduction, itemCount - 1);
                 
                 // Get the total terminalvelocity
-                float terminalVelocity = -fallSpeedLimit * reductionMultiplier;
+                float terminalVelocity = -fallLimit * reductionMultiplier;
 
                 // Check if velocity goes beyond terminal velocity, and if so, set it to terminal velocity to prevent it from going any further
                 if (self.velocity.y < terminalVelocity)

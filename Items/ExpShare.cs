@@ -53,14 +53,15 @@ namespace PokeItems.Items
                 if (itemCount > 0)
                 {
                     // Check if custom values are enabled
-                    if (ConfigManager.CustomValuesEnabled.Value)
-                    {
-                        expPercentBonusPerStack = ConfigManager.ExpShare_ExpPercentBonusPerStack.Value;
-                        expPercentBonusPerExtraStack = ConfigManager.ExpShare_ExpPercentBonusPerExtraStack.Value;
-                    }
+                    float expBonus = ConfigManager.GetFloatValue(
+                        ConfigManager.ExpShare_ExpPercentBonusPerStack,
+                        expPercentBonusPerStack);
+                    float expExtraBonus = ConfigManager.GetFloatValue(
+                        ConfigManager.ExpShare_ExpPercentBonusPerExtraStack,
+                        expPercentBonusPerExtraStack);
 
                     // Set multiplier of the EXP gain
-                    float multiplier = 1f + (MathUtility.GetLinearWithExtraStacking(expPercentBonusPerStack, expPercentBonusPerExtraStack, itemCount)) / 100f;
+                    float multiplier = 1f + (MathUtility.GetLinearWithExtraStacking(expBonus, expExtraBonus, itemCount)) / 100f;
 
                     // Multiply the EXP gain
                     experience = (ulong)(experience * multiplier);
@@ -117,10 +118,9 @@ namespace PokeItems.Items
                 return;
 
             // Check if custom values are enabled
-            if (ConfigManager.CustomValuesEnabled.Value)
-            {
-                expRateBonus = ConfigManager.ExpShare_ExpRateBonus.Value;
-            }
+            float expRate = ConfigManager.GetFloatValue(
+                ConfigManager.ExpShare_ExpRateBonus,
+                expRateBonus);
 
             // Get amount of EXP required
             uint level = (uint)Mathf.FloorToInt(body.level);
@@ -129,7 +129,7 @@ namespace PokeItems.Items
             ulong requiredEXP = nextXP - currentXP;
 
             // Multiply required EXP into bonus percent (convert amount into per second)
-            ulong experience = (ulong)(requiredEXP * (expRateBonus / 100f / 60f));
+            ulong experience = (ulong)(requiredEXP * (expRate / 100f / 60f));
 
             // If experience is too low, compensate for ceiling round
             if (experience <= 0)

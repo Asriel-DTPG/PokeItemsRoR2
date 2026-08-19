@@ -2,7 +2,7 @@
 
 - Third alpha release.
 - Risk Of Options is now compatible with this mod, allowing options to be visible in-game via the mod menu.
-- FlameOrb
+- FlameOrb (Originally I wanted to make this as equally effective as Tri-Tip Dagger. However, with the inclusion of Ignition Tank, I decided to nerf it as a slight trade-off)
     - Reduced proc percent: <b>10%</b> -> <b>7%</b>
 - EXP Share
     - EXP rate amount now shows per minute instead of second. Amount remains the same.
@@ -19,6 +19,8 @@
     - Language file adjusted
     - UnfinishedItemsEnabled from cfg is now saved in a variable so that it remains unchanged from RiskOfOptions until restart
     - Readjusted ExponentialPercentReductionStacking formula
+    - ConfigManager has been optimized to better handle switching between custom and default values
+    - All item classes (except early-access) have been adjusted to adhere with the new optimization
 
 ## New Models and Re-Rendered Icons - 0.2.1
 
