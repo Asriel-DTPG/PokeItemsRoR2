@@ -1,3 +1,7 @@
+## 0.3 Hotfix - 0.3.1
+
+- Fixed a compilation bug where Risk Of Options being disabled or not installed would crash the mod.
+
 ## Risk Of Options Support and Choice Items - 0.3.0
 
 - Third alpha release.

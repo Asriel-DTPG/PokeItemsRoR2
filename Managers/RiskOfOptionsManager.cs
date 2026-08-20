@@ -2,6 +2,7 @@
 using BepInEx.Bootstrap;
 using BepInEx.Configuration;
 using System;
+using System.Runtime.CompilerServices;
 using RiskOfOptions;
 using RiskOfOptions.Options;
 using RiskOfOptions.OptionConfigs;
@@ -27,13 +28,20 @@ namespace PokeItems.Managers
             // Ignore all of this if Risk Of Options is not installed
             if (!Chainloader.PluginInfos.ContainsKey(RiskOfOptionsGUID))
                 return;
-            
+
+            InitializeRiskOfOptions();
+        }
+
+        // This will prevent the attempt to resolve dll for RiskOfOptions before confirming that the plugin exists
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        private static void InitializeRiskOfOptions()
+        {
             try
             {
                 // Attempt to add icon
                 Sprite icon = AssetManager.bundle.LoadAsset<Sprite>(IconName + ".png");
                 ModSettingsManager.SetModIcon(icon);
-                
+
                 // Attempt to register options according to ConfigManager
                 RegisterOptions();
 
