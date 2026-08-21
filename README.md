@@ -3,8 +3,9 @@ This is a work-in-progress mod that adds Pokemon items into Risk of Rain 2.
 Since this mod is still in development, it will continue to change and will
 be balanced throughout the patches.
 
-## Inspiration
+## Inspiration/Assets
 - [<b>TooManyItems</b> by shirograhm](https://thunderstore.io/c/riskofrain2/p/shirograhm/TooManyItems/)
+- [<b>Lock SVG Vector</b> by SVG Repo](https://staging.svgrepo.com/svg/99424/lock)
 
 ## Items
 <table>
@@ -94,7 +95,7 @@ be balanced throughout the patches.
 	</tr>
 	<tr>
 		<td>
-			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Textures/ChoiceBand.png" width="192px"/>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Textures/ChoiceBand.png" width="192px"/>
 		</td>
 		<td>
 			<b>Choice Band</b>
@@ -108,7 +109,7 @@ be balanced throughout the patches.
 	</tr>
 	<tr>
 		<td>
-			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Textures/ChoiceScarf.png" width="192px"/>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Textures/ChoiceScarf.png" width="192px"/>
 		</td>
 		<td>
 			<b>Choice Scarf</b>
@@ -122,7 +123,7 @@ be balanced throughout the patches.
 	</tr>
 	<tr>
 		<td>
-			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Textures/ChoiceSpecs.png" width="192px"/>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Textures/ChoiceSpecs.png" width="192px"/>
 		</td>
 		<td>
 			<b>Choice Specs</b>
@@ -132,6 +133,55 @@ be balanced throughout the patches.
 		</td>
 		<td>
 			Deal <b>100</b>% (+<b>50</b>% per stack) more damage for Utility and Special skills. Choosing a skill will create a choice lock for that skill, and all other skills will recharge <b>15</b>% (+<b>15</b>% per stack) slower. Choice lock resets next stage or respawn.
+		</td>
+	</tr>
+</table>
+
+## Buffs/Debuffs
+This also introduces new buffs and debuffs along with this mod.
+<table>
+	<tr>
+		<td>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Buffs/PrimaryLock.png" width="128px"/>
+		</td>
+		<td>
+			<b>Primary Lock</b>
+		</td>
+		<td>
+			All skill cooldowns (except Primary) have slower recharge. The effect is strengthened based on extra number of choice items.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Buffs/SecondaryLock.png" width="128px"/>
+		</td>
+		<td>
+			<b>Secondary Lock</b>
+		</td>
+		<td>
+			All skill cooldowns (except Secondary) have slower recharge. The effect is strengthened based on extra number of choice items.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Buffs/SpecialLock.png" width="128px"/>
+		</td>
+		<td>
+			<b>Special Lock</b>
+		</td>
+		<td>
+			All skill cooldowns (except Special) have slower recharge. The effect is strengthened based on extra number of choice items.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Buffs/UtilityLock.png" width="128px"/>
+		</td>
+		<td>
+			<b>Utility Lock</b>
+		</td>
+		<td>
+			All skill cooldowns (except Utility) have slower recharge. The effect is strengthened based on extra number of choice items.
 		</td>
 	</tr>
 </table>
