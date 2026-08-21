@@ -50,7 +50,7 @@ namespace PokeItems.Items
                 movementBonusPerExtraStack);
 
             // Calculate bonus percent of movement
-            float bonusPercent = MathUtility.GetLinearWithExtraStacking(movementBonus, moveBonus, moveExtraBonus);
+            float bonusPercent = MathUtility.GetLinearWithExtraStacking(moveBonus, moveExtraBonus, itemCount);
 
             // Apply movement bonus
             args.moveSpeedMultAdd += bonusPercent / 100f;
