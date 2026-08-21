@@ -20,6 +20,7 @@ namespace PokeItems.Items
         public static float expRateBonus = 30f; // Passive EXP percent per minute (scaled by requirement)
 
         private static readonly Dictionary<CharacterMaster, float> timersDict = new();
+        private static readonly Dictionary<CharacterMaster, float>  prevRunTimesDict = new();
         private static bool isPassiveEXP = false;
 
         public static void Init()
@@ -89,18 +90,44 @@ namespace PokeItems.Items
             // Get the count of how many of this item is in the inventory
             int itemCount = self.inventory.GetItemCountEffective(itemDef);
 
-            // Ignore this if this item is not in inventory
-            if (itemCount <= 0)
+            // Check if EXP Share exists in inventory
+            bool hasEXPShare = itemCount > 0;
+
+            Run run = Run.instance;
+
+            // Check if this is a viable run
+            if (run == null)
                 return;
+
+            // Check if the stage is a purely timed environment
+            SceneDef sceneDef = SceneCatalog.GetSceneDefForCurrentScene();
+            bool isTimedStage = sceneDef != null && sceneDef.sceneType == SceneType.Stage;
 
             CharacterMaster master = self.master;
 
-            // Save personal timer to dictionary list
-            if (!timersDict.ContainsKey(master))
-                timersDict[master] = 0f;
+            float currentRunTime = run.fixedTime;
 
+            // If player does not have EXP Share or is in an untimed stage, reset timer (if dict is empty, reset now)
+            if (!prevRunTimesDict.ContainsKey(master) || (!isTimedStage || !hasEXPShare))
+            {
+                ResetTimer(master, currentRunTime);
+                return;
+            }
+
+            float previousRunTime = prevRunTimesDict[master];
+            
+            // Calculate how much run time has passed
+            float deltaTime = currentRunTime - previousRunTime;
+
+            // Update stored run time
+            prevRunTimesDict[master] = currentRunTime;
+
+            // Check if run time has not progressed
+            if (deltaTime <= 0f)
+                return;
+            
             // Increment timer
-            timersDict[master] += Time.fixedDeltaTime;
+            timersDict[master] += deltaTime;
 
             // Check if timer has reached a second. If so, decrement by a second and initiate passive gain
             if (timersDict[master] >= 1f)
@@ -146,12 +173,20 @@ namespace PokeItems.Items
             isPassiveEXP = false;
         }
 
+        // Initialize or reset tracking for prev run time and personal timer
+        private static void ResetTimer(CharacterMaster master, float currTime)
+        {
+            prevRunTimesDict[master] = currTime;
+            timersDict[master] = 0f;
+        }
+
         // Destroy reference from dictionary if it no longer exists
         private static void DictionaryDestroy(
             On.RoR2.CharacterMaster.orig_OnDestroy orig,
             CharacterMaster self)
         {
             timersDict.Remove(self);
+            prevRunTimesDict.Remove(self);
             orig(self);
         }
     }
