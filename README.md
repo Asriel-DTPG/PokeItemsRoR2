@@ -1,7 +1,7 @@
 # PokeItems - RoR2
-Pokemon items in Risk of Rain 2.
-
-[This is still a work-in-progress mod, so this mod will continue to change and will be balanced throughout the patches]
+This is a work-in-progress mod that adds Pokemon items into Risk of Rain 2.
+Since this mod is still in development, it will continue to change and will
+be balanced throughout the patches.
 
 ## Inspiration
 - [<b>TooManyItems</b> by shirograhm](https://thunderstore.io/c/riskofrain2/p/shirograhm/TooManyItems/)
@@ -92,13 +92,10 @@ Pokemon items in Risk of Rain 2.
 			Gain <b>200</b>% (+<b>100%</b> per stack) more EXP. Also gain <b>30</b>% required EXP per minute (Early levels offer more EXP due to rounding).
 		</td>
 	</tr>
-</table>
-
-## Early-Access Items
-Items within this section are currently in development and so will include default sprites and models (mystery question marks).
-
-<table>
 	<tr>
+		<td>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Textures/ChoiceBand.png" width="192px"/>
+		</td>
 		<td>
 			<b>Choice Band</b>
 		</td>
@@ -111,6 +108,9 @@ Items within this section are currently in development and so will include defau
 	</tr>
 	<tr>
 		<td>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Textures/ChoiceScarf.png" width="192px"/>
+		</td>
+		<td>
 			<b>Choice Scarf</b>
 		</td>
 		<td>
@@ -122,6 +122,9 @@ Items within this section are currently in development and so will include defau
 	</tr>
 	<tr>
 		<td>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Textures/ChoiceSpecs.png" width="192px"/>
+		</td>
+		<td>
 			<b>Choice Specs</b>
 		</td>
 		<td>
@@ -132,6 +135,11 @@ Items within this section are currently in development and so will include defau
 		</td>
 	</tr>
 </table>
+
+## Early-Access Items
+Items within this section are currently in development and so will include default sprites and models (mystery question marks).
+
+No early-access items are listed at this time.
 
 ## Spawn Mode
 Press the following keys to spawn the item (early-access items will need to be enabled first):
