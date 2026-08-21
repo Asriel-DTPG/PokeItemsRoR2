@@ -70,8 +70,16 @@ namespace PokeItems.Items
                 return;
             }
 
+            // Check if custom values are enabled
+            float damBonus = ConfigManager.GetFloatValue(
+                ConfigManager.ChoiceBand_DamageBonus,
+                damageBonus);
+            float damExtraBonus = ConfigManager.GetFloatValue(
+                ConfigManager.ChoiceBand_DamageBonusPerExtraStack,
+                damageBonusPerExtraStack);
+
             // Get bonus percentage to then multiply damage
-            float bonusPercent = MathUtility.GetLinearWithExtraStacking(damageBonus, damageBonusPerExtraStack, itemCount);
+            float bonusPercent = MathUtility.GetLinearWithExtraStacking(damBonus, damExtraBonus, itemCount);
             float multiplier = 1f + bonusPercent / 100f;
             damageInfo.damage *= multiplier;
 

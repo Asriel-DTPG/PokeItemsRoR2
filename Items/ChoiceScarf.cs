@@ -41,8 +41,16 @@ namespace PokeItems.Items
             if (itemCount <= 0)
                 return;
 
+            // Check if custom values are enabled
+            float moveBonus = ConfigManager.GetFloatValue(
+                ConfigManager.ChoiceScarf_MovementBonus,
+                movementBonus);
+            float moveExtraBonus = ConfigManager.GetFloatValue(
+                ConfigManager.ChoiceScarf_MovementBonusPerExtraStack,
+                movementBonusPerExtraStack);
+
             // Calculate bonus percent of movement
-            float bonusPercent = MathUtility.GetLinearWithExtraStacking(movementBonus, movementBonusPerExtraStack, itemCount);
+            float bonusPercent = MathUtility.GetLinearWithExtraStacking(movementBonus, moveBonus, moveExtraBonus);
 
             // Apply movement bonus
             args.moveSpeedMultAdd += bonusPercent / 100f;

@@ -215,6 +215,84 @@ namespace PokeItems.Managers
                     }
                 )
             );
+
+            // Choice Items
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.ChoiceItems_CooldownPenaltyPerStack,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 100f
+                    }
+                )
+            );
+
+            // Choice Band
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.ChoiceBand_DamageBonus,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 1000f
+                    }
+                )
+            );
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.ChoiceBand_DamageBonusPerExtraStack,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 1000f
+                    }
+                )
+            );
+
+            // Choice Specs
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.ChoiceSpecs_DamageBonus,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 1000f
+                    }
+                )
+            );
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.ChoiceSpecs_DamageBonusPerExtraStack,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 1000f
+                    }
+                )
+            );
+
+            // Choice Scarf
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.ChoiceScarf_MovementBonus,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 1000f
+                    }
+                )
+            );
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.ChoiceScarf_MovementBonusPerExtraStack,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 1000f
+                    }
+                )
+            );
         }
     }
 }

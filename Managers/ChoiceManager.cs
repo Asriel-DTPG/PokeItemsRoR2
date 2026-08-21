@@ -11,7 +11,7 @@ namespace PokeItems.Managers
 {
     internal static class ChoiceManager
     {
-        public static float cooldownPenaltyPerStack = 15f;
+        public static float cooldownPenaltyPerStack = 20f;
         public static float cooldownPenaltyPercentLimit = 1f;
 
         private static readonly Dictionary<CharacterBody, GenericSkill> chosenSkills = new();
@@ -89,8 +89,13 @@ namespace PokeItems.Managers
                 return;
             }
 
-            // Calculate percentage reduction exponentially
-            float multiplier = MathUtility.GetExponentialPercentReductionStacking(cooldownPenaltyPerStack, Math.Max(2, choiceStacks));
+            // Check if custom values are enabled
+            float cooldownPenalty = ConfigManager.GetFloatValue(
+                ConfigManager.ChoiceItems_CooldownPenaltyPerStack,
+                cooldownPenaltyPerStack);
+
+            // Calculate percentage reduction exponentially (Choice locks themselves can still cause effects without choice items)
+            float multiplier = MathUtility.GetExponentialPercentReductionStacking(cooldownPenalty, Math.Max(1, choiceStacks));
 
             // Set limit to multiplier
             multiplier = Mathf.Max(multiplier, cooldownPenaltyPercentLimit / 100f);

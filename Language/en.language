@@ -16,8 +16,8 @@
     "Item_FlameOrb_Lore": "Lore not found...",
 
     "Item_AirBalloon_Name": "Air Balloon",
-    "Item_AirBalloon_Pickup": "Limits your falling speed, but will pop at low health.",
-    "Item_AirBalloon_Desc": "Limits your <style=cIsUtility>falling speed</style> by <style=cIsUtility>{0} m/s</style> <style=cStack>(-{1}% per stack)</style>. However, it will <style=cDeath>pop</style> when under <style=cIsHealth>{2}% HP</style>.",
+    "Item_AirBalloon_Pickup": "Limit falling speed, but will pop at low health.",
+    "Item_AirBalloon_Desc": "Limit <style=cIsUtility>falling speed</style> by <style=cIsUtility>{0} m/s</style> <style=cStack>(-{1}% per stack)</style>. However, it will <style=cDeath>pop</style> when under <style=cIsHealth>{2}% HP</style>.",
     "Item_AirBalloon_Lore": "Lore not found...",
 
     "Item_AirBalloonBroken_Name": "Air Balloon (Popped)",
@@ -41,17 +41,17 @@
     "Item_HeavyDutyBoots_Lore": "Lore not found...",
 
     "Item_ChoiceBand_Name": "Choice Band",
-    "Item_ChoiceBand_Pickup": "Deal more Primary and Secondary damage... <style=cDeath>BUT all non-preferred skills recharges slower.</style>",
+    "Item_ChoiceBand_Pickup": "Deal more Primary and Secondary damage... <style=cDeath>BUT all non-preferred skills recharge slower.</style>",
     "Item_ChoiceBand_Desc": "Deal <style=cIsDamage>{0}%</style> <style=cStack>(+{1}% per stack)</style> more damage for Primary and Secondary skills. Choosing a skill will create a choice lock for that skill, and all other skills will recharge <style=cIsUtility>{2}%</style> <style=cStack>(+{2}% per stack)</style> slower. Choice lock resets next stage or respawn.",
     "Item_ChoiceBand_Lore": "Lore not found...",
 
     "Item_ChoiceSpecs_Name": "Choice Specs",
-    "Item_ChoiceSpecs_Pickup": "Deal more Utility and Special damage... <style=cDeath>BUT all non-preferred skills recharges slower.</style>",
+    "Item_ChoiceSpecs_Pickup": "Deal more Utility and Special damage... <style=cDeath>BUT all non-preferred skills recharge slower.</style>",
     "Item_ChoiceSpecs_Desc": "Deal <style=cIsDamage>{0}%</style> <style=cStack>(+{1}% per stack)</style> more damage for Utility and Special skills. Choosing a skill will create a choice lock for that skill, and all other skills will recharge <style=cIsUtility>{2}%</style> <style=cStack>(+{2}% per stack)</style> slower. Choice lock resets next stage or respawn.",
     "Item_ChoiceSpecs_Lore": "Lore not found...",
 
     "Item_ChoiceScarf_Name": "Choice Scarf",
-    "Item_ChoiceScarf_Pickup": "Increase movement speed... <style=cDeath>BUT all non-preferred skills recharges slower.</style>",
+    "Item_ChoiceScarf_Pickup": "Increase movement speed... <style=cDeath>BUT all non-preferred skills recharge slower.</style>",
     "Item_ChoiceScarf_Desc": "Increase movement speed by <style=cIsUtility>{0}%</style> <style=cStack>(+{1}% per stack)</style>. Choosing a skill will create a choice lock for that skill, and all other skills will recharge <style=cIsUtility>{2}%</style> <style=cStack>(+{2}% per stack)</style> slower. Choice lock resets next stage or respawn.",
     "Item_ChoiceScarf_Lore": "Lore not found..."
   }

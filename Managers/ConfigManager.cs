@@ -37,6 +37,21 @@ namespace PokeItems.Managers
         public static ConfigEntry<float> HeavyDutyBoots_ArmorBonusPerStack;
         public static ConfigEntry<float> HeavyDutyBoots_ArmorBonusPerExtraStack;
 
+        // CHOICE ITEMS
+        public static ConfigEntry<float> ChoiceItems_CooldownPenaltyPerStack;
+
+        // CHOICE BAND
+        public static ConfigEntry<float> ChoiceBand_DamageBonus;
+        public static ConfigEntry<float> ChoiceBand_DamageBonusPerExtraStack;
+
+        // CHOICE SPECS
+        public static ConfigEntry<float> ChoiceSpecs_DamageBonus;
+        public static ConfigEntry<float> ChoiceSpecs_DamageBonusPerExtraStack;
+
+        // CHOICE SCARF
+        public static ConfigEntry<float> ChoiceScarf_MovementBonus;
+        public static ConfigEntry<float> ChoiceScarf_MovementBonusPerExtraStack;
+
         public static void Init()
         {
             // Get the config file
@@ -150,6 +165,56 @@ namespace PokeItems.Managers
                 "Armor Bonus Per Extra Stack",
                 HeavyDutyBoots.armorBonusPerExtraStack,
                 "How long the burn debuff lasts."
+            );
+
+            // CHOICE ITEMS CONFIG
+            ChoiceItems_CooldownPenaltyPerStack = Config.Bind(
+                "Choice Items",
+                "Cooldown Penalty Per Stack",
+                ChoiceManager.cooldownPenaltyPerStack,
+                "How slow the non-preferred skill cooldown recharges."
+            );
+
+            // CHOICE BAND CONFIG
+            ChoiceBand_DamageBonus = Config.Bind(
+                "Choice Band",
+                "Initial Damage Bonus",
+                ChoiceBand.damageBonus,
+                "Initial damage bonus percent for Primary and Secondary skills."
+            );
+            ChoiceBand_DamageBonusPerExtraStack = Config.Bind(
+                "Choice Band",
+                "Damage Bonus Per Extra Stack",
+                ChoiceBand.damageBonusPerExtraStack,
+                "Damage bonus percent for Primary and Secondary skills per extra stack."
+            );
+
+            // CHOICE SPECS CONFIG
+            ChoiceSpecs_DamageBonus = Config.Bind(
+                "Choice Specs",
+                "Initial Damage Bonus",
+                ChoiceSpecs.damageBonus,
+                "Initial damage bonus percent for Utility and Special skills."
+            );
+            ChoiceSpecs_DamageBonusPerExtraStack = Config.Bind(
+                "Choice Specs",
+                "Damage Bonus Per Extra Stack",
+                ChoiceSpecs.damageBonusPerExtraStack,
+                "Damage bonus percent for Utility and Special skills per extra stack."
+            );
+
+            // CHOICE SCARF CONFIG
+            ChoiceScarf_MovementBonus = Config.Bind(
+                "Choice Scarf",
+                "Initial Movement Bonus",
+                ChoiceScarf.movementBonus,
+                "Initial movement bonus percent."
+            );
+            ChoiceScarf_MovementBonusPerExtraStack = Config.Bind(
+                "Choice Scarf",
+                "Movement Bonus Per Extra Stack",
+                ChoiceScarf.movementBonusPerExtraStack,
+                "Movement bonus percent per extra stack."
             );
         }
 

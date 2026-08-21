@@ -1,9 +1,13 @@
 ## Choice Models and Icons - 0.3.2
 
 - Choice Band, Choice Specs and Choice Scarf
+<br>(About the downside increase, this is to encourage careful strategies when sacrificing non-preferred skills for damage and/or movement)
     - They are now fully accessible with added models and icons.
+    - Increased cooldown penalty: <b>15%</b> -> <b>20%</b>.
 - EXP Share
-    - Fixed a bug where players would continue to gain EXP in environments which time does not elapse
+    - Fixed a bug where players would continue to gain EXP in environments which time does not elapse.
+- Adjusted language descriptions.
+- Cfg support has now been implemented for Choice Band, Choice Specs, and Choice Scarf.
 
 ## 0.3 Hotfix - 0.3.1
 
@@ -13,7 +17,8 @@
 
 - Third alpha release.
 - Risk Of Options is now compatible with this mod, allowing options to be visible in-game via the mod menu.
-- FlameOrb (Originally I wanted to make this as equally effective as Tri-Tip Dagger. However, with the inclusion of Ignition Tank, I decided to nerf it as a slight trade-off)
+- FlameOrb
+<br>(Originally I wanted to make this as equally effective as Tri-Tip Dagger. However, with the inclusion of Ignition Tank, I decided to nerf it as a slight trade-off)
     - Reduced proc percent: <b>10%</b> -> <b>7%</b>
 - EXP Share
     - EXP rate amount now shows per minute instead of second. Amount remains the same.
