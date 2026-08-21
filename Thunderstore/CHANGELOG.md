@@ -8,6 +8,8 @@
     - Fixed a bug where players would continue to gain EXP in environments which time does not elapse.
 - Adjusted language descriptions.
 - Cfg support has now been implemented for Choice Band, Choice Specs, and Choice Scarf.
+- New Buffs/Debuffs section has been added to explain the new buffs added into the mod.
+- New credit added into Inspirations/Assets.
 
 ## 0.3 Hotfix - 0.3.1
 
