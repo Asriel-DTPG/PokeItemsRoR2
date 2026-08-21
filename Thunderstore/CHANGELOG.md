@@ -1,3 +1,10 @@
+## Choice Models and Icons - 0.3.2
+
+- Choice Band, Choice Specs and Choice Scarf
+    - They are now fully accessible with added models and icons.
+- EXP Share
+    - Fixed a bug where players would continue to gain EXP in environments which time does not elapse
+
 ## 0.3 Hotfix - 0.3.1
 
 - Fixed a compilation bug where Risk Of Options being disabled or not installed would crash the mod.
