@@ -26,7 +26,7 @@ namespace PokeItems
         public const string PluginGUID = PluginAuthor + "." + PluginName;
         public const string PluginAuthor = "DTPGStudios";
         public const string PluginName = "PokeItems";
-        public const string PluginVersion = "0.3.2";
+        public const string PluginVersion = "0.3.3";
 
         public static PluginInfo PInfo { get; private set; }
         public static ConfigFile PConfig { get; private set; }
@@ -69,17 +69,18 @@ namespace PokeItems
             ExpShare.Init();
             AmuletCoin.Init();
             HeavyDutyBoots.Init();
+            ChoiceBuffs.Init();
+            ChoiceManager.Init();
+            ChoiceBand.Init();
+            ChoiceSpecs.Init();
+            ChoiceScarf.Init();
 
             isUnfinishedEnabled = ConfigManager.UnfinishedItemsEnabled.Value;
 
             // Unfinished Items
             if (isUnfinishedEnabled)
             {
-                ChoiceBuffs.Init();
-                ChoiceManager.Init();
-                ChoiceBand.Init();
-                ChoiceSpecs.Init();
-                ChoiceScarf.Init();
+                
             }
 
             // Log that the mod is ready
