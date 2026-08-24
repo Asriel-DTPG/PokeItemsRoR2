@@ -1,3 +1,7 @@
+## 0.3.2 Hotfix - 0.3.3
+
+- Choice items are now out of the unfinished list as they should be. They are NOW fully accessible.
+
 ## Choice Models and Icons - 0.3.2
 
 - Choice Band, Choice Specs and Choice Scarf
