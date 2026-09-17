@@ -26,7 +26,7 @@ namespace PokeItems
         public const string PluginGUID = PluginAuthor + "." + PluginName;
         public const string PluginAuthor = "DTPGStudios";
         public const string PluginName = "PokeItems";
-        public const string PluginVersion = "0.3.3";
+        public const string PluginVersion = "0.4.0";
 
         public static PluginInfo PInfo { get; private set; }
         public static ConfigFile PConfig { get; private set; }
@@ -34,7 +34,7 @@ namespace PokeItems
         public static ExpansionDef sotvDLC;
         public static ExpansionDef sotsDLC;
 
-        private static bool isUnfinishedEnabled;
+        public static bool isUnfinishedEnabled { get; private set; }
 
         // The Awake() method is run at the very start when the game is initialized.
         public void Awake()
@@ -85,128 +85,6 @@ namespace PokeItems
 
             // Log that the mod is ready
             Log.Message("PokeItems mod is ready!");
-        }
-
-        // The Update() method is run on every frame of the game.
-        private void Update()
-        {
-            // Ignore everything in update if Spawn Mode is disabled.
-            if (!ConfigManager.SpawnModeEnabled.Value)
-                return;
-            
-            // This if statement checks if the player has currently pressed the desired key.
-
-            // Air Balloon
-            if (Input.GetKeyDown(KeyCode.F2))
-            {
-                // Get the player body to use a position:
-                var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
-
-                // And then drop our defined item in front of the player.
-
-                Log.Info($"Player pressed key. Spawning custom item at coordinates {transform.position}");
-                PickupDropletController.CreatePickupDroplet(PickupCatalog.FindPickupIndex(AirBalloon.itemDef.itemIndex), transform.position, transform.forward * 30f);
-            }
-
-            // Flame Orb
-            if (Input.GetKeyDown(KeyCode.F3))
-            {
-                // Get the player body to use a position:
-                var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
-
-                // And then drop our defined item in front of the player.
-
-                Log.Info($"Player pressed key. Spawning custom item at coordinates {transform.position}");
-                PickupDropletController.CreatePickupDroplet(PickupCatalog.FindPickupIndex(FlameOrb.itemDef.itemIndex), transform.position, transform.forward * 30f);
-            }
-
-            // Leftovers
-            if (Input.GetKeyDown(KeyCode.F4))
-            {
-                // Get the player body to use a position:
-                var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
-
-                // And then drop our defined item in front of the player.
-
-                Log.Info($"Player pressed key. Spawning custom item at coordinates {transform.position}");
-                PickupDropletController.CreatePickupDroplet(PickupCatalog.FindPickupIndex(Leftovers.itemDef.itemIndex), transform.position, transform.forward * 30f);
-            }
-
-            // EXP Share
-            if (Input.GetKeyDown(KeyCode.F5))
-            {
-                // Get the player body to use a position:
-                var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
-
-                // And then drop our defined item in front of the player.
-
-                Log.Info($"Player pressed key. Spawning custom item at coordinates {transform.position}");
-                PickupDropletController.CreatePickupDroplet(PickupCatalog.FindPickupIndex(ExpShare.itemDef.itemIndex), transform.position, transform.forward * 30f);
-            }
-
-            // Amulet Coin
-            if (Input.GetKeyDown(KeyCode.F6))
-            {
-                // Get the player body to use a position:
-                var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
-
-                // And then drop our defined item in front of the player.
-
-                Log.Info($"Player pressed key. Spawning custom item at coordinates {transform.position}");
-                PickupDropletController.CreatePickupDroplet(PickupCatalog.FindPickupIndex(AmuletCoin.itemDef.itemIndex), transform.position, transform.forward * 30f);
-            }
-
-            // Heavy Duty Boots
-            if (Input.GetKeyDown(KeyCode.F7))
-            {
-                // Get the player body to use a position:
-                var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
-
-                // And then drop our defined item in front of the player.
-
-                Log.Info($"Player pressed key. Spawning custom item at coordinates {transform.position}");
-                PickupDropletController.CreatePickupDroplet(PickupCatalog.FindPickupIndex(HeavyDutyBoots.itemDef.itemIndex), transform.position, transform.forward * 30f);
-            }
-
-            // Unfinished items
-            if (isUnfinishedEnabled)
-            {
-                // Choice Band
-                if (Input.GetKeyDown(KeyCode.F8))
-                {
-                    // Get the player body to use a position:
-                    var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
-
-                    // And then drop our defined item in front of the player.
-
-                    Log.Info($"Player pressed key. Spawning custom item at coordinates {transform.position}");
-                    PickupDropletController.CreatePickupDroplet(PickupCatalog.FindPickupIndex(ChoiceBand.itemDef.itemIndex), transform.position, transform.forward * 30f);
-                }
-
-                // Choice Specs
-                if (Input.GetKeyDown(KeyCode.F9))
-                {
-                    // Get the player body to use a position:
-                    var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
-
-                    // And then drop our defined item in front of the player.
-
-                    Log.Info($"Player pressed key. Spawning custom item at coordinates {transform.position}");
-                    PickupDropletController.CreatePickupDroplet(PickupCatalog.FindPickupIndex(ChoiceSpecs.itemDef.itemIndex), transform.position, transform.forward * 30f);
-                }
-
-                // Choice Scarf
-                if (Input.GetKeyDown(KeyCode.F10))
-                {
-                    // Get the player body to use a position:
-                    var transform = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
-
-                    // And then drop our defined item in front of the player.
-
-                    Log.Info($"Player pressed key. Spawning custom item at coordinates {transform.position}");
-                    PickupDropletController.CreatePickupDroplet(PickupCatalog.FindPickupIndex(ChoiceScarf.itemDef.itemIndex), transform.position, transform.forward * 30f);
-                }
-            }
         }
     }
 }
