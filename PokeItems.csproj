@@ -31,6 +31,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Reference Include="LookingGlass">
+	    <HintPath>bin\DropPod-LookingGlass-1.15.2\plugins\LookingGlass\LookingGlass.dll</HintPath>
+	  </Reference>
 	  <Reference Include="RiskOfOptions">
 	    <HintPath>bin\Rune580-Risk_Of_Options-2.8.5\plugins\RiskOfOptions\RiskOfOptions.dll</HintPath>
 	  </Reference>

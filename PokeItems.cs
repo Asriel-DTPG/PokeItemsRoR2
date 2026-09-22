@@ -20,6 +20,7 @@ namespace PokeItems
 
     // Optional Dependencies
     [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("droppod.lookingglass", BepInDependency.DependencyFlags.SoftDependency)]
 
     public class PokeItems : BaseUnityPlugin
     {
