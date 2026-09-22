@@ -10,8 +10,7 @@ namespace PokeItems
         public static int pageNo = 0;
         private static int maxPages = 2;
 
-        // The Update() method is run on every frame of the game.
-        private void Update()
+        public static void Update()
         {
             // Ignore everything in update if Spawn Mode is disabled.
             if (!ConfigManager.SpawnModeEnabled.Value)

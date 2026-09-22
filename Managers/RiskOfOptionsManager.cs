@@ -29,6 +29,7 @@ namespace PokeItems.Managers
             if (!Chainloader.PluginInfos.ContainsKey(RiskOfOptionsGUID))
                 return;
 
+            Log.Info("Risk of Options detected. Adding PokeItems configuration to mod menu.");
             InitializeRiskOfOptions();
         }
 
@@ -45,7 +46,7 @@ namespace PokeItems.Managers
                 // Attempt to register options according to ConfigManager
                 RegisterOptions();
 
-                Log.Info("Risk of Options detected. Added PokeItems configuration to mod menu.");
+                Log.Info("Risk of Options integration initialized successfully.");
             }
             catch (Exception e)
             {

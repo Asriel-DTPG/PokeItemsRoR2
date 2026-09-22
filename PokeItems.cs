@@ -84,11 +84,17 @@ namespace PokeItems
             // Unfinished Items
             if (isUnfinishedEnabled)
             {
-                
+
             }
 
             // Log that the mod is ready
             Log.Message("PokeItems mod is ready!");
+        }
+
+        // The Update() method is run on every frame of the game.
+        public void Update()
+        {
+            SpawnMode.Update();
         }
     }
 }

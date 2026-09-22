@@ -15,6 +15,7 @@ namespace PokeItems.Managers
     {
         private const string LookingGlassGUID = "droppod.lookingglass";
         private static bool initialized = false;
+        private static bool registered = false;
         
         public static void Init()
         {
@@ -23,20 +24,23 @@ namespace PokeItems.Managers
 
             initialized = true;
 
-            if (!Chainloader.PluginInfos.ContainsKey(LookingGlassGUID))
+            if(!Chainloader.PluginInfos.ContainsKey(LookingGlassGUID))
                 return;
 
-            RoR2Application.onLoad += OnGameLoaded;
+            Log.Info("Looking Glass detected. Waiting till ItemCatalog is available.");
+            ItemCatalog.availability.CallWhenAvailable(RegisterLG);
         }
 
-        private static void OnGameLoaded()
+        private static void RegisterLG()
         {
+            Log.Info("Registering PokeItems stats to Looking Glass.");
+
             try
             {
                 // Attempt to reveal item stats via Looking Glass
                 RegisterItems();
 
-                Log.Info("Looking Glass detected. Revealed PokeItems stats to integration.");
+                Log.Info("Looking Glass integration initialized successfully.");
             }
             catch (Exception e)
             {
@@ -52,6 +56,15 @@ namespace PokeItems.Managers
 
         private static ItemStatsDef GetItemStats(ItemDef itemDef)
         {
+            if (itemDef == null)
+                return null;
+            
+            if (itemDef.itemIndex == ItemIndex.None)
+            {
+                Log.Warning($"Looking Glass: ItemDef '{itemDef.name}' still has ItemIndex.None. " + "Skipping registration.");
+                return null;
+            }
+            
             int itemIndex = (int) itemDef.itemIndex;
 
             if (ItemDefinitions.allItemDefinitions.TryGetValue(itemIndex, out ItemStatsDef existingStats))
@@ -70,6 +83,9 @@ namespace PokeItems.Managers
                 return;
 
             ItemStatsDef stats = GetItemStats(Leftovers.itemDef);
+
+            if (stats == null)
+                return;
 
             stats.descriptions.Add("Regeneration Bonus: ");
             stats.valueTypes.Add(ItemStatsDef.ValueType.Health);
