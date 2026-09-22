@@ -78,6 +78,9 @@ namespace PokeItems
 
             isUnfinishedEnabled = ConfigManager.UnfinishedItemsEnabled.Value;
 
+            // Looking Glass (Optional)
+            LookingGlassManager.Init();
+
             // Unfinished Items
             if (isUnfinishedEnabled)
             {
