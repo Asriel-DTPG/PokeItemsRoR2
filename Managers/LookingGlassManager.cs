@@ -172,10 +172,6 @@ namespace PokeItems.Managers
             stats.valueTypes.Add(ItemStatsDef.ValueType.Utility);
             stats.measurementUnits.Add(ItemStatsDef.MeasurementUnits.Meters);
 
-            stats.descriptions.Add("HP Threshold: ");
-            stats.valueTypes.Add(ItemStatsDef.ValueType.Health);
-            stats.measurementUnits.Add(ItemStatsDef.MeasurementUnits.PercentHealth);
-
             stats.calculateValuesNew = (luck, stackCount, procChance) =>
             {
                 float fallSpeedLimit = ConfigManager.GetFloatValue(
@@ -186,16 +182,11 @@ namespace PokeItems.Managers
                     ConfigManager.AirBalloon_FallPercentReductionPerExtraStack,
                     AirBalloon.fallPercentReductionPerExtraStack);
 
-                float hpThreshold = ConfigManager.GetFloatValue(
-                    ConfigManager.AirBalloon_HpThresholdPercent,
-                    AirBalloon.hpThresholdPercent);
-
-                float fallValue = fallSpeedLimit * MathUtility.GetExponentialPercentReductionStacking(fallReduction, stackCount - 1);
+                float value = fallSpeedLimit * MathUtility.GetExponentialPercentReductionStacking(fallReduction, stackCount - 1);
 
                 return new List<float>
                 {
-                    fallValue,
-                    hpThreshold / 100f
+                    value
                 };
             };
         }
