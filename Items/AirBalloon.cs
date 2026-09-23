@@ -15,7 +15,7 @@ namespace PokeItems.Items
         private static ItemTier tier = ItemTier.Tier1; // 1 = WHITE; 2 = GREEN; 3 = RED
         public static float fallSpeedLimit = 50f; // Falling Speed Cap
         public static float fallPercentReductionPerExtraStack = 10f; // Cap Reduction per extra stack to reduce falling speed even further
-        public static float hpThresholdPercent = 35f;
+        public static float hpThresholdPercent = 30f;
 
         public static void Init()
         {

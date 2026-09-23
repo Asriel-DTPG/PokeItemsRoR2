@@ -14,8 +14,8 @@ namespace PokeItems.Items
 
         // Item Settings
         private static ItemTier tier = ItemTier.Tier2; // 1 = WHITE; 2 = GREEN; 3 = RED
-        public static float armorBonusPerStack = 20f; // Armor bonus value
-        public static float armorBonusPerExtraStack = 10f; // Armor bonus value for extra stacks
+        public static float armorBonusPerStack = 25f; // Armor bonus value
+        public static float armorBonusPerExtraStack = 5f; // Armor bonus value for extra stacks
 
         private static readonly Dictionary<CharacterBody, bool> isGroundedDict = new();
 

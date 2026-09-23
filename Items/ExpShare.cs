@@ -17,7 +17,7 @@ namespace PokeItems.Items
         private static ItemTier tier = ItemTier.Tier3; // 1 = WHITE; 2 = GREEN; 3 = RED
         public static float expPercentBonusPerStack = 200f; // EXP Bonus Percent
         public static float expPercentBonusPerExtraStack = 100f; // EXP Bonus Percent per extra stack
-        public static float expRateBonus = 30f; // Passive EXP percent per minute (scaled by requirement)
+        public static float expRateBonus = 20f; // Passive EXP percent per minute (scaled by requirement)
 
         private static readonly Dictionary<CharacterMaster, float> timersDict = new();
         private static readonly Dictionary<CharacterMaster, float>  prevRunTimesDict = new();

@@ -20,7 +20,7 @@ be balanced throughout the patches.
 			<b>WHITE</b>
 		</td>
 		<td>
-			Limits your falling speed by <b>50</b> m/s (-<b>10</b>% per stack). However, it will pop when under <b>35</b>% HP.
+			Limits your falling speed to <b>50</b> m/s (-<b>10</b>% per stack). However, it will pop when under <b>30</b>% HP.
 		</td>
 	</tr>
 	<tr>
@@ -34,7 +34,7 @@ be balanced throughout the patches.
 			<b>WHITE</b>
 		</td>
 		<td>
-			<b>7</b>% (+<b>7</b>% per stack) chance to burn an enemy on hit. Debuff stack individually lasts for <b>4</b> seconds.
+			<b>8</b>% (+<b>8</b>% per stack) chance to burn an enemy on hit. Debuff stack individually lasts for <b>4</b> seconds.
 		</td>
 	</tr>
 	<tr>
@@ -48,7 +48,7 @@ be balanced throughout the patches.
 			<b>GREEN</b>
 		</td>
 		<td>
-			Gain <b>20</b> (+<b>10</b> per stack) armor when on ground.
+			Gain <b>25</b> (+<b>5</b> per stack) armor when on ground.
 		</td>
 	</tr>
 	<tr>
@@ -90,7 +90,7 @@ be balanced throughout the patches.
 			<b>RED</b>
 		</td>
 		<td>
-			Gain <b>200</b>% (+<b>100%</b> per stack) more EXP. Also gain <b>30</b>% required EXP per minute (Early levels offer more EXP due to rounding).
+			Gain <b>200</b>% (+<b>100%</b> per stack) more EXP. Also gain <b>20</b>% required EXP per minute (Early levels offer more EXP due to rounding).
 		</td>
 	</tr>
 	<tr>

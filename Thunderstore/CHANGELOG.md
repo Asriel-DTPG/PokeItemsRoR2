@@ -1,9 +1,22 @@
 ## Looking Glass Support - 0.4.0
 - Fourth alpha release.
 - Spawn Mode now has 2 pages (this is done to accommodate a lot of items within F-keys). Change page via F1.
-- More changes in coding:
-    - Added SpawnMode class
-    - Re-optimized spawn mode coding to be a separate class, while minimizing code smell.
+- Looking Glass is now compatible with this mod, allowing access to statistics of Pokemon items.
+- Balancing Changes:
+    - Air Balloon<br>(Balloons are now slightly less fragile)
+        - HP Threshold: 35% -> <b>30%</b> HP
+    - EXP Share<br>(This might be the most broken item to have if used early game, so hopefully this balances for late game)
+        - EXP Rate: 30% -> <b>20%</b> EXP/min
+    - Flame Orb<br>(This might be the sweet spot for burning compared to bleeding)
+        - Proc Percent: 7% -> <b>8%</b>
+    - Heavy Duty Boots<br>(Having plenty of armor will help out a lot, but the extra stacks will be slightly harder)
+        - Armor Bonus: 20 -> <b>25</b>
+        - Armor Extra Bonus: 10 -> <b>5</b>
+    - More changes in coding:
+        - Added LookingGlassManager and SpawnMode classes
+        - Re-optimized spawn mode coding to be a separate class, while minimizing code smell.
+        - Updated log messaging a bit to show progress
+        - Slightly adjusted Air Balloon and Heavy Duty Boots description
 
 ## 0.3.2 Hotfix - 0.3.3
 - Choice items are now out of the unfinished list as they should be. They are NOW fully accessible.
@@ -26,7 +39,7 @@
 ## Risk Of Options Support and Choice Items - 0.3.0
 - Third alpha release.
 - Risk Of Options is now compatible with this mod, allowing options to be visible in-game via the mod menu.
-- FlameOrb
+- Flame Orb
 <br>(Originally I wanted to make this as equally effective as Tri-Tip Dagger. However, with the inclusion of Ignition Tank, I decided to nerf it as a slight trade-off)
     - Reduced proc percent: <b>10%</b> -> <b>7%</b>
 - EXP Share

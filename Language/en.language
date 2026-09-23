@@ -17,7 +17,7 @@
 
     "Item_AirBalloon_Name": "Air Balloon",
     "Item_AirBalloon_Pickup": "Limit falling speed, but will pop at low health.",
-    "Item_AirBalloon_Desc": "Limit <style=cIsUtility>falling speed</style> by <style=cIsUtility>{0} m/s</style> <style=cStack>(-{1}% per stack)</style>. However, it will <style=cDeath>pop</style> when under <style=cIsHealth>{2}% HP</style>.",
+    "Item_AirBalloon_Desc": "Limit <style=cIsUtility>falling speed</style> to <style=cIsUtility>{0} m/s</style> <style=cStack>(-{1}% per stack)</style>. However, it will <style=cDeath>pop</style> when under <style=cIsHealth>{2}% HP</style>.",
     "Item_AirBalloon_Lore": "Lore not found...",
 
     "Item_AirBalloonBroken_Name": "Air Balloon (Popped)",
@@ -37,7 +37,7 @@
 
     "Item_HeavyDutyBoots_Name": "Heavy-Duty Boots",
     "Item_HeavyDutyBoots_Pickup": "Reduce damage taken when grounded.",
-    "Item_HeavyDutyBoots_Desc": "Gain <style=cIsUtility>{0}</style> <style=cStack>(+{0} per stack)</style> armor when on ground.",
+    "Item_HeavyDutyBoots_Desc": "Gain <style=cIsUtility>{0}</style> <style=cStack>(+{1} per stack)</style> armor when on ground.",
     "Item_HeavyDutyBoots_Lore": "Lore not found...",
 
     "Item_ChoiceBand_Name": "Choice Band",
