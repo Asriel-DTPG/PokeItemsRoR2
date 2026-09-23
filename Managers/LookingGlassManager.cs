@@ -24,13 +24,15 @@ namespace PokeItems.Managers
 
             initialized = true;
 
-            if(!Chainloader.PluginInfos.ContainsKey(LookingGlassGUID))
+            // Ignore all of this if Looking Glass is not installed
+            if (!Chainloader.PluginInfos.ContainsKey(LookingGlassGUID))
                 return;
 
             Log.Info("Looking Glass detected. Waiting till ItemCatalog is available.");
             ItemCatalog.availability.CallWhenAvailable(RegisterLG);
         }
 
+        // Register custom item stats via Looking Glass
         private static void RegisterLG()
         {
             Log.Info("Registering PokeItems stats to Looking Glass.");
@@ -48,14 +50,19 @@ namespace PokeItems.Managers
             }
         }
 
+        // This will prevent the attempt to resolve dll for RiskOfOptions before confirming that the plugin exists
         [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
         private static void RegisterItems()
         {
             RegisterLeftovers();
+            RegisterFlameOrb();
+            RegisterAirBalloon();
         }
 
+        // Get or create designated item stats
         private static ItemStatsDef GetItemStats(ItemDef itemDef)
         {
+            // Mandatory checks
             if (itemDef == null)
                 return null;
             
@@ -67,6 +74,7 @@ namespace PokeItems.Managers
             
             int itemIndex = (int) itemDef.itemIndex;
 
+            // If item stats exist, get the existing stats instead
             if (ItemDefinitions.allItemDefinitions.TryGetValue(itemIndex, out ItemStatsDef existingStats))
                 return existingStats;
 
@@ -77,6 +85,7 @@ namespace PokeItems.Managers
             return stats;
         }
 
+        // Register stats for Leftovers
         private static void RegisterLeftovers()
         {
             if (Leftovers.itemDef == null)
@@ -88,7 +97,7 @@ namespace PokeItems.Managers
                 return;
 
             stats.descriptions.Add("Regeneration Bonus: ");
-            stats.valueTypes.Add(ItemStatsDef.ValueType.Health);
+            stats.valueTypes.Add(ItemStatsDef.ValueType.Healing);
             stats.measurementUnits.Add(ItemStatsDef.MeasurementUnits.FlatHealing);
 
             stats.calculateValuesNew = (luck, stackCount, procChance) =>
@@ -107,6 +116,80 @@ namespace PokeItems.Managers
                 return new List<float>
                 {
                     value
+                };
+            };
+        }
+
+        // Register stats for Flame Orb
+        private static void RegisterFlameOrb()
+        {
+            if (FlameOrb.itemDef == null)
+                return;
+
+            ItemStatsDef stats = GetItemStats(FlameOrb.itemDef);
+
+            if (stats == null)
+                return;
+
+            stats.descriptions.Add("Burn Chance: ");
+            stats.valueTypes.Add(ItemStatsDef.ValueType.Damage);
+            stats.measurementUnits.Add(ItemStatsDef.MeasurementUnits.Percentage);
+
+            stats.calculateValuesNew = (luck, stackCount, procChance) =>
+            {
+                float procPercent = ConfigManager.GetFloatValue(
+                    ConfigManager.FlameOrb_ProcPercentPerStack,
+                    FlameOrb.procPercentPerStack);
+
+                float chance = MathUtility.GetLinearStacking(
+                    procPercent, stackCount, procChance) / 100f;
+
+                return new List<float>
+                {
+                    chance
+                };
+            };
+        }
+
+        // Register stats for Flame Orb
+        private static void RegisterAirBalloon()
+        {
+            if (AirBalloon.itemDef == null)
+                return;
+
+            ItemStatsDef stats = GetItemStats(AirBalloon.itemDef);
+
+            if (stats == null)
+                return;
+
+            stats.descriptions.Add("Fall Speed Limit: ");
+            stats.valueTypes.Add(ItemStatsDef.ValueType.Utility);
+            stats.measurementUnits.Add(ItemStatsDef.MeasurementUnits.Meters);
+
+            stats.descriptions.Add("HP Threshold: ");
+            stats.valueTypes.Add(ItemStatsDef.ValueType.Health);
+            stats.measurementUnits.Add(ItemStatsDef.MeasurementUnits.Percentage);
+
+            stats.calculateValuesNew = (luck, stackCount, procChance) =>
+            {
+                float fallSpeedLimit = ConfigManager.GetFloatValue(
+                    ConfigManager.AirBalloon_FallSpeedLimit,
+                    AirBalloon.fallSpeedLimit);
+
+                float fallReduction = ConfigManager.GetFloatValue(
+                    ConfigManager.AirBalloon_FallPercentReductionPerExtraStack,
+                    AirBalloon.fallPercentReductionPerExtraStack);
+
+                float hpThreshold = ConfigManager.GetFloatValue(
+                    ConfigManager.AirBalloon_HpThresholdPercent,
+                    AirBalloon.hpThresholdPercent);
+
+                float fallValue = fallSpeedLimit * MathUtility.GetExponentialPercentReductionStacking(fallReduction, stackCount - 1);
+
+                return new List<float>
+                {
+                    fallValue,
+                    hpThreshold
                 };
             };
         }

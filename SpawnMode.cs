@@ -85,7 +85,7 @@ namespace PokeItems
         // Change the page (either up a page or back to start)
         private static void changePage()
         {
-            if (++pageNo <= maxPages)
+            if (++pageNo >= maxPages)
                 pageNo -= maxPages;
 
             Log.Info($"Changed to page {pageNo}");
