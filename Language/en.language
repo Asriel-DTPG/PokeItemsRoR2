@@ -53,6 +53,11 @@
     "Item_ChoiceScarf_Name": "Choice Scarf",
     "Item_ChoiceScarf_Pickup": "Increase movement speed... <style=cDeath>BUT all non-preferred skills recharge slower.</style>",
     "Item_ChoiceScarf_Desc": "Increase movement speed by <style=cIsUtility>{0}%</style> <style=cStack>(+{1}% per stack)</style>. Choosing a skill will create a choice lock for that skill, and all other skills will recharge <style=cIsUtility>{2}%</style> <style=cStack>(+{2}% per stack)</style> slower. Choice lock resets next stage or respawn.",
-    "Item_ChoiceScarf_Lore": "Lore not found..."
+    "Item_ChoiceScarf_Lore": "Lore not found...",
+
+    "Item_LifeOrb_Name": "Life Orb",
+    "Item_LifeOrb_Pickup": "Deal more damage... <style=cDeath>BUT health is sacrificed for damage.</style>",
+    "Item_LifeOrb_Desc": "Deal more damage based on a percentage of max health. <style=cIsHealth>{0}%</style> <style=cStack>(+{0}% per stack)</style> Max HP is sacrificed and converted into extra damage. If the sacrifice amount is bigger than the current HP, the holder will survive on 1 HP but the sacrifice amount will be reduced.",
+    "Item_LifeOrb_Lore": "Lore not found..."
   }
 }

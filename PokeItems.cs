@@ -61,8 +61,8 @@ namespace PokeItems
 
             // Risk Of Options (Optional)
             RiskOfOptionsManager.Init();
-
-            // Items
+            
+            // Items and Buffs
             Leftovers.Init();
             FlameOrb.Init();
             AirBalloonBroken.Init();
@@ -84,7 +84,7 @@ namespace PokeItems
             // Unfinished Items
             if (isUnfinishedEnabled)
             {
-
+                LifeOrb.Init();
             }
 
             // Log that the mod is ready

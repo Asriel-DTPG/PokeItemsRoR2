@@ -62,7 +62,9 @@ namespace PokeItems
 
             else if (pageNo == 1)
             {
-
+                // Life Orb
+                if (Input.GetKeyDown(KeyCode.F2))
+                    spawnItem(LifeOrb.itemDef.itemIndex, true);
             }
         }
 
