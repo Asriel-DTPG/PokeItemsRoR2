@@ -1,22 +1,26 @@
 ## Looking Glass Support - 0.4.0
 - Fourth alpha release.
-- Spawn Mode now has 2 pages (this is done to accommodate a lot of items within F-keys). Change page via F1.
 - Looking Glass is now compatible with this mod, allowing access to statistics of Pokemon items.
+- Spawn Mode now has 2 pages (this is done to accommodate a lot of items within F-keys). Change page via F1.
 - Balancing Changes:
-    - Air Balloon<br>(Balloons are now slightly less fragile)
+    - <b>Air Balloon</b><br>Balloons are now slightly less fragile.
         - HP Threshold: 35% -> <b>30%</b> HP
-    - EXP Share<br>(This might be the most broken item to have if used early game, so hopefully this balances for late game)
+    - <b>EXP Share</b><br>This might be the most broken item to have if used early game, so hopefully this balances for late game.
         - EXP Rate: 30% -> <b>20%</b> EXP/min
-    - Flame Orb<br>(This might be the sweet spot for burning compared to bleeding)
+    - <b>Flame Orb</b><br>This might be the sweet spot for burning compared to bleeding.
         - Proc Percent: 7% -> <b>8%</b>
-    - Heavy Duty Boots<br>(Having plenty of armor will help out a lot, but the extra stacks will be slightly harder)
+    - <b>Heavy Duty Boots</b><br>Slightly more armor will boost early game significantly, but the extra stacks will be slightly harder.
         - Armor Bonus: 20 -> <b>25</b>
         - Armor Extra Bonus: 10 -> <b>5</b>
-    - More changes in coding:
-        - Added LookingGlassManager and SpawnMode classes
-        - Re-optimized spawn mode coding to be a separate class, while minimizing code smell.
-        - Updated log messaging a bit to show progress
-        - Slightly adjusted Air Balloon and Heavy Duty Boots description
+- More early-access items are implemented (these items are currently in development and may change over patches)
+    - Weakness Policy [WHITE]: Deal more damage... BUT health is sacrificed for damage.
+    - Life Orb [LUNAR]: Attack power increases the more you get hit.
+- More changes in coding:
+    - Added LookingGlassManager, SpawnMode, LifeOrb, WeaknessPolicy, WeaknessPolicyBuff, and WeaknessPolicyManager classes
+    - Weakness Policy icon added into Buffs
+    - Re-optimized spawn mode coding to be a separate class, while minimizing code smell.
+    - Updated log messaging a bit to show progress
+    - Slightly adjusted Air Balloon and Heavy Duty Boots description
 
 ## 0.3.2 Hotfix - 0.3.3
 - Choice items are now out of the unfinished list as they should be. They are NOW fully accessible.

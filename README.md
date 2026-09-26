@@ -238,10 +238,35 @@ This also introduces new buffs and debuffs along with this mod.
 ## Early-Access Items
 Items within this section are currently in development and so will include default sprites and models (mystery question marks).
 
-No early-access items are listed at this time.
+<table>
+	<tr>
+		<td>
+			<b>Weakness Policy</b>
+		</td>
+		<td>
+			<b>WHITE</b>
+		</td>
+		<td>
+			Deal <b>10</b>% more damage for every hit taken (up to <b>5</b> (+<b>3</b> per stack) times). Stacks last <b>5</b> seconds before expiring, and will refresh when taking damage.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>Life Orb</b>
+		</td>
+		<td>
+			<b>LUNAR</b>
+		</td>
+		<td>
+			Deal more damage based on a percentage of max health. <b>2</b>% (+<b>2</b>% per stack) Max HP is sacrificed and converted into extra damage. If the sacrifice amount is bigger than the current HP, the holder will survive on 1 HP but the sacrifice amount will be reduced.
+		</td>
+	</tr>
+</table>
 
 ## Spawn Mode
-Press the following keys to spawn the item (early-access items will need to be enabled first):
+Press the following keys to spawn the item (early-access items will need to be enabled first). Press <b>F1</b> to change the page (output will only show in the console):
+
+### Page 1
 - <b>F2</b>: Air Balloon
 - <b>F3</b>: Flame Orb
 - <b>F4</b>: Leftovers
@@ -251,6 +276,10 @@ Press the following keys to spawn the item (early-access items will need to be e
 - <b>F8</b>: Choice Band
 - <b>F9</b>: Choice Specs
 - <b>F10</b>: Choice Scarf
+
+### Page 2
+- <b>F2</b>: Life Orb [Early Access]
+- <b>F3</b>: Weakness Policy [Early Access]
 
 ## Suggestions?
 If you like to share your reviews and suggestions about this mod, please post your responses under this link. I'd be more than happy to listen to your ideas!
