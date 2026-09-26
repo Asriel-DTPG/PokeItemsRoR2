@@ -14,12 +14,10 @@ namespace PokeItems.Buffs
 
         public static void Init()
         {
-            //ChoicePrimaryLock = CreateChoiceLock(
-            //    "PrimaryLock",
-            //    TryGetSprite("PrimaryLock")
-            //);
-            WeaknessPBuff.name = "WeaknessPolicy";
-            WeaknessPBuff.iconSprite = TryGetSprite("WeaknessPolicy");
+            WeaknessPBuff = ScriptableObject.CreateInstance<BuffDef>();
+
+            WeaknessPBuff.name = "WeaknessPrivilege";
+            WeaknessPBuff.iconSprite = TryGetSprite("WeaknessPrivilege");
             WeaknessPBuff.buffColor = Color.white;
 
             WeaknessPBuff.canStack = true;

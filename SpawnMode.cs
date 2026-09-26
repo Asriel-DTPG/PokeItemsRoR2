@@ -65,6 +65,10 @@ namespace PokeItems
                 // Life Orb
                 if (Input.GetKeyDown(KeyCode.F2))
                     spawnItem(LifeOrb.itemDef.itemIndex, true);
+
+                // Weakness Policy
+                if (Input.GetKeyDown(KeyCode.F3))
+                    spawnItem(WeaknessPolicy.itemDef.itemIndex, true);
             }
         }
 
