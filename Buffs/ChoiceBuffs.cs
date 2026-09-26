@@ -10,8 +10,6 @@ namespace PokeItems.Buffs
 {
     internal static class ChoiceBuffs
     {
-        public static readonly Dictionary<string, object[]> tokenMap = new();
-
         public static BuffDef ChoicePrimaryLock;
         public static BuffDef ChoiceSecondaryLock;
         public static BuffDef ChoiceUtilityLock;

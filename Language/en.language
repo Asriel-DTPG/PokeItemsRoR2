@@ -58,6 +58,11 @@
     "Item_LifeOrb_Name": "Life Orb",
     "Item_LifeOrb_Pickup": "Deal more damage... <style=cDeath>BUT health is sacrificed for damage.</style>",
     "Item_LifeOrb_Desc": "Deal more damage based on a percentage of max health. <style=cIsHealth>{0}%</style> <style=cStack>(+{0}% per stack)</style> Max HP is sacrificed and converted into extra damage. If the sacrifice amount is bigger than the current HP, the holder will survive on 1 HP but the sacrifice amount will be reduced.",
-    "Item_LifeOrb_Lore": "Lore not found..."
+    "Item_LifeOrb_Lore": "Lore not found...",
+
+    "Item_WeaknessPolicy_Name": "Weakness Policy",
+    "Item_WeaknessPolicy_Pickup": "Attack power increases the more you get hit.",
+    "Item_WeaknessPolicy_Desc": "Deal <style=cIsDamage>{0}%</style> more damage for every hit taken (up to <style=cIsUtility>{1}</style> <style=cStack>(+{2} per stack)</style> times). Stacks last <style=cIsUtility>{3}</style> seconds before expiring, and will refresh when taking damage.",
+    "Item_WeaknessPolicy_Lore": "Lore not found..."
   }
 }

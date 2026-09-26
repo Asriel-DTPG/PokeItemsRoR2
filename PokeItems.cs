@@ -85,6 +85,8 @@ namespace PokeItems
             if (isUnfinishedEnabled)
             {
                 LifeOrb.Init();
+                WeaknessPolicyBuff.Init();
+                WeaknessPolicy.Init();
             }
 
             // Log that the mod is ready
