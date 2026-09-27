@@ -242,6 +242,7 @@ Press the following keys to spawn the item (early-access items will need to be e
 ### Page 2
 - <b>F2</b>: Life Orb [Early Access]
 - <b>F3</b>: Weakness Policy [Early Access]
+- <b>F4</b>: Quick Claw [Early Access]
 
 ## Suggestions?
 If you like to share your reviews and suggestions about this mod, please post your responses under this link. I'd be more than happy to listen to your ideas!
