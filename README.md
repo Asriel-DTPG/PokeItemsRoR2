@@ -186,55 +186,6 @@ This also introduces new buffs and debuffs along with this mod.
 	</tr>
 </table>
 
-## Buffs/Debuffs
-This also introduces new buffs and debuffs along with this mod.
-<table>
-	<tr>
-		<td>
-			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Buffs/PrimaryLock.png" width="128px"/>
-		</td>
-		<td>
-			<b>Primary Lock</b>
-		</td>
-		<td>
-			All skill cooldowns (except Primary) have slower recharge. The effect is strengthened based on extra number of choice items.
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Buffs/SecondaryLock.png" width="128px"/>
-		</td>
-		<td>
-			<b>Secondary Lock</b>
-		</td>
-		<td>
-			All skill cooldowns (except Secondary) have slower recharge. The effect is strengthened based on extra number of choice items.
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Buffs/SpecialLock.png" width="128px"/>
-		</td>
-		<td>
-			<b>Special Lock</b>
-		</td>
-		<td>
-			All skill cooldowns (except Special) have slower recharge. The effect is strengthened based on extra number of choice items.
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Buffs/UtilityLock.png" width="128px"/>
-		</td>
-		<td>
-			<b>Utility Lock</b>
-		</td>
-		<td>
-			All skill cooldowns (except Utility) have slower recharge. The effect is strengthened based on extra number of choice items.
-		</td>
-	</tr>
-</table>
-
 ## Early-Access Items
 Items within this section are currently in development and so will include default sprites and models (mystery question marks).
 
