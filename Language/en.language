@@ -63,6 +63,11 @@
     "Item_WeaknessPolicy_Name": "Weakness Policy",
     "Item_WeaknessPolicy_Pickup": "Attack power increases the more you get hit.",
     "Item_WeaknessPolicy_Desc": "Deal <style=cIsDamage>{0}%</style> more damage for every hit taken (up to <style=cIsUtility>{1}</style> <style=cStack>(+{2} per stack)</style> times). Stacks last <style=cIsUtility>{3}</style> seconds before expiring, and will refresh when taking damage.",
-    "Item_WeaknessPolicy_Lore": "Lore not found..."
+    "Item_WeaknessPolicy_Lore": "Lore not found...",
+
+    "Item_QuickClaw_Name": "Quick Claw",
+    "Item_QuickClaw_Pickup": "Chance to tremendously reduce move cooldown after use.",
+    "Item_QuickClaw_Desc": "<style=cIsUtility>{0}%</style> <style=cStack>(+{1}% per stack)</style> chance to recharge move cooldown <style=cIsUtility>{2}%</style> faster after use. Effect ends after a stock of that move has been recharged.",
+    "Item_QuickClaw_Lore": "Lore not found..."
   }
 }

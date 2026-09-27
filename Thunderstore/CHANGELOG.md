@@ -5,18 +5,22 @@
 - Balancing Changes:
     - <b>Air Balloon</b><br>Balloons are now slightly less fragile.
         - HP Threshold: 35% -> <b>30%</b> HP
-    - <b>EXP Share</b><br>This might be the most broken item to have if used early game, so hopefully this balances for late game.
-        - EXP Rate: 30% -> <b>20%</b> EXP/min
     - <b>Flame Orb</b><br>This might be the sweet spot for burning compared to bleeding.
         - Proc Percent: 7% -> <b>8%</b>
     - <b>Heavy Duty Boots</b><br>Slightly more armor will boost early game significantly, but the extra stacks will be slightly harder.
         - Armor Bonus: 20 -> <b>25</b>
         - Armor Extra Bonus: 10 -> <b>5</b>
+    - <b>Leftovers</b><br>The lack of scaling makes this item fall off late game. Leftovers are now slightly more nutritious.
+        - Regen Bonus: 4 -> <b>5</b> HP/s
+        - Regen Extra Bonus: 2 -> <b>3</b> HP/s
+    - <b>EXP Share</b><br>This might be the most broken item to have if used early game, so hopefully this balances for late game.
+        - EXP Rate: 30% -> <b>20%</b> EXP/min
 - More early-access items are implemented (these items are currently in development and may change over patches)
     - Weakness Policy [WHITE]: Deal more damage... BUT health is sacrificed for damage.
+    - Quick Claw [GREEN]: Chance to tremendously reduce move cooldown after use.
     - Life Orb [LUNAR]: Attack power increases the more you get hit.
 - More changes in coding:
-    - Added LookingGlassManager, SpawnMode, LifeOrb, WeaknessPolicy, WeaknessPolicyBuff, and WeaknessPolicyManager classes
+    - Added LookingGlassManager, SpawnMode, LifeOrb, WeaknessPolicy, WeaknessPolicyBuff, WeaknessPolicyManager, and QuickClaw classes
     - Weakness Policy icon added into Buffs
     - Re-optimized spawn mode coding to be a separate class, while minimizing code smell.
     - Updated log messaging a bit to show progress

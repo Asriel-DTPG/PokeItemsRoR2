@@ -69,6 +69,10 @@ namespace PokeItems
                 // Weakness Policy
                 if (Input.GetKeyDown(KeyCode.F3))
                     spawnItem(WeaknessPolicy.itemDef.itemIndex, true);
+
+                // Quick Claw
+                if (Input.GetKeyDown(KeyCode.F4))
+                    spawnItem(QuickClaw.itemDef.itemIndex, true);
             }
         }
 

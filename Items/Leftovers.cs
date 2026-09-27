@@ -13,8 +13,8 @@ namespace PokeItems.Items
 
         // Item Settings
         private static ItemTier tier = ItemTier.Tier2; // 1 = WHITE; 2 = GREEN; 3 = RED
-        public static float regenBonusPerStack = 4f; // HP Regen bonus value
-        public static float regenBonusPerExtraStack = 2f; // HP Regen bonus value for extra stacks
+        public static float regenBonusPerStack = 5f; // HP Regen bonus value
+        public static float regenBonusPerExtraStack = 3f; // HP Regen bonus value for extra stacks
 
         public static void Init()
         {

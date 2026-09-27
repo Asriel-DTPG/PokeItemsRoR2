@@ -87,6 +87,7 @@ namespace PokeItems
                 LifeOrb.Init();
                 WeaknessPolicyBuff.Init();
                 WeaknessPolicy.Init();
+                QuickClaw.Init();
             }
 
             // Log that the mod is ready

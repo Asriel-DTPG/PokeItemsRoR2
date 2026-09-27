@@ -26,12 +26,13 @@ namespace PokeItems.Items
             On.RoR2.HealthComponent.TakeDamage += LifeOrbDamageHook;
         }
 
+        // Main function
         private static void LifeOrbDamageHook(
             On.RoR2.HealthComponent.orig_TakeDamage orig,
             HealthComponent self,
             DamageInfo damageInfo)
         {
-            // Life Orb functionality is considerably server-side.
+            // Network server dependant
             if (!NetworkServer.active)
             {
                 orig(self, damageInfo);

@@ -57,7 +57,7 @@ namespace PokeItems.Managers
         {
             orig(self, damageInfo);
 
-            // Weakness Policy is server-side
+            // Network server dependant
             if (!NetworkServer.active)
                 return;
 
@@ -67,7 +67,7 @@ namespace PokeItems.Managers
             CharacterBody body = self.body;
 
             // Mandatory checks
-            if (body == null || !body.inventory)
+            if (body == null || body.inventory == null)
                 return;
 
             // Check if character has Weakness Policy item

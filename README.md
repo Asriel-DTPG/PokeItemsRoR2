@@ -62,7 +62,7 @@ be balanced throughout the patches.
 			<b>GREEN</b>
 		</td>
 		<td>
-			Increase health regeneration by <b>4</b> HP/s (+<b>2</b> HP/s per stack).
+			Increase health regeneration by <b>5</b> HP/s (+<b>3</b> HP/s per stack).
 		</td>
 	</tr>
 	<tr>
@@ -248,6 +248,17 @@ Items within this section are currently in development and so will include defau
 		</td>
 		<td>
 			Deal <b>10</b>% more damage for every hit taken (up to <b>5</b> (+<b>3</b> per stack) times). Stacks last <b>5</b> seconds before expiring, and will refresh when taking damage.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>Quick Claw</b>
+		</td>
+		<td>
+			<b>GREEN</b>
+		</td>
+		<td>
+			<b>10%</b> (+<b>5</b>% per stack) chance to recharge move cooldown <b>50</b>% faster after use. Effect ends after a stock of that move has been recharged.
 		</td>
 	</tr>
 	<tr>
