@@ -214,6 +214,17 @@ Items within this section are currently in development and so will include defau
 	</tr>
 	<tr>
 		<td>
+			<b>Berry Juice</b>
+		</td>
+		<td>
+			<b>RED</b>
+		</td>
+		<td>
+			Increase health regeneration by <b>2</b>% max HP (HP/s) (+<b>0.5</b>% max HP (HP/s) per stack) for every consumed/unusable item in inventory, up to a maximum of <b>6</b> (+<b>4</b> per stack).
+		</td>
+	</tr>
+	<tr>
+		<td>
 			<b>Life Orb</b>
 		</td>
 		<td>
@@ -243,6 +254,7 @@ Press the following keys to spawn the item (early-access items will need to be e
 - <b>F2</b>: Life Orb [Early Access]
 - <b>F3</b>: Weakness Policy [Early Access]
 - <b>F4</b>: Quick Claw [Early Access]
+- <b>F5</b>: Berry Juice [Early Access]
 
 ## Suggestions?
 If you like to share your reviews and suggestions about this mod, please post your responses under this link. I'd be more than happy to listen to your ideas!

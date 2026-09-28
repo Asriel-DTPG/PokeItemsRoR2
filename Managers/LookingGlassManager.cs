@@ -1,13 +1,10 @@
 ﻿using LookingGlass.ItemStatsNameSpace;
 using PokeItems.Items;
-using PokeItems.Managers;
 using BepInEx.Bootstrap;
-using RiskOfOptions;
 using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using UnityEngine;
 
 namespace PokeItems.Managers
 {
@@ -15,7 +12,6 @@ namespace PokeItems.Managers
     {
         private const string LookingGlassGUID = "droppod.lookingglass";
         private static bool initialized = false;
-        private static bool registered = false;
         
         public static void Init()
         {

@@ -1,32 +1,30 @@
-﻿using PokeItems.Managers;
-using R2API;
+﻿using R2API;
 using RoR2;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace PokeItems.Buffs
+namespace PokeItems.Managers
 {
-    internal static class WeaknessPolicyBuff
+    internal class BuffManager
     {
-        public static BuffDef WeaknessPBuff;
+        public static BuffDef buffDef;
 
-        public static void Init()
+        public static BuffDef CreateBuffDef(string name, Color color, bool canStack, bool isDebuff, bool isHidden)
         {
-            WeaknessPBuff = ScriptableObject.CreateInstance<BuffDef>();
+            buffDef = ScriptableObject.CreateInstance<BuffDef>();
+            buffDef.name = name;
+            buffDef.iconSprite = TryGetSprite(name);
+            buffDef.buffColor = Color.white;
 
-            WeaknessPBuff.name = "WeaknessPrivilege";
-            WeaknessPBuff.iconSprite = TryGetSprite("WeaknessPrivilege");
-            WeaknessPBuff.buffColor = Color.white;
+            buffDef.canStack = false;
 
-            WeaknessPBuff.canStack = true;
+            buffDef.isDebuff = true;
 
-            WeaknessPBuff.isDebuff = false;
+            buffDef.isHidden = false;
 
-            WeaknessPBuff.isHidden = false;
+            ContentAddition.AddBuffDef(buffDef);
 
-            ContentAddition.AddBuffDef(WeaknessPBuff);
+            return buffDef;
         }
 
         private static Sprite TryGetSprite(string spriteName)

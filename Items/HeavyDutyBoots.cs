@@ -2,9 +2,6 @@
 using R2API;
 using RoR2;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 namespace PokeItems.Items
 {

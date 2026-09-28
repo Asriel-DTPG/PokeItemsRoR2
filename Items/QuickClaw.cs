@@ -1,10 +1,6 @@
 ﻿using PokeItems.Managers;
-using R2API;
 using RoR2;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
 
 namespace PokeItems.Items

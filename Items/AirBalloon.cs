@@ -1,9 +1,6 @@
 ﻿using PokeItems.Managers;
-using R2API;
 using RoR2;
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 namespace PokeItems.Items
 {
@@ -23,6 +20,9 @@ namespace PokeItems.Items
             itemDef = ItemManager.CreateItemDef("AirBalloon", tier, true, false,
                 [ItemTag.Utility, ItemTag.CanBeTemporary],
                 fallSpeedLimit, fallPercentReductionPerExtraStack, hpThresholdPercent);
+
+            // Add broken version of this item
+            AirBalloonBroken.Init();
 
             // Add the functionality
             On.RoR2.HealthComponent.TakeDamage += AirBalloonDamagedHook;

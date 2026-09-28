@@ -73,6 +73,10 @@ namespace PokeItems
                 // Quick Claw
                 if (Input.GetKeyDown(KeyCode.F4))
                     spawnItem(QuickClaw.itemDef.itemIndex, true);
+
+                // Berry Juice
+                if (Input.GetKeyDown(KeyCode.F5))
+                    spawnItem(BerryJuice.itemDef.itemIndex, true);
             }
         }
 

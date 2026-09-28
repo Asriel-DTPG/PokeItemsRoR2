@@ -1,3 +1,16 @@
+## Berry Juice and Optimizations - 0.4.1
+- New early-access item added:
+    - Berry Juice [RED]: Increase health regeneration for every consumed/unusable item.
+- Fixed a bug where WeaknessPrivilege buff had a missing image due to incorrect name.
+- More changes in coding:
+    - Removed ChoiceBuffs, WeaknessPolicyBuff, and WeaknessPolicyManager classes
+    - Added BerryJuice and BuffManager classes
+    - Added JuiceLevel to Buffs
+    - Re-optimized coding statements that require buffs to use BuffManager
+    - AirBalloonBroken is now called inside AirBalloon class instead of PokeItems
+    - Removed unused code and namespaces
+    - Adjusted Language
+
 ## Looking Glass Support - 0.4.0
 - Fourth alpha release.
 - Looking Glass is now compatible with this mod, allowing access to statistics of Pokemon items.
@@ -16,9 +29,9 @@
     - <b>EXP Share</b><br>This might be the most broken item to have if used early game, so hopefully this balances for late game.
         - EXP Rate: 30% -> <b>20%</b> EXP/min
 - More early-access items are implemented (these items are currently in development and may change over patches)
-    - Weakness Policy [WHITE]: Deal more damage... BUT health is sacrificed for damage.
+    - Weakness Policy [WHITE]: Attack power increases the more you get hit.
     - Quick Claw [GREEN]: Chance to tremendously reduce move cooldown after use.
-    - Life Orb [LUNAR]: Attack power increases the more you get hit.
+    - Life Orb [LUNAR]: Deal more damage... BUT health is sacrificed for damage.
 - More changes in coding:
     - Added LookingGlassManager, SpawnMode, LifeOrb, WeaknessPolicy, WeaknessPolicyBuff, WeaknessPolicyManager, and QuickClaw classes
     - Weakness Policy icon added into Buffs

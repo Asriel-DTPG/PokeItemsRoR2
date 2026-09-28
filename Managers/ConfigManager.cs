@@ -1,6 +1,4 @@
-﻿using BepInEx;
-using BepInEx.Configuration;
-using System.IO;
+﻿using BepInEx.Configuration;
 using PokeItems.Items;
 
 namespace PokeItems.Managers

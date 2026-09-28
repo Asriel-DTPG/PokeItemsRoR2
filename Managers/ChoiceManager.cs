@@ -1,7 +1,4 @@
-﻿using PokeItems.Buffs;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 using RoR2;
 using UnityEngine;
 using System.Collections;
@@ -11,22 +8,62 @@ namespace PokeItems.Managers
 {
     internal static class ChoiceManager
     {
+        public static BuffDef choicePrimaryLock;
+        public static BuffDef choiceSecondaryLock;
+        public static BuffDef choiceUtilityLock;
+        public static BuffDef choiceSpecialLock;
+
+        public static BuffDef[] choiceLocks;
+
+        // Item Settings
         public static float cooldownPenaltyPerStack = 20f;
         public static float cooldownPenaltyPercentLimit = 1f;
 
-        private static readonly Dictionary<CharacterBody, GenericSkill> chosenSkills = new();
-
         public static void Init()
         {
+            // Create Choice buffs
+            choicePrimaryLock = BuffManager.CreateBuffDef("PrimaryLock", Color.white, false, true, false);
+            choiceSecondaryLock = BuffManager.CreateBuffDef("SecondaryLock", Color.white, false, true, false);
+            choiceUtilityLock = BuffManager.CreateBuffDef("UtilityLock", Color.white, false, true, false);
+            choiceSpecialLock = BuffManager.CreateBuffDef("SpecialLock", Color.white, false, true, false);
+
+            choiceLocks =
+            [
+                choicePrimaryLock,
+                choiceSecondaryLock,
+                choiceUtilityLock,
+                choiceSpecialLock
+            ];
+
             // Add functionality
-            On.RoR2.GenericSkill.OnExecute += SkillUsed;
-            On.RoR2.GenericSkill.RunRecharge += ModifyCooldown;
-            On.RoR2.Stage.Start += StageStart;
-            On.RoR2.CharacterMaster.OnBodyStart += BodyStart;
+            On.RoR2.GenericSkill.OnExecute += ChoiceSkillHook;
+            On.RoR2.GenericSkill.RunRecharge += ChoiceCooldownHook;
+            On.RoR2.Stage.Start += ChoiceStageStartHook;
+            On.RoR2.CharacterMaster.OnBodyStart += ChoiceBodyStartHook;
+        }
+
+        // Remove any and all choice locks
+        public static void RemoveAllChoiceLocks(CharacterBody body)
+        {
+            foreach (BuffDef buff in choiceLocks)
+            {
+                if (body.HasBuff(buff))
+                    body.RemoveBuff(buff);
+            }
+        }
+
+        // Checks if player has any choice lock
+        public static bool HasChoiceLock(CharacterBody body)
+        {
+            return
+                body.HasBuff(choicePrimaryLock) ||
+                body.HasBuff(choiceSecondaryLock) ||
+                body.HasBuff(choiceUtilityLock) ||
+                body.HasBuff(choiceSpecialLock);
         }
 
         // Record the chosen skill into a choice lock if it doesn't exist
-        private static void SkillUsed(
+        private static void ChoiceSkillHook(
             On.RoR2.GenericSkill.orig_OnExecute orig,
             GenericSkill self)
         {
@@ -44,22 +81,22 @@ namespace PokeItems.Managers
                 return;
 
             // Proceed if they do not have a choice lock
-            if (ChoiceBuffs.HasChoiceLock(body))
+            if (HasChoiceLock(body))
                 return;
 
             // Add choice lock based on chosen skill
             if (body.skillLocator.primary == self)
-                body.AddBuff(ChoiceBuffs.ChoicePrimaryLock);
+                body.AddBuff(choicePrimaryLock);
             else if (body.skillLocator.secondary == self)
-                body.AddBuff(ChoiceBuffs.ChoiceSecondaryLock);
+                body.AddBuff(choiceSecondaryLock);
             else if (body.skillLocator.utility == self)
-                body.AddBuff(ChoiceBuffs.ChoiceUtilityLock);
+                body.AddBuff(choiceUtilityLock);
             else if (body.skillLocator.special == self)
-                body.AddBuff(ChoiceBuffs.ChoiceSpecialLock);
+                body.AddBuff(choiceSpecialLock);
         }
 
         // Modify the recharge time based on non-chosen skill and number of choice items
-        private static void ModifyCooldown(
+        private static void ChoiceCooldownHook(
             On.RoR2.GenericSkill.orig_RunRecharge orig,
             GenericSkill self,
             float rechargeTime)
@@ -83,7 +120,7 @@ namespace PokeItems.Managers
             // Get total Choice item stacks
             int choiceStacks = GetTotalChoiceStacks(body);
 
-            if (!ChoiceBuffs.HasChoiceLock(body) || IsChosenSkill(body, self))
+            if (!HasChoiceLock(body) || IsChosenSkill(body, self))
             {
                 orig(self, rechargeTime);
                 return;
@@ -108,7 +145,7 @@ namespace PokeItems.Managers
         }
 
         // Reset choice lock on new stage
-        private static IEnumerator StageStart(
+        private static IEnumerator ChoiceStageStartHook(
             On.RoR2.Stage.orig_Start orig,
             Stage self)
         {
@@ -120,12 +157,12 @@ namespace PokeItems.Managers
                 CharacterBody body = master.GetBody();
 
                 if (body != null)
-                    ChoiceBuffs.RemoveAllChoiceLocks(body);
+                    RemoveAllChoiceLocks(body);
             }
         }
 
         // Reset choice lock on respawn
-        private static void BodyStart(
+        private static void ChoiceBodyStartHook(
             On.RoR2.CharacterMaster.orig_OnBodyStart orig,
             CharacterMaster self,
             CharacterBody body)
@@ -134,7 +171,7 @@ namespace PokeItems.Managers
             orig(self, body);
 
             if (body != null)
-                ChoiceBuffs.RemoveAllChoiceLocks(body);
+                RemoveAllChoiceLocks(body);
         }
 
         // Check if this skill has a choice lock associated with it
@@ -143,16 +180,16 @@ namespace PokeItems.Managers
             GenericSkill skill)
         {
             if (body.skillLocator.primary == skill)
-                return body.HasBuff(ChoiceBuffs.ChoicePrimaryLock);
+                return body.HasBuff(choicePrimaryLock);
 
             if (body.skillLocator.secondary == skill)
-                return body.HasBuff(ChoiceBuffs.ChoiceSecondaryLock);
+                return body.HasBuff(choiceSecondaryLock);
 
             if (body.skillLocator.utility == skill)
-                return body.HasBuff(ChoiceBuffs.ChoiceUtilityLock);
+                return body.HasBuff(choiceUtilityLock);
 
             if (body.skillLocator.special == skill)
-                return body.HasBuff(ChoiceBuffs.ChoiceSpecialLock);
+                return body.HasBuff(choiceSpecialLock);
 
             return false;
         }

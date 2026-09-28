@@ -1,13 +1,10 @@
 ﻿using BepInEx;
 using BepInEx.Configuration;
-using PokeItems.Buffs;
 using PokeItems.Items;
 using PokeItems.Managers;
 using R2API;
 using R2API.Utils;
-using RoR2;
 using RoR2.ExpansionManagement;
-using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 namespace PokeItems
@@ -27,7 +24,7 @@ namespace PokeItems
         public const string PluginGUID = PluginAuthor + "." + PluginName;
         public const string PluginAuthor = "DTPGStudios";
         public const string PluginName = "PokeItems";
-        public const string PluginVersion = "0.4.0";
+        public const string PluginVersion = "0.4.1";
 
         public static PluginInfo PInfo { get; private set; }
         public static ConfigFile PConfig { get; private set; }
@@ -62,15 +59,13 @@ namespace PokeItems
             // Risk Of Options (Optional)
             RiskOfOptionsManager.Init();
             
-            // Items and Buffs
+            // Items
             Leftovers.Init();
             FlameOrb.Init();
-            AirBalloonBroken.Init();
             AirBalloon.Init();
             ExpShare.Init();
             AmuletCoin.Init();
             HeavyDutyBoots.Init();
-            ChoiceBuffs.Init();
             ChoiceManager.Init();
             ChoiceBand.Init();
             ChoiceSpecs.Init();
@@ -85,9 +80,9 @@ namespace PokeItems
             if (isUnfinishedEnabled)
             {
                 LifeOrb.Init();
-                WeaknessPolicyBuff.Init();
                 WeaknessPolicy.Init();
                 QuickClaw.Init();
+                BerryJuice.Init();
             }
 
             // Log that the mod is ready

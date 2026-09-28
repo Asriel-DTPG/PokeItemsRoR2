@@ -1,6 +1,4 @@
-﻿using BepInEx;
-using BepInEx.Bootstrap;
-using BepInEx.Configuration;
+﻿using BepInEx.Bootstrap;
 using System;
 using System.Runtime.CompilerServices;
 using RiskOfOptions;

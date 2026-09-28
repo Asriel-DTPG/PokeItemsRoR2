@@ -1,7 +1,6 @@
 ﻿using R2API;
 using RoR2;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -12,6 +11,7 @@ namespace PokeItems.Managers
         public static ItemDef itemDef;
         public static readonly Dictionary<string, object[]> tokenMap = new();
 
+        // Create an ItemDef based on given values, and send it to R2API
         public static ItemDef CreateItemDef(string name, ItemTier tier, bool canRemove, bool hidden, ItemTag[] tags, params object[] itemTokens)
         {
             itemDef = ScriptableObject.CreateInstance<ItemDef>();
