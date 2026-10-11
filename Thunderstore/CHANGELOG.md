@@ -1,3 +1,9 @@
+## Hallowed Concepts Compatibility - 0.4.2
+- This mod has now been optimized to support the Hallowed Concepts update.
+- More changes in coding:
+  - Fixed a bug in BuffManager where it was still using magic booleans instead of variables shared by different buffs.
+  - Fixed an incorrect buff naming for BerryJuice which would've prevented its image from loading.
+
 ## Berry Juice and Optimizations - 0.4.1
 - New early-access item added:
     - Berry Juice [RED]: Increase health regeneration for every consumed/unusable item.
