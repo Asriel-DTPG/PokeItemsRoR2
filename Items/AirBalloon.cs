@@ -72,7 +72,7 @@ namespace PokeItems.Items
                 return;
 
             // Replace all Air Balloons with Popped Air Balloons
-            inventory.RemoveItem(itemDef, itemCount);
+            inventory.RemoveItem(itemDef.itemIndex, itemCount);
             inventory.GiveItem(AirBalloonBroken.itemDef, itemCount);
 
             // Begin setting up the pickup notification for the transformation

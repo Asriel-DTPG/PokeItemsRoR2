@@ -26,7 +26,7 @@ namespace PokeItems.Items
 
             // Initialize the functionality
             On.RoR2.GenericSkill.ExecuteIfReady += QuickClawSkillHook;
-            On.RoR2.GenericSkill.RunRecharge += QuickClawRechargeHook;
+            On.RoR2.GenericSkill.RunRecharge_float += QuickClawRechargeHook;
             On.RoR2.CharacterBody.OnDestroy += QuickClawBodyDestroy;
         }
 
@@ -97,7 +97,7 @@ namespace PokeItems.Items
 
         // Cooldown recharge function
         private static void QuickClawRechargeHook(
-            On.RoR2.GenericSkill.orig_RunRecharge orig,
+            On.RoR2.GenericSkill.orig_RunRecharge_float orig,
             GenericSkill self,
             float dt)
         {

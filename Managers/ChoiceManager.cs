@@ -37,7 +37,7 @@ namespace PokeItems.Managers
 
             // Add functionality
             On.RoR2.GenericSkill.OnExecute += ChoiceSkillHook;
-            On.RoR2.GenericSkill.RunRecharge += ChoiceCooldownHook;
+            On.RoR2.GenericSkill.RunRecharge_float += ChoiceCooldownHook;
             On.RoR2.Stage.Start += ChoiceStageStartHook;
             On.RoR2.CharacterMaster.OnBodyStart += ChoiceBodyStartHook;
         }
@@ -97,7 +97,7 @@ namespace PokeItems.Managers
 
         // Modify the recharge time based on non-chosen skill and number of choice items
         private static void ChoiceCooldownHook(
-            On.RoR2.GenericSkill.orig_RunRecharge orig,
+            On.RoR2.GenericSkill.orig_RunRecharge_float orig,
             GenericSkill self,
             float rechargeTime)
         {

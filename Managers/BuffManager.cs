@@ -14,13 +14,13 @@ namespace PokeItems.Managers
             buffDef = ScriptableObject.CreateInstance<BuffDef>();
             buffDef.name = name;
             buffDef.iconSprite = TryGetSprite(name);
-            buffDef.buffColor = Color.white;
+            buffDef.buffColor = color;
 
-            buffDef.canStack = false;
+            buffDef.canStack = canStack;
 
-            buffDef.isDebuff = true;
+            buffDef.isDebuff = isDebuff;
 
-            buffDef.isHidden = false;
+            buffDef.isHidden = isHidden;
 
             ContentAddition.AddBuffDef(buffDef);
 
@@ -33,7 +33,7 @@ namespace PokeItems.Managers
             Sprite sprite = AssetManager.bundle.LoadAsset<Sprite>(spriteName + ".png");
             if (sprite == null)
             {
-                Log.Warning("Missing debuff sprite file for choice items. Substituting default...");
+                Log.Warning("Missing debuff sprite file for" + buffDef.name + ". Substituting default...");
                 sprite = Addressables.LoadAssetAsync<Sprite>("RoR2/Base/Common/MiscIcons/texMysteryIcon.png").WaitForCompletion();
             }
 
