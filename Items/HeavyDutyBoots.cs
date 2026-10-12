@@ -11,7 +11,7 @@ namespace PokeItems.Items
 
         // Item Settings
         private static ItemTier tier = ItemTier.Tier2; // 1 = WHITE; 2 = GREEN; 3 = RED
-        public static float armorBonusPerStack = 25f; // Armor bonus value
+        public static float armorBonus = 25f; // Armor bonus value
         public static float armorBonusPerExtraStack = 5f; // Armor bonus value for extra stacks
 
         private static readonly Dictionary<CharacterBody, bool> isGroundedDict = new();
@@ -21,7 +21,7 @@ namespace PokeItems.Items
             // Create the itemDef via ItemManager
             itemDef = ItemManager.CreateItemDef("HeavyDutyBoots", tier, true, false,
                 [ItemTag.Utility, ItemTag.CanBeTemporary],
-                armorBonusPerStack, armorBonusPerExtraStack);
+                armorBonus, armorBonusPerExtraStack);
 
             // Add the functionality
             RecalculateStatsAPI.GetStatCoefficients += HeavyDutyBootsHook;
@@ -51,15 +51,15 @@ namespace PokeItems.Items
                 return;
 
             // Check if custom values are enabled
-            float armorBonus = ConfigManager.GetFloatValue(
-                ConfigManager.HeavyDutyBoots_ArmorBonusPerStack,
-                armorBonusPerStack);
+            float initArmorBonus = ConfigManager.GetFloatValue(
+                ConfigManager.HeavyDutyBoots_ArmorBonus,
+                armorBonus);
             float armorExtraBonus = ConfigManager.GetFloatValue(
                 ConfigManager.HeavyDutyBoots_ArmorBonusPerExtraStack,
                 armorBonusPerExtraStack);
 
             // Add HP/s per stack
-            args.armorAdd += MathUtility.GetLinearWithExtraStacking(armorBonus, armorExtraBonus, itemCount);
+            args.armorAdd += MathUtility.GetLinearWithExtraStacking(initArmorBonus, armorExtraBonus, itemCount);
         }
 
         // Check for grounded state

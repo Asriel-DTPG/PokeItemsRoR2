@@ -10,15 +10,17 @@ namespace PokeItems.Items
 
         // Item Settings
         private static ItemTier tier = ItemTier.Tier2; // 1 = WHITE; 2 = GREEN; 3 = RED
-        public static float regenBonusPerStack = 5f; // HP Regen bonus value
-        public static float regenBonusPerExtraStack = 3f; // HP Regen bonus value for extra stacks
+        public static float regenBonus = 2f; // Initial HP Regen bonus value
+        public static float regenBonusPercent = 1f; // Initial HP Regen percent (max HP) bonus value
+        public static float regenBonusPerExtraStack = 1.5f; // HP Regen percent (max HP) bonus value for extra stacks
+        public static float regenBonusPercentPerExtraStack = 0.5f;
 
         public static void Init()
         {
             // Create the itemDef via ItemManager
             itemDef = ItemManager.CreateItemDef("Leftovers", tier, true, false,
                 [ItemTag.Healing, ItemTag.CanBeTemporary],
-                regenBonusPerStack, regenBonusPerExtraStack);
+                regenBonus, regenBonusPercent, regenBonusPerExtraStack, regenBonusPercentPerExtraStack);
 
             // Add the functionality
             RecalculateStatsAPI.GetStatCoefficients += LeftoversHook;
@@ -28,7 +30,7 @@ namespace PokeItems.Items
         private static void LeftoversHook(CharacterBody body, RecalculateStatsAPI.StatHookEventArgs args)
         {
             // Mandatory check
-            if (body == null || !body.inventory)
+            if (body == null || body.inventory == null)
                 return;
 
             // Get the count of how many of this item is in the inventory
@@ -39,15 +41,26 @@ namespace PokeItems.Items
                 return;
 
             // Check if custom values are enabled
-            float regenBonus = ConfigManager.GetFloatValue(
-                ConfigManager.Leftovers_RegenBonusPerStack,
-                regenBonusPerStack);
-            float regenExtraBonus = ConfigManager.GetFloatValue(
+            float totalRegen = ConfigManager.GetFloatValue(
+                ConfigManager.Leftovers_RegenBonus,
+                regenBonus);
+            float totalRegenPercent = ConfigManager.GetFloatValue(
+                ConfigManager.Leftovers_RegenBonusPercent,
+                regenBonusPercent) *
+                body.maxHealth / 100f;
+            float totalExtraRegen = ConfigManager.GetFloatValue(
                 ConfigManager.Leftovers_RegenBonusPerExtraStack,
                 regenBonusPerExtraStack);
-            
+            float totalExtraRegenPercent = ConfigManager.GetFloatValue(
+                ConfigManager.Leftovers_RegenBonusPercentPerExtraStack,
+                regenBonusPercentPerExtraStack) *
+                body.maxHealth / 100f;
+
             // Add HP/s per stack
-            args.baseRegenAdd += MathUtility.GetLinearWithExtraStacking(regenBonus, regenExtraBonus, itemCount);
+            args.baseRegenAdd += MathUtility.GetLinearWithExtraStacking(
+                totalRegen + totalRegenPercent,
+                totalExtraRegen + totalExtraRegenPercent,
+                itemCount);
         }
     }
 }

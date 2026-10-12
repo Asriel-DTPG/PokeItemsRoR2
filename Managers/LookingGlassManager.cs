@@ -105,8 +105,8 @@ namespace PokeItems.Managers
             stats.calculateValuesNew = (luck, stackCount, procChance) =>
             {
                 float regenBonus = ConfigManager.GetFloatValue(
-                    ConfigManager.Leftovers_RegenBonusPerStack,
-                    Leftovers.regenBonusPerStack);
+                    ConfigManager.Leftovers_RegenBonus,
+                    Leftovers.regenBonus);
 
                 float regenExtraBonus = ConfigManager.GetFloatValue(
                     ConfigManager.Leftovers_RegenBonusPerExtraStack,
@@ -205,8 +205,8 @@ namespace PokeItems.Managers
             stats.calculateValuesNew = (luck, stackCount, procChance) =>
             {
                 float expBonus = ConfigManager.GetFloatValue(
-                    ConfigManager.ExpShare_ExpPercentBonusPerStack,
-                    ExpShare.expPercentBonusPerStack);
+                    ConfigManager.ExpShare_ExpPercentBonus,
+                    ExpShare.expPercentBonus);
 
                 float expExtraBonus = ConfigManager.GetFloatValue(
                     ConfigManager.ExpShare_ExpPercentBonusPerExtraStack,
@@ -268,8 +268,8 @@ namespace PokeItems.Managers
             stats.calculateValuesNew = (luck, stackCount, procChance) =>
             {
                 float armorBonus = ConfigManager.GetFloatValue(
-                    ConfigManager.HeavyDutyBoots_ArmorBonusPerStack,
-                    HeavyDutyBoots.armorBonusPerStack);
+                    ConfigManager.HeavyDutyBoots_ArmorBonus,
+                    HeavyDutyBoots.armorBonus);
 
                 float armorExtraBonus = ConfigManager.GetFloatValue(
                     ConfigManager.HeavyDutyBoots_ArmorBonusPerExtraStack,

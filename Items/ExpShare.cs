@@ -12,7 +12,7 @@ namespace PokeItems.Items
 
         // Item Settings
         private static ItemTier tier = ItemTier.Tier3; // 1 = WHITE; 2 = GREEN; 3 = RED
-        public static float expPercentBonusPerStack = 200f; // EXP Bonus Percent
+        public static float expPercentBonus = 200f; // Initial EXP Bonus Percent
         public static float expPercentBonusPerExtraStack = 100f; // EXP Bonus Percent per extra stack
         public static float expRateBonus = 20f; // Passive EXP percent per minute (scaled by requirement)
 
@@ -25,7 +25,7 @@ namespace PokeItems.Items
             // Create the itemDef via ItemManager
             itemDef = ItemManager.CreateItemDef("ExpShare", tier, true, false,
                 [ItemTag.Utility, ItemTag.CanBeTemporary],
-                expPercentBonusPerStack, expPercentBonusPerExtraStack, expRateBonus);
+                expPercentBonus, expPercentBonusPerExtraStack, expRateBonus);
 
             // Add the functionality
             On.RoR2.ExperienceManager.AwardExperience += ExpShareHook;
@@ -52,8 +52,8 @@ namespace PokeItems.Items
                 {
                     // Check if custom values are enabled
                     float expBonus = ConfigManager.GetFloatValue(
-                        ConfigManager.ExpShare_ExpPercentBonusPerStack,
-                        expPercentBonusPerStack);
+                        ConfigManager.ExpShare_ExpPercentBonus,
+                        expPercentBonus);
                     float expExtraBonus = ConfigManager.GetFloatValue(
                         ConfigManager.ExpShare_ExpPercentBonusPerExtraStack,
                         expPercentBonusPerExtraStack);

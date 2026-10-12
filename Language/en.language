@@ -7,7 +7,7 @@
   "en": {
     "Item_Leftovers_Name": "Leftovers",
     "Item_Leftovers_Pickup": "Increase health regeneration by a flat amount.",
-    "Item_Leftovers_Desc": "Increase health regeneration by <style=cIsHealing>{0} HP/s</style> <style=cStack>(+{1} HP/s per stack)</style>.",
+    "Item_Leftovers_Desc": "Increase health regeneration by <style=cIsHealing>{0} + {1}% max HP (HP/s)</style> <style=cStack>(+{2} + {3}% max HP (HP/s) per stack)</style>.",
     "Item_Leftovers_Lore": "Lore not found...",
 
     "Item_FlameOrb_Name": "Flame Orb",
@@ -72,7 +72,7 @@
 
     "Item_BerryJuice_Name": "Berry Juice",
     "Item_BerryJuice_Pickup": "Increase health regeneration for every consumed/unusable item.",
-    "Item_BerryJuice_Desc": "Increase health regeneration by <style=cIsHealing>{0}% max HP (HP/s)</style> <style=cStack>(+{1}% max HP (HP/s) per stack)</style> for every consumed/unusable item in inventory, up to a maximum of <style=cIsUtility>{2}</style> <style=cStack>(+{3} per stack)</style>.",
+    "Item_BerryJuice_Desc": "Increase health regeneration by <style=cIsHealing>{0}% max HP (HP/s)</style> for every consumed/unusable item in inventory, up to a maximum of <style=cIsUtility>{1}</style> <style=cStack>(+{2} per stack)</style>.",
     "Item_BerryJuice_Lore": "Lore not found..."
   }
 }

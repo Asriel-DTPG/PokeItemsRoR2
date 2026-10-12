@@ -3,6 +3,7 @@ using R2API;
 using RoR2;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace PokeItems.Items
 {
@@ -13,8 +14,7 @@ namespace PokeItems.Items
 
         // Item Settings
         private static ItemTier tier = ItemTier.Tier3; // 1 = WHITE; 2 = GREEN; 3 = RED
-        public static float regenPercent = 2f; // Initial regen percent
-        public static float regenPercentPerExtraStack = 0.5f; // Regen percent per extra stack
+        public static float regenPercent = 1.5f; // Initial regen percent
         public static int itemCap = 6; // Initial max capacity
         public static int itemCapPerExtraStack = 4; // Max capacity per extra stack
 
@@ -23,16 +23,17 @@ namespace PokeItems.Items
             // Create the itemDef via ItemManager
             itemDef = ItemManager.CreateItemDef("BerryJuice", tier, true, false,
                 [ItemTag.Healing, ItemTag.CanBeTemporary],
-                regenPercent, regenPercentPerExtraStack, itemCap, itemCapPerExtraStack);
+                regenPercent, itemCap, itemCapPerExtraStack);
 
             // Create the buffDef via BuffManager
             berryLevel = BuffManager.CreateBuffDef("BerryLevel", Color.white, true, false, false);
 
             // Initialize the functionality
             RecalculateStatsAPI.GetStatCoefficients += BerryJuiceRegenHook;
+            On.RoR2.CharacterBody.OnInventoryChanged += BerryJuiceInventoryChangedHook;
         }
 
-        // Main function
+        // Main function for calculating regen based on buff count
         private static void BerryJuiceRegenHook(
             CharacterBody body,
             RecalculateStatsAPI.StatHookEventArgs args)
@@ -41,31 +42,43 @@ namespace PokeItems.Items
             if (body == null || body.inventory == null)
                 return;
 
-            int itemCount = body.inventory.GetItemCountEffective(itemDef);
+            // Get current Berry Juice buff stacks
+            int stacks = body.GetBuffCount(berryLevel);
 
-            if (itemCount <= 0)
-                return;
-
-            // Get the count of unused/consumed (NoTier) items in inventory
-            int unusableItemCount = GetNoTierItemCount(body);
-
-            if (unusableItemCount <= 0)
-                return;
-
-            // Get max count of unused/consumed (NoTier) items
-            int totalCap = (int)MathUtility.GetLinearWithExtraStacking(itemCap, itemCapPerExtraStack, itemCount);
-
-            if (totalCap <= 0)
+            if (stacks <= 0)
                 return;
 
             // Calculate regeneration rate
-            float regenRate = MathUtility.GetLinearWithExtraStacking(regenPercent, regenPercentPerExtraStack, itemCount);
+            float regenRate = (regenPercent * body.maxHealth / 100f) * stacks;
 
-            // Calculate regeneration amount based on max HP percentage and max capacity
-            float totalRegen = body.maxHealth * (regenRate / 100f) * Mathf.Min(unusableItemCount, totalCap);
+            // Add to regeneration stat
+            args.baseRegenAdd += regenRate;
+        }
 
-            // Add to character
-            args.baseRegenAdd += totalRegen;
+        // Secondary function to set buff count based on number of unusable items
+        private static void BerryJuiceInventoryChangedHook(
+            On.RoR2.CharacterBody.orig_OnInventoryChanged orig,
+            CharacterBody self)
+        {
+            // Run vanilla logic
+            orig(self);
+
+            // Network server dependant
+            if (!NetworkServer.active)
+                return;
+
+            // Mandatory checks
+            if (self == null || self.inventory == null)
+                return;
+
+            // Count valid NoTier items
+            int buffCount = GetNoTierItemCount(self);
+
+            // Set buff stacks to match item count and remove excess stacks when items are lost
+            if (self.GetBuffCount(berryLevel) == buffCount)
+                return;
+
+            self.SetBuffCount(berryLevel.buffIndex, buffCount);
         }
 
         // Helper function to get count of NoTier items

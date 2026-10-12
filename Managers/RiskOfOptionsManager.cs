@@ -76,7 +76,17 @@ namespace PokeItems.Managers
             // Leftovers
             ModSettingsManager.AddOption(
                 new SliderOption(
-                    ConfigManager.Leftovers_RegenBonusPerStack,
+                    ConfigManager.Leftovers_RegenBonus,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 1000f
+                    }
+                )
+            );
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.Leftovers_RegenBonusPercent,
                     new SliderConfig
                     {
                         min = 0f,
@@ -87,6 +97,16 @@ namespace PokeItems.Managers
             ModSettingsManager.AddOption(
                 new SliderOption(
                     ConfigManager.Leftovers_RegenBonusPerExtraStack,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 1000f
+                    }
+                )
+            );
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.Leftovers_RegenBonusPercentPerExtraStack,
                     new SliderConfig
                     {
                         min = 0f,
@@ -152,7 +172,7 @@ namespace PokeItems.Managers
             // EXP Share
             ModSettingsManager.AddOption(
                 new SliderOption(
-                    ConfigManager.ExpShare_ExpPercentBonusPerStack,
+                    ConfigManager.ExpShare_ExpPercentBonus,
                     new SliderConfig
                     {
                         min = 0f,
@@ -196,7 +216,7 @@ namespace PokeItems.Managers
             // Heavy-Duty Boots
             ModSettingsManager.AddOption(
                 new SliderOption(
-                    ConfigManager.HeavyDutyBoots_ArmorBonusPerStack,
+                    ConfigManager.HeavyDutyBoots_ArmorBonus,
                     new SliderConfig
                     {
                         min = 0f,

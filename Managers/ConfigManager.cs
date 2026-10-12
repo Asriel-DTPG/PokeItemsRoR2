@@ -11,8 +11,10 @@ namespace PokeItems.Managers
         public static ConfigEntry<bool> UnfinishedItemsEnabled;
         
         // LEFTOVERS
-        public static ConfigEntry<float> Leftovers_RegenBonusPerStack;
+        public static ConfigEntry<float> Leftovers_RegenBonus;
+        public static ConfigEntry<float> Leftovers_RegenBonusPercent;
         public static ConfigEntry<float> Leftovers_RegenBonusPerExtraStack;
+        public static ConfigEntry<float> Leftovers_RegenBonusPercentPerExtraStack;
 
         // FLAME ORB
         public static ConfigEntry<float> FlameOrb_ProcPercentPerStack;
@@ -24,7 +26,7 @@ namespace PokeItems.Managers
         public static ConfigEntry<float> AirBalloon_HpThresholdPercent;
 
         // EXP SHARE
-        public static ConfigEntry<float> ExpShare_ExpPercentBonusPerStack;
+        public static ConfigEntry<float> ExpShare_ExpPercentBonus;
         public static ConfigEntry<float> ExpShare_ExpPercentBonusPerExtraStack;
         public static ConfigEntry<float> ExpShare_ExpRateBonus;
 
@@ -32,7 +34,7 @@ namespace PokeItems.Managers
         public static ConfigEntry<float> AmuletCoin_GoldMulPercentPerStack;
 
         // HEAVY-DUTY BOOTS
-        public static ConfigEntry<float> HeavyDutyBoots_ArmorBonusPerStack;
+        public static ConfigEntry<float> HeavyDutyBoots_ArmorBonus;
         public static ConfigEntry<float> HeavyDutyBoots_ArmorBonusPerExtraStack;
 
         // CHOICE ITEMS
@@ -76,17 +78,29 @@ namespace PokeItems.Managers
             );
 
             // LEFTOVERS CONFIG
-            Leftovers_RegenBonusPerStack = Config.Bind(
+            Leftovers_RegenBonus = Config.Bind(
                 "Leftovers",
                 "Initial Regeneration Bonus",
-                Leftovers.regenBonusPerStack,
+                Leftovers.regenBonus,
                 "Health regeneration applied from initial stack."
+            );
+            Leftovers_RegenBonusPercent = Config.Bind(
+                "Leftovers",
+                "Initial Regeneration Bonus Percent",
+                Leftovers.regenBonusPercent,
+                "Health regeneration scaled by max HP (%) applied from initial stack."
             );
             Leftovers_RegenBonusPerExtraStack = Config.Bind(
                 "Leftovers",
                 "Regeneration Bonus Per Extra Stack",
                 Leftovers.regenBonusPerExtraStack,
                 "Health regeneration applied per extra stack."
+            );
+            Leftovers_RegenBonusPercentPerExtraStack = Config.Bind(
+                "Leftovers",
+                "Regeneration Bonus Percent Per Extra Stack",
+                Leftovers.regenBonusPercentPerExtraStack,
+                "Health regeneration scaled by max HP (%) applied per extra stack."
             );
 
             // FLAME ORB CONFIG
@@ -124,10 +138,10 @@ namespace PokeItems.Managers
             );
 
             // EXP SHARE CONFIG
-            ExpShare_ExpPercentBonusPerStack = Config.Bind(
+            ExpShare_ExpPercentBonus = Config.Bind(
                 "EXP Share",
                 "Initial EXP Percent Bonus",
-                ExpShare.expPercentBonusPerStack,
+                ExpShare.expPercentBonus,
                 "Extra percent of EXP is applied from initial stack."
             );
             ExpShare_ExpPercentBonusPerExtraStack = Config.Bind(
@@ -152,10 +166,10 @@ namespace PokeItems.Managers
             );
 
             // HEAVY-DUTY BOOTS CONFIG
-            HeavyDutyBoots_ArmorBonusPerStack = Config.Bind(
+            HeavyDutyBoots_ArmorBonus = Config.Bind(
                 "Heavy-Duty Boots",
                 "Initial Armor Bonus",
-                HeavyDutyBoots.armorBonusPerStack,
+                HeavyDutyBoots.armorBonus,
                 "Extra percent of EXP is applied from initial stack."
             );
             HeavyDutyBoots_ArmorBonusPerExtraStack = Config.Bind(
