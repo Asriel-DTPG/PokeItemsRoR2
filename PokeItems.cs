@@ -24,7 +24,7 @@ namespace PokeItems
         public const string PluginGUID = PluginAuthor + "." + PluginName;
         public const string PluginAuthor = "DTPGStudios";
         public const string PluginName = "PokeItems";
-        public const string PluginVersion = "0.4.2";
+        public const string PluginVersion = "0.4.3";
 
         public static PluginInfo PInfo { get; private set; }
         public static ConfigFile PConfig { get; private set; }

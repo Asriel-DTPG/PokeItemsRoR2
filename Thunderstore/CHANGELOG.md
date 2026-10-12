@@ -1,3 +1,16 @@
+## Heal Rework - 0.4.3
+- Item Changes:
+    - <b>Leftovers</b><br>To properly address the late-game issue, regen bonus and extra bonus now have max HP scaling
+        - Regen bonus: 5 -> 2 + 1% max HP (HP/s)
+        - Regen extra bonus: 3 -> 1.5 + 0.5% max HP (HP/s)
+    - <b>Berry Juice</b><br>Considering the HP scaling, it would be best to nerf the healing amount for now.
+        - Regen bonus: 2% -> 1.5% max HP (HP/s)
+        - Regen extra bonus is no longer applied per extra stack
+        - BerryLevel buffs are now used and displayed
+- More changes in coding:
+    - Some item variables have been adjusted. Same applies to classes using Cfg
+    - Language file adjusted
+
 ## Hallowed Concepts Compatibility - 0.4.2
 - This mod has now been optimized to support the Hallowed Concepts update.
 - More changes in coding:

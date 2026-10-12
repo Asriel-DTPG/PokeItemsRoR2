@@ -62,7 +62,7 @@ be balanced throughout the patches.
 			<b>GREEN</b>
 		</td>
 		<td>
-			Increase health regeneration by <b>5</b> HP/s (+<b>3</b> HP/s per stack).
+			Increase health regeneration by <b>2</b> + <b>1</b>% max HP (HP/s) (+<b>1.5</b> + <b>0.5</b>% max HP (HP/s) per stack).
 		</td>
 	</tr>
 	<tr>
@@ -220,7 +220,7 @@ Items within this section are currently in development and so will include defau
 			<b>RED</b>
 		</td>
 		<td>
-			Increase health regeneration by <b>2</b>% max HP (HP/s) (+<b>0.5</b>% max HP (HP/s) per stack) for every consumed/unusable item in inventory, up to a maximum of <b>6</b> (+<b>4</b> per stack).
+			Increase health regeneration by <b>1.5</b>% max HP (HP/s) for every consumed/unusable item in inventory, up to a maximum of <b>6</b> (+<b>4</b> per stack).
 		</td>
 	</tr>
 	<tr>
