@@ -71,6 +71,18 @@ namespace PokeItems.Items
             if (self == null || self.inventory == null)
                 return;
 
+            // Get the count of how many of this item is in the inventory
+            int itemCount = self.inventory.GetItemCountEffective(itemDef);
+
+            if (itemCount <= 0)
+            {
+                // Reset buff count if it still exists
+                if (self.GetBuffCount(berryLevel) <= 0)
+                    self.SetBuffCount(berryLevel.buffIndex, 0);
+
+                return;
+            }
+
             // Count valid NoTier items
             int buffCount = GetNoTierItemCount(self);
 

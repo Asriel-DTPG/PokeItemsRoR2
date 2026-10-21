@@ -55,6 +55,7 @@ namespace PokeItems.Items
             if (!executed)
                 return executed;
 
+            // Get the count of how many of this item is in the inventory
             int itemCount = body.inventory.GetItemCountEffective(itemDef);
 
             if (itemCount <= 0)
