@@ -69,17 +69,30 @@ namespace PokeItems.Items
             if (activeRechargeMultipliers.ContainsKey(self))
                 return executed;
 
+            // Check if custom values are enabled
+            float initChance = ConfigManager.GetFloatValue(
+                ConfigManager.QuickClaw_ProcChance,
+                procChance);
+            float extraChance = ConfigManager.GetFloatValue(
+                ConfigManager.QuickClaw_ProcChancePerExtraStack,
+                procChancePerExtraStack);
+
             // Roll total proc chance, and ignore if it fails
-            float totalChance = MathUtility.GetLinearWithExtraStacking(procChance, procChancePerExtraStack, itemCount);
+            float totalChance = MathUtility.GetLinearWithExtraStacking(initChance, extraChance, itemCount);
 
             if (!Util.CheckRoll(totalChance, body.master))
                 return executed;
 
+            // Check if custom values are enabled
+            float cooldownReduction = ConfigManager.GetFloatValue(
+                ConfigManager.QuickClaw_CooldownReductionPercent,
+                cooldownReductionPercent);
+
             // This is in case the cooldown reduction is non-existent
-            if (cooldownReductionPercent <= 0f)
+            if (cooldownReduction <= 0f)
                 return executed;
 
-            float rechargeMultiplier = 1f / (1f - cooldownReductionPercent / 100f);
+            float rechargeMultiplier = 1f / (1f - cooldownReduction / 100f);
 
             // Safety check against invalid values
             if (float.IsNaN(rechargeMultiplier) ||

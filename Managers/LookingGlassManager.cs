@@ -5,6 +5,7 @@ using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using UnityEngine;
 
 namespace PokeItems.Managers
 {
@@ -59,6 +60,9 @@ namespace PokeItems.Managers
             RegisterChoiceBand();
             RegisterChoiceSpecs();
             RegisterChoiceScarf();
+            RegisterWeaknessPolicy();
+            RegisterQuickClaw();
+            RegisterBerryJuice();
         }
 
         // Get or create designated item stats
@@ -145,6 +149,11 @@ namespace PokeItems.Managers
 
                 float chance = MathUtility.GetLinearStacking(
                     procPercent, stackCount, procChance);
+
+                if (luck >= 0)
+                    chance = 1f - Mathf.Pow(1f - chance, luck + 1);
+                else
+                    chance = Mathf.Pow(chance, Math.Abs(luck) + 1);
 
                 return new List<float>
                 {
@@ -384,6 +393,112 @@ namespace PokeItems.Managers
 
                 float value = MathUtility.GetLinearWithExtraStacking(
                     movementBonus, movementExtraBonus, stackCount);
+
+                return new List<float>
+                {
+                    value / 100f
+                };
+            };
+        }
+
+        // Register stats for Weakness Policy
+        private static void RegisterWeaknessPolicy()
+        {
+            if (WeaknessPolicy.itemDef == null)
+                return;
+
+            ItemStatsDef stats = GetItemStats(WeaknessPolicy.itemDef);
+
+            if (stats == null)
+                return;
+
+            stats.descriptions.Add("Max Buff Stacks: ");
+            stats.valueTypes.Add(ItemStatsDef.ValueType.Stack);
+            stats.measurementUnits.Add(ItemStatsDef.MeasurementUnits.Number);
+
+            stats.calculateValuesNew = (luck, stackCount, procChance) =>
+            {
+                int initStack = ConfigManager.GetIntValue(
+                    ConfigManager.WeaknessPolicy_MaxBuffStacks,
+                    WeaknessPolicy.maxBuffStacks);
+
+                int extraStack = ConfigManager.GetIntValue(
+                    ConfigManager.WeaknessPolicy_MaxBuffStacksPerExtraStack,
+                    WeaknessPolicy.maxBuffStacksPerExtraStack);
+
+                int value = (int)MathUtility.GetLinearWithExtraStacking(
+                    initStack, extraStack, stackCount);
+
+                return new List<float>
+                {
+                    value
+                };
+            };
+        }
+
+        // Register stats for Quick Claw
+        private static void RegisterQuickClaw()
+        {
+            if (QuickClaw.itemDef == null)
+                return;
+
+            ItemStatsDef stats = GetItemStats(QuickClaw.itemDef);
+
+            if (stats == null)
+                return;
+
+            stats.descriptions.Add("Proc Chance: ");
+            stats.valueTypes.Add(ItemStatsDef.ValueType.Utility);
+            stats.measurementUnits.Add(ItemStatsDef.MeasurementUnits.Percentage);
+
+            stats.calculateValuesNew = (luck, stackCount, procChance) =>
+            {
+                float initProc = ConfigManager.GetFloatValue(
+                    ConfigManager.QuickClaw_ProcChance,
+                    QuickClaw.procChance);
+
+                float extraProc = ConfigManager.GetFloatValue(
+                    ConfigManager.QuickClaw_ProcChancePerExtraStack,
+                    QuickClaw.procChancePerExtraStack);
+
+                float chance = MathUtility.GetLinearWithExtraStacking(
+                    initProc, extraProc, stackCount, procChance);
+
+                if (luck >= 0)
+                    chance = 1f - Mathf.Pow(1f - chance, luck + 1);
+                else
+                    chance = Mathf.Pow(chance, Math.Abs(luck) + 1);
+
+                return new List<float>
+                {
+                    chance / 100f
+                };
+            };
+        }
+
+        // Register stats for berry Juice
+        private static void RegisterBerryJuice()
+        {
+            if (BerryJuice.itemDef == null)
+                return;
+
+            ItemStatsDef stats = GetItemStats(BerryJuice.itemDef);
+
+            if (stats == null)
+                return;
+
+            stats.descriptions.Add("Regeneration Bonus (%HP): ");
+            stats.valueTypes.Add(ItemStatsDef.ValueType.Healing);
+            stats.measurementUnits.Add(ItemStatsDef.MeasurementUnits.Percentage);
+
+            stats.calculateValuesNew = (luck, stackCount, procChance) =>
+            {
+                float regenRate = ConfigManager.GetFloatValue(
+                    ConfigManager.BerryJuice_RegenPercent,
+                    BerryJuice.regenPercent);
+
+                float value = MathUtility.GetLinearStacking(
+                    regenRate, BerryJuice.buffCount);
 
                 return new List<float>
                 {

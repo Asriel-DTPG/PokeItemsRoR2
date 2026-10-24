@@ -52,6 +52,22 @@ namespace PokeItems.Managers
         public static ConfigEntry<float> ChoiceScarf_MovementBonus;
         public static ConfigEntry<float> ChoiceScarf_MovementBonusPerExtraStack;
 
+        // WEAKNESS POLICY
+        public static ConfigEntry<float> WeaknessPolicy_DamageBonus;
+        public static ConfigEntry<int> WeaknessPolicy_MaxBuffStacks;
+        public static ConfigEntry<int> WeaknessPolicy_MaxBuffStacksPerExtraStack;
+        public static ConfigEntry<float> WeaknessPolicy_Duration;
+
+        // QUICK CLAW
+        public static ConfigEntry<float> QuickClaw_ProcChance;
+        public static ConfigEntry<float> QuickClaw_ProcChancePerExtraStack;
+        public static ConfigEntry<float> QuickClaw_CooldownReductionPercent;
+
+        // BERRY JUICE
+        public static ConfigEntry<float> BerryJuice_RegenPercent;
+        public static ConfigEntry<int> BerryJuice_ItemCap;
+        public static ConfigEntry<int> BerryJuice_ItemCapPerExtraStack;
+
         public static void Init()
         {
             // Get the config file
@@ -228,10 +244,85 @@ namespace PokeItems.Managers
                 ChoiceScarf.movementBonusPerExtraStack,
                 "Movement bonus percent per extra stack."
             );
+
+            // WEAKNESS POLICY CONFIG
+            WeaknessPolicy_DamageBonus = Config.Bind(
+                "Weakness Policy",
+                "Damage Bonus",
+                WeaknessPolicy.damageBonus,
+                "Damage bonus percent per buff stack."
+            );
+            WeaknessPolicy_MaxBuffStacks = Config.Bind(
+                "Weakness Policy",
+                "Initial Max Buff Stacks",
+                WeaknessPolicy.maxBuffStacks,
+                "Initial max amount of Weakness Policy buff stacks."
+            );
+            WeaknessPolicy_MaxBuffStacksPerExtraStack = Config.Bind(
+                "Weakness Policy",
+                "Max Buff Stacks Per Extra Stack",
+                WeaknessPolicy.maxBuffStacksPerExtraStack,
+                "Max amount per extra stack of Weakness Policy buff stacks."
+            );
+            WeaknessPolicy_Duration = Config.Bind(
+                "Weakness Policy",
+                "Buff Duration",
+                WeaknessPolicy.duration,
+                "Duration of buff stacks before resetting."
+            );
+
+            // QUICK CLAW CONFIG
+            QuickClaw_ProcChance = Config.Bind(
+                "Quick Claw",
+                "Initial Proc Chance",
+                QuickClaw.procChance,
+                "Initial chance to reduce cooldown after use of that move."
+            );
+            QuickClaw_ProcChancePerExtraStack = Config.Bind(
+                "Quick Claw",
+                "Proc Chance Per Extra Stack",
+                QuickClaw.procChancePerExtraStack,
+                "Chance per extra stack to reduce cooldown after use of that move."
+            );
+            QuickClaw_CooldownReductionPercent = Config.Bind(
+                "Quick Claw",
+                "Cooldown Reduction Percent",
+                QuickClaw.cooldownReductionPercent,
+                "Percent of cooldown reduction when a move is used."
+            );
+
+            // BERRY JUICE CONFIG
+            BerryJuice_RegenPercent = Config.Bind(
+                "Berry Juice",
+                "Regen Percent",
+                BerryJuice.regenPercent,
+                "Max HP percent of health regen per buff stack."
+            );
+            BerryJuice_ItemCap = Config.Bind(
+                "Berry Juice",
+                "Initial Item Cap",
+                BerryJuice.itemCap,
+                "Initial unusable item capacity."
+            );
+            BerryJuice_ItemCapPerExtraStack = Config.Bind(
+                "Berry Juice",
+                "Item Cap Per Extra Stack",
+                BerryJuice.itemCapPerExtraStack,
+                "Unusable item capacity per extra stack."
+            );
         }
 
         // Fetch float value from either cfg or default depending on the setting enabled
         public static float GetFloatValue(ConfigEntry<float> config, float defaultValue)
+        {
+            if (CustomValuesEnabled.Value)
+                return config.Value;
+
+            return defaultValue;
+        }
+
+        // Fetch int value from either cfg or default depending on the setting enabled
+        public static int GetIntValue(ConfigEntry<int> config, int defaultValue)
         {
             if (CustomValuesEnabled.Value)
                 return config.Value;

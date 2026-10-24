@@ -1,4 +1,6 @@
-## Heal Rework - 0.4.3
+## New Models and Heal Rework - 0.4.3
+- New models and icons given to Weakness Policy, Quick Claw, and Berry Juice. Life Orb only has new model.
+- Fixed a bug where enemies for some reason have a stack of BerryLevel buff.
 - Item Changes:
     - <b>Leftovers</b><br>To properly address the late-game issue, regen bonus and extra bonus now have max HP scaling
         - Regen bonus: 5 -> 2 + 1% max HP (HP/s)
@@ -10,6 +12,7 @@
 - More changes in coding:
     - Some item variables have been adjusted. Same applies to classes using Cfg
     - Language file adjusted
+    - WeaknessPolicy, QuickClaw, BerryJuice, and LifeOrb added into Textures
 
 ## Hallowed Concepts Compatibility - 0.4.2
 - This mod has now been optimized to support the Hallowed Concepts update.

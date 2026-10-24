@@ -52,8 +52,10 @@ namespace PokeItems.Items
             if (stacks <= 0)
                 return;
 
-            // Calculate total bonus
-            float totalBonus = damageBonus * stacks;
+            // Check if custom values are enabled
+            float totalBonus = ConfigManager.GetFloatValue(
+                ConfigManager.WeaknessPolicy_DamageBonus,
+                damageBonus) * stacks;
 
             // Convert percentage into multiplier
             args.damageMultAdd += totalBonus / 100f;
@@ -101,9 +103,17 @@ namespace PokeItems.Items
             // Get current stack count
             int currentStacks = body.GetBuffCount(weaknessPrivilege);
 
+            // Check if custom values are enabled
+            int initBuffStack = ConfigManager.GetIntValue(
+                ConfigManager.WeaknessPolicy_MaxBuffStacks,
+                maxBuffStacks);
+            int extraBuffStack = ConfigManager.GetIntValue(
+                ConfigManager.WeaknessPolicy_MaxBuffStacksPerExtraStack,
+                maxBuffStacksPerExtraStack);
+
             // Get max stack count
             int maxTotalStacks = (int)MathUtility.GetLinearWithExtraStacking(
-                WeaknessPolicy.maxBuffStacks, WeaknessPolicy.maxBuffStacksPerExtraStack, itemCount);
+                initBuffStack, extraBuffStack, itemCount);
 
             // Add stack if not at max
             if (currentStacks < maxTotalStacks)
@@ -112,7 +122,9 @@ namespace PokeItems.Items
             }
 
             // Refresh the timer (can still be done regardless of max)
-            resetTimers[body] = duration;
+            resetTimers[body] = ConfigManager.GetFloatValue(
+                ConfigManager.WeaknessPolicy_Duration,
+                duration);
         }
 
         // Counting down reset timer and removing buffs if needed

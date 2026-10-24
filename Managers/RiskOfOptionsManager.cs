@@ -312,6 +312,112 @@ namespace PokeItems.Managers
                     }
                 )
             );
+
+            // Weakness Policy
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.WeaknessPolicy_DamageBonus,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 1000f
+                    }
+                )
+            );
+            ModSettingsManager.AddOption(
+                new IntSliderOption(
+                    ConfigManager.WeaknessPolicy_MaxBuffStacks,
+                    new IntSliderConfig
+                    {
+                        min = 0,
+                        max = 100
+                    }
+                )
+            );
+            ModSettingsManager.AddOption(
+                new IntSliderOption(
+                    ConfigManager.WeaknessPolicy_MaxBuffStacksPerExtraStack,
+                    new IntSliderConfig
+                    {
+                        min = 0,
+                        max = 100
+                    }
+                )
+            );
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.WeaknessPolicy_Duration,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 600f
+                    }
+                )
+            );
+
+            // Quick Claw
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.QuickClaw_ProcChance,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 100f
+                    }
+                )
+            );
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.QuickClaw_ProcChancePerExtraStack,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 100f
+                    }
+                )
+            );
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.QuickClaw_CooldownReductionPercent,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 100f
+                    }
+                )
+            );
+
+            // Berry Juice
+            ModSettingsManager.AddOption(
+                new SliderOption(
+                    ConfigManager.BerryJuice_RegenPercent,
+                    new SliderConfig
+                    {
+                        min = 0f,
+                        max = 100f
+                    }
+                )
+            );
+            ModSettingsManager.AddOption(
+                new IntSliderOption(
+                    ConfigManager.BerryJuice_ItemCap,
+                    new IntSliderConfig
+                    {
+                        min = 0,
+                        max = 100
+                    }
+                )
+            );
+            ModSettingsManager.AddOption(
+                new IntSliderOption(
+                    ConfigManager.BerryJuice_ItemCapPerExtraStack,
+                    new IntSliderConfig
+                    {
+                        min = 0,
+                        max = 100
+                    }
+                )
+            );
         }
     }
 }

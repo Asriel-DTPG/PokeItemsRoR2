@@ -1,6 +1,7 @@
 ﻿using PokeItems.Managers;
 using R2API;
 using RoR2;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -17,6 +18,8 @@ namespace PokeItems.Items
         public static float regenPercent = 1.5f; // Initial regen percent
         public static int itemCap = 6; // Initial max capacity
         public static int itemCapPerExtraStack = 4; // Max capacity per extra stack
+
+        public static int buffCount { get; protected set; }
 
         public static void Init()
         {
@@ -48,8 +51,13 @@ namespace PokeItems.Items
             if (stacks <= 0)
                 return;
 
+            // Check if custom values are enabled
+            float regenAmount = ConfigManager.GetFloatValue(
+                ConfigManager.BerryJuice_RegenPercent,
+                regenPercent);
+
             // Calculate regeneration rate
-            float regenRate = (regenPercent * body.maxHealth / 100f) * stacks;
+            float regenRate = (regenAmount * body.maxHealth / 100f) * stacks;
 
             // Add to regeneration stat
             args.baseRegenAdd += regenRate;
@@ -84,7 +92,7 @@ namespace PokeItems.Items
             }
 
             // Count valid NoTier items
-            int buffCount = GetNoTierItemCount(self);
+            buffCount = GetNoTierItemCount(self, itemCount);
 
             // Set buff stacks to match item count and remove excess stacks when items are lost
             if (self.GetBuffCount(berryLevel) == buffCount)
@@ -94,7 +102,7 @@ namespace PokeItems.Items
         }
 
         // Helper function to get count of NoTier items
-        private static int GetNoTierItemCount(CharacterBody body)
+        private static int GetNoTierItemCount(CharacterBody body, int itemCount)
         {
             Inventory inventory = body.inventory;
 
@@ -129,6 +137,17 @@ namespace PokeItems.Items
 
                 total += count;
             }
+
+            // Check if custom values are enabled
+            int initItemCap = ConfigManager.GetIntValue(
+                ConfigManager.BerryJuice_ItemCap,
+                itemCap);
+            int extraItemCap = ConfigManager.GetIntValue(
+                ConfigManager.BerryJuice_ItemCapPerExtraStack,
+                itemCapPerExtraStack);
+
+            // Cap the number of items based on stacks
+            total = Math.Min(total, (int)MathUtility.GetLinearWithExtraStacking(initItemCap, extraItemCap, itemCount));
 
             return total;
         }
