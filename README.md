@@ -62,7 +62,7 @@ be balanced throughout the patches.
 			<b>GREEN</b>
 		</td>
 		<td>
-			Increase health regeneration by <b>2</b> + <b>1</b>% max HP (HP/s) (+<b>1.5</b> + <b>0.5</b>% max HP (HP/s) per stack).
+			Increase health regeneration by <b>2 + 1% max HP</b> (HP/s) (+<b>1.5 + 0.5% max HP</b> (HP/s) per stack).
 		</td>
 	</tr>
 	<tr>
@@ -220,7 +220,7 @@ Items within this section are currently in development and so will include defau
 			<b>RED</b>
 		</td>
 		<td>
-			Increase health regeneration by <b>1.5</b>% max HP (HP/s) for every consumed/unusable item in inventory, up to a maximum of <b>6</b> (+<b>4</b> per stack).
+			Increase health regeneration by <b>1.5% max HP</b> (HP/s) for every consumed/unusable item in inventory, up to a maximum of <b>6</b> (+<b>4</b> per stack).
 		</td>
 	</tr>
 	<tr>
@@ -231,7 +231,7 @@ Items within this section are currently in development and so will include defau
 			<b>LUNAR</b>
 		</td>
 		<td>
-			Deal more damage based on a percentage of max health. <b>2</b>% (+<b>2</b>% per stack) Max HP is sacrificed and converted into extra damage. If the sacrifice amount is bigger than the current HP, the holder will survive on 1 HP but the sacrifice amount will be reduced.
+			Deal more damage based on a percentage of max health. <b>2</b>% (+<b>2</b>% per stack) max HP is sacrificed and converted into extra damage. If the sacrifice amount is bigger than the current HP, the holder will survive on 1 HP but the sacrifice amount will be reduced.
 		</td>
 	</tr>
 </table>

@@ -1,12 +1,14 @@
 ## New Models and Heal Rework - 0.4.3
 - New models and icons given to Weakness Policy, Quick Claw, and Berry Juice. Life Orb only has new model.
 - Fixed a bug where enemies for some reason have a stack of BerryLevel buff.
+- Cfg, RiskOfOptions, and LookingGlass support has now been implemented for Weakness Policy, Quick Claw, and Berry Juice.
+- Proper item cap for Berry Juice has now been added.
 - Item Changes:
     - <b>Leftovers</b><br>To properly address the late-game issue, regen bonus and extra bonus now have max HP scaling
-        - Regen bonus: 5 -> 2 + 1% max HP (HP/s)
-        - Regen extra bonus: 3 -> 1.5 + 0.5% max HP (HP/s)
+        - Regen bonus: 5 -> <b>2 + 1% max HP</b> (HP/s)
+        - Regen extra bonus: 3 -> <b>1.5 + 0.5% max HP</b> (HP/s)
     - <b>Berry Juice</b><br>Considering the HP scaling, it would be best to nerf the healing amount for now.
-        - Regen bonus: 2% -> 1.5% max HP (HP/s)
+        - Regen bonus: 2% -> <b>1.5% max HP</b> (HP/s)
         - Regen extra bonus is no longer applied per extra stack
         - BerryLevel buffs are now used and displayed
 - More changes in coding:
