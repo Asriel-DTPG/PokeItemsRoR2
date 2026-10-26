@@ -39,7 +39,7 @@ be balanced throughout the patches.
 	</tr>
 	<tr>
 		<td>
-			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Textures/WeaknessPolicy.png" width="192px"/>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Textures/WeaknessPolicy.png" width="192px"/>
 		</td>
 		<td>
 			<b>Weakness Policy</b>
@@ -81,7 +81,7 @@ be balanced throughout the patches.
 	</tr>
 	<tr>
 		<td>
-			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Textures/QuickClaw.png" width="192px"/>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Textures/QuickClaw.png" width="192px"/>
 		</td>
 		<td>
 			<b>Quick Claw</b>
@@ -109,7 +109,7 @@ be balanced throughout the patches.
 	</tr>
 	<tr>
 		<td>
-			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Textures/BerryJuice.png" width="192px"/>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Textures/BerryJuice.png" width="192px"/>
 		</td>
 		<td>
 			<b>Berry Juice</b>
@@ -184,7 +184,7 @@ This also introduces new buffs and debuffs along with this mod.
 <table>
 	<tr>
 		<td>
-			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Buffs/BerryLevel.png" width="128px"/>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Buffs/BerryLevel.png" width="128px"/>
 		</td>
 		<td>
 			<b>Berry Level</b>
@@ -239,7 +239,7 @@ This also introduces new buffs and debuffs along with this mod.
 	</tr>
 	<tr>
 		<td>
-			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Buffs/WeaknessPrivilege.png" width="128px"/>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Buffs/WeaknessPrivilege.png" width="128px"/>
 		</td>
 		<td>
 			<b>Weakness Privilege</b>
