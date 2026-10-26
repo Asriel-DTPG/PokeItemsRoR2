@@ -39,6 +39,20 @@ be balanced throughout the patches.
 	</tr>
 	<tr>
 		<td>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Textures/WeaknessPolicy.png" width="192px"/>
+		</td>
+		<td>
+			<b>Weakness Policy</b>
+		</td>
+		<td>
+			<b>WHITE</b>
+		</td>
+		<td>
+			Deal <b>10</b>% more damage for every hit taken (up to <b>5</b> (+<b>3</b> per stack) times). Stacks last <b>5</b> seconds before expiring, and will refresh when taking damage.
+		</td>
+	</tr>
+	<tr>
+		<td>
 			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Textures/HeavyDutyBoots.png" width="192px"/>
 		</td>
 		<td>
@@ -67,6 +81,20 @@ be balanced throughout the patches.
 	</tr>
 	<tr>
 		<td>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Textures/QuickClaw.png" width="192px"/>
+		</td>
+		<td>
+			<b>Quick Claw</b>
+		</td>
+		<td>
+			<b>GREEN</b>
+		</td>
+		<td>
+			<b>10%</b> (+<b>5</b>% per stack) chance to recharge move cooldown <b>50</b>% faster after use. Effect ends after a stock of that move has been recharged.
+		</td>
+	</tr>
+	<tr>
+		<td>
 			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Textures/AmuletCoin.png" width="192px"/>
 		</td>
 		<td>
@@ -77,6 +105,20 @@ be balanced throughout the patches.
 		</td>
 		<td>
 			Gain <b>100</b>% (+<b>100</b>% per stack) more gold.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Textures/BerryJuice.png" width="192px"/>
+		</td>
+		<td>
+			<b>Berry Juice</b>
+		</td>
+		<td>
+			<b>RED</b>
+		</td>
+		<td>
+			Increase health regeneration by <b>1.5% max HP</b> (HP/s) for every consumed/unusable item in inventory, up to a maximum of <b>6</b> (+<b>4</b> per stack).
 		</td>
 	</tr>
 	<tr>
@@ -142,6 +184,17 @@ This also introduces new buffs and debuffs along with this mod.
 <table>
 	<tr>
 		<td>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Buffs/BerryLevel.png" width="128px"/>
+		</td>
+		<td>
+			<b>Berry Level</b>
+		</td>
+		<td>
+			Offers health regeneration based on a percentage of max HP. Stackable.
+		</td>
+	</tr>
+	<tr>
+		<td>
 			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Buffs/PrimaryLock.png" width="128px"/>
 		</td>
 		<td>
@@ -184,45 +237,23 @@ This also introduces new buffs and debuffs along with this mod.
 			All skill cooldowns (except Utility) have slower recharge. The effect is strengthened based on extra number of choice items.
 		</td>
 	</tr>
+	<tr>
+		<td>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Buffs/WeaknessPrivilege.png" width="128px"/>
+		</td>
+		<td>
+			<b>Weakness Privilege</b>
+		</td>
+		<td>
+			Increases damage output by a set percentage. Stackable.
+		</td>
+	</tr>
 </table>
 
 ## Early-Access Items
 Items within this section are currently in development and so will include default sprites and models (mystery question marks).
 
 <table>
-	<tr>
-		<td>
-			<b>Weakness Policy</b>
-		</td>
-		<td>
-			<b>WHITE</b>
-		</td>
-		<td>
-			Deal <b>10</b>% more damage for every hit taken (up to <b>5</b> (+<b>3</b> per stack) times). Stacks last <b>5</b> seconds before expiring, and will refresh when taking damage.
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<b>Quick Claw</b>
-		</td>
-		<td>
-			<b>GREEN</b>
-		</td>
-		<td>
-			<b>10%</b> (+<b>5</b>% per stack) chance to recharge move cooldown <b>50</b>% faster after use. Effect ends after a stock of that move has been recharged.
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<b>Berry Juice</b>
-		</td>
-		<td>
-			<b>RED</b>
-		</td>
-		<td>
-			Increase health regeneration by <b>1.5% max HP</b> (HP/s) for every consumed/unusable item in inventory, up to a maximum of <b>6</b> (+<b>4</b> per stack).
-		</td>
-	</tr>
 	<tr>
 		<td>
 			<b>Life Orb</b>
@@ -251,10 +282,10 @@ Press the following keys to spawn the item (early-access items will need to be e
 - <b>F10</b>: Choice Scarf
 
 ### Page 2
-- <b>F2</b>: Life Orb [Early Access]
-- <b>F3</b>: Weakness Policy [Early Access]
-- <b>F4</b>: Quick Claw [Early Access]
-- <b>F5</b>: Berry Juice [Early Access]
+- <b>F2</b>: Weakness Policy
+- <b>F3</b>: Quick Claw
+- <b>F4</b>: Berry Juice
+- <b>F5</b>: Life Orb [Early Access]
 
 ## Suggestions?
 If you like to share your reviews and suggestions about this mod, please post your responses under this link. I'd be more than happy to listen to your ideas!

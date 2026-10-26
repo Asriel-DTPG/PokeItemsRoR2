@@ -70,20 +70,20 @@ namespace PokeItems
             ChoiceBand.Init();
             ChoiceSpecs.Init();
             ChoiceScarf.Init();
+            WeaknessPolicy.Init();
+            QuickClaw.Init();
+            BerryJuice.Init();
 
             isUnfinishedEnabled = ConfigManager.UnfinishedItemsEnabled.Value;
-
-            // Looking Glass (Optional)
-            LookingGlassManager.Init();
 
             // Unfinished Items
             if (isUnfinishedEnabled)
             {
                 LifeOrb.Init();
-                WeaknessPolicy.Init();
-                QuickClaw.Init();
-                BerryJuice.Init();
             }
+
+            // Looking Glass (Optional)
+            LookingGlassManager.Init();
 
             // Log that the mod is ready
             Log.Message("PokeItems mod is ready!");

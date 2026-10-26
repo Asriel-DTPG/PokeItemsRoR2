@@ -62,21 +62,21 @@ namespace PokeItems
 
             else if (pageNo == 1)
             {
-                // Life Orb
-                if (Input.GetKeyDown(KeyCode.F2))
-                    spawnItem(LifeOrb.itemDef.itemIndex, true);
-
                 // Weakness Policy
-                if (Input.GetKeyDown(KeyCode.F3))
-                    spawnItem(WeaknessPolicy.itemDef.itemIndex, true);
+                if (Input.GetKeyDown(KeyCode.F2))
+                    spawnItem(WeaknessPolicy.itemDef.itemIndex, false);
 
                 // Quick Claw
-                if (Input.GetKeyDown(KeyCode.F4))
-                    spawnItem(QuickClaw.itemDef.itemIndex, true);
+                if (Input.GetKeyDown(KeyCode.F3))
+                    spawnItem(QuickClaw.itemDef.itemIndex, false);
 
                 // Berry Juice
+                if (Input.GetKeyDown(KeyCode.F4))
+                    spawnItem(BerryJuice.itemDef.itemIndex, false);
+
+                // Life Orb
                 if (Input.GetKeyDown(KeyCode.F5))
-                    spawnItem(BerryJuice.itemDef.itemIndex, true);
+                    spawnItem(LifeOrb.itemDef.itemIndex, true);
             }
         }
 
@@ -102,7 +102,12 @@ namespace PokeItems
             if (++pageNo >= maxPages)
                 pageNo -= maxPages;
 
-            Log.Info($"Changed to page {pageNo}");
+            Log.Info($"Changed to page {pageNo + 1}");
+
+            // Display chat notification
+            Chat.AddMessage(
+                $"<color=#FFAAFF>[PokeItems] Spawn Mode: Changed to page {pageNo + 1}.</color>"
+            );
         }
     }
 }

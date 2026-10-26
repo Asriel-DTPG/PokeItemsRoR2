@@ -3,6 +3,7 @@
 - Fixed a bug where enemies for some reason have a stack of BerryLevel buff.
 - Cfg, RiskOfOptions, and LookingGlass support has now been implemented for Weakness Policy, Quick Claw, and Berry Juice.
 - Proper item cap for Berry Juice has now been added.
+- Spawn Mode now provides chat notifications when switching pages
 - Item Changes:
     - <b>Leftovers</b><br>To properly address the late-game issue, regen bonus and extra bonus now have max HP scaling
         - Regen bonus: 5 -> <b>2 + 1% max HP</b> (HP/s)
@@ -15,6 +16,8 @@
     - Some item variables have been adjusted. Same applies to classes using Cfg
     - Language file adjusted
     - WeaknessPolicy, QuickClaw, BerryJuice, and LifeOrb added into Textures
+    - Re-arranged items in Spawn Mode
+    - LookingGlassManager now initializes after unfinished items
 
 ## Hallowed Concepts Compatibility - 0.4.2
 - This mod has now been optimized to support the Hallowed Concepts update.
