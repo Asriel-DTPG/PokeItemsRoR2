@@ -31,6 +31,8 @@ namespace PokeItems
 
         public static ExpansionDef sotvDLC;
         public static ExpansionDef sotsDLC;
+        public static ExpansionDef acDLC;
+        public static ExpansionDef hcDLC;
 
         public static bool isUnfinishedEnabled { get; private set; }
 
@@ -46,6 +48,8 @@ namespace PokeItems
             // Get DLC variables
             sotvDLC = Addressables.LoadAssetAsync<ExpansionDef>("RoR2/DLC1/Common/DLC1.asset").WaitForCompletion();
             sotsDLC = Addressables.LoadAssetAsync<ExpansionDef>("RoR2/DLC2/Common/DLC2.asset").WaitForCompletion();
+            acDLC = Addressables.LoadAssetAsync<ExpansionDef>("RoR2/DLC3/Common/DLC3.asset").WaitForCompletion();
+            hcDLC = Addressables.LoadAssetAsync<ExpansionDef>("RoR2/DLC4/Common/DLC4.asset").WaitForCompletion();
 
             // Init our logging class so that we can properly log for debugging
             Log.Init(Logger);
