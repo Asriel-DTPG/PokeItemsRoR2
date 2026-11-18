@@ -1,4 +1,5 @@
 ﻿using BepInEx.Bootstrap;
+using BepInEx.Configuration;
 using System;
 using System.Runtime.CompilerServices;
 using RiskOfOptions;
@@ -52,372 +53,34 @@ namespace PokeItems.Managers
             }
         }
 
-        // Make existing options according to ConfigManager visible in-game
+        [MethodImpl(MethodImplOptions.NoInlining)]
         private static void RegisterOptions()
         {
+            foreach (ConfigDefinition def in ConfigManager.ConfigDefinitions)
+            {
+                ConfigEntryBase entry = def.Entry;
 
-            // General
-            ModSettingsManager.AddOption(
-                new CheckBoxOption(
-                    ConfigManager.CustomValuesEnabled
-                )
-            );
-            ModSettingsManager.AddOption(
-                new CheckBoxOption(
-                    ConfigManager.SpawnModeEnabled
-                )
-            );
-            ModSettingsManager.AddOption(
-                new CheckBoxOption(
-                    ConfigManager.UnfinishedItemsEnabled
-                )
-            );
+                if (entry is ConfigEntry<bool> boolEntry)
+                    ModSettingsManager.AddOption(new CheckBoxOption(boolEntry));
 
-            // Leftovers
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.Leftovers_RegenBonus,
-                    new SliderConfig
+                else if (entry is ConfigEntry<float> floatEntry)
+                    ModSettingsManager.AddOption(new SliderOption(floatEntry, new SliderConfig
                     {
-                        min = 0f,
-                        max = 1000f
-                    }
-                )
-            );
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.Leftovers_RegenBonusPercent,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 100f
-                    }
-                )
-            );
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.Leftovers_RegenBonusPerExtraStack,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 1000f
-                    }
-                )
-            );
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.Leftovers_RegenBonusPercentPerExtraStack,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 100f
-                    }
-                )
-            );
+                        min = def.MinValue,
+                        max = def.MaxValue
+                    }));
 
-            // Flame Orb
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.FlameOrb_ProcPercentPerStack,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 100f
-                    }
-                )
-            );
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.FlameOrb_DebuffDuration,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 30f
-                    }
-                )
-            );
 
-            // Air Balloon
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.AirBalloon_FallSpeedLimit,
-                    new SliderConfig
+                else if (entry is ConfigEntry<int> intEntry)
+                    ModSettingsManager.AddOption(new IntSliderOption(intEntry, new IntSliderConfig
                     {
-                        min = 0f,
-                        max = 200f
-                    }
-                )
-            );
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.AirBalloon_FallPercentReductionPerExtraStack,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 100f
-                    }
-                )
-            );
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.AirBalloon_HpThresholdPercent,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 100f
-                    }
-                )
-            );
+                        min = (int)def.MinValue,
+                        max = (int)def.MaxValue
+                    }));
 
-            // EXP Share
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.ExpShare_ExpPercentBonus,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 1000f
-                    }
-                )
-            );
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.ExpShare_ExpPercentBonusPerExtraStack,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 1000f
-                    }
-                )
-            );
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.ExpShare_ExpRateBonus,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 100f
-                    }
-                )
-            );
-
-            // Amulet Coin
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.AmuletCoin_GoldMulPercentPerStack,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 1000f
-                    }
-                )
-            );
-
-            // Heavy-Duty Boots
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.HeavyDutyBoots_ArmorBonus,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 1000f
-                    }
-                )
-            );
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.HeavyDutyBoots_ArmorBonusPerExtraStack,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 1000f
-                    }
-                )
-            );
-
-            // Choice Items
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.ChoiceItems_CooldownPenaltyPerStack,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 100f
-                    }
-                )
-            );
-
-            // Choice Band
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.ChoiceBand_DamageBonus,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 1000f
-                    }
-                )
-            );
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.ChoiceBand_DamageBonusPerExtraStack,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 1000f
-                    }
-                )
-            );
-
-            // Choice Specs
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.ChoiceSpecs_DamageBonus,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 1000f
-                    }
-                )
-            );
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.ChoiceSpecs_DamageBonusPerExtraStack,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 1000f
-                    }
-                )
-            );
-
-            // Choice Scarf
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.ChoiceScarf_MovementBonus,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 1000f
-                    }
-                )
-            );
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.ChoiceScarf_MovementBonusPerExtraStack,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 1000f
-                    }
-                )
-            );
-
-            // Weakness Policy
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.WeaknessPolicy_DamageBonus,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 1000f
-                    }
-                )
-            );
-            ModSettingsManager.AddOption(
-                new IntSliderOption(
-                    ConfigManager.WeaknessPolicy_MaxBuffStacks,
-                    new IntSliderConfig
-                    {
-                        min = 0,
-                        max = 100
-                    }
-                )
-            );
-            ModSettingsManager.AddOption(
-                new IntSliderOption(
-                    ConfigManager.WeaknessPolicy_MaxBuffStacksPerExtraStack,
-                    new IntSliderConfig
-                    {
-                        min = 0,
-                        max = 100
-                    }
-                )
-            );
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.WeaknessPolicy_Duration,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 600f
-                    }
-                )
-            );
-
-            // Quick Claw
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.QuickClaw_ProcChance,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 100f
-                    }
-                )
-            );
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.QuickClaw_ProcChancePerExtraStack,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 100f
-                    }
-                )
-            );
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.QuickClaw_CooldownReductionPercent,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 100f
-                    }
-                )
-            );
-
-            // Berry Juice
-            ModSettingsManager.AddOption(
-                new SliderOption(
-                    ConfigManager.BerryJuice_RegenPercent,
-                    new SliderConfig
-                    {
-                        min = 0f,
-                        max = 100f
-                    }
-                )
-            );
-            ModSettingsManager.AddOption(
-                new IntSliderOption(
-                    ConfigManager.BerryJuice_ItemCap,
-                    new IntSliderConfig
-                    {
-                        min = 0,
-                        max = 100
-                    }
-                )
-            );
-            ModSettingsManager.AddOption(
-                new IntSliderOption(
-                    ConfigManager.BerryJuice_ItemCapPerExtraStack,
-                    new IntSliderConfig
-                    {
-                        min = 0,
-                        max = 100
-                    }
-                )
-            );
+                else
+                    Log.Warning("Risk of Options: Unsupported config type for " + $"'{entry.Definition.Section}/{entry.Definition.Key}'.");
+            }
         }
     }
 }

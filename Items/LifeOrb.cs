@@ -12,13 +12,15 @@ namespace PokeItems.Items
         // Item Settings
         private static ItemTier tier = ItemTier.Lunar; // 1 = WHITE; 2 = GREEN; 3 = RED
         public static float hpPercentSacrificePerStack = 2f; // HP Sacrifice per stack (Percentage)
+        public static float damageOutputMultPercent = 150f; // Initial Damage Output Multiplier (Percentage)
+        public static float damageOutputMultPercentPerExtraStack = 50f; // Damage Output Multiplier Per Extra Stack (Percentage)
 
         public static void Init()
         {
             // Create the itemDef via ItemManager
             itemDef = ItemManager.CreateItemDef("LifeOrb", tier, true, false,
                 [ItemTag.Damage, ItemTag.CanBeTemporary],
-                hpPercentSacrificePerStack);
+                hpPercentSacrificePerStack, damageOutputMultPercent, damageOutputMultPercentPerExtraStack);
 
             // Add the functionality
             On.RoR2.HealthComponent.TakeDamage += LifeOrbDamageHook;
@@ -99,7 +101,7 @@ namespace PokeItems.Items
             }
 
             // Add sacrificed HP directly to attack trigger
-            damageInfo.damage += sacrificeAmount;
+            damageInfo.damage += sacrificeAmount * (MathUtility.GetLinearWithExtraStacking(damageOutputMultPercent, damageOutputMultPercentPerExtraStack, itemCount) / 100f);
 
             // Apply Life Orb's HP sacrifice (Don't kill the attacker and instead cap at 1 HP)
             attackerBody.healthComponent.health = Mathf.Max(1f, attackerBody.healthComponent.health - sacrificeAmount);

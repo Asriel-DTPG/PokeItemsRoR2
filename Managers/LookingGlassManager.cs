@@ -476,7 +476,7 @@ namespace PokeItems.Managers
             };
         }
 
-        // Register stats for berry Juice
+        // Register stats for Berry Juice
         private static void RegisterBerryJuice()
         {
             if (BerryJuice.itemDef == null)
