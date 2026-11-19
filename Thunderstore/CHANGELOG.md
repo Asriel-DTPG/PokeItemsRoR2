@@ -1,3 +1,22 @@
+## 0.4.3 Hotfix and Rework
+- Alpha Release 4.1
+- New models for Air Balloon, Flame Orb, and Leftovers. Icons remain the same.
+- Fixed a major bug in QuickClaw that no longer interact with pickup models but stacks tremendously when attempting.
+- Item Changes:
+    - <b>Leftovers</b><br>Leftovers has now been reworked: "Increase health regeneration for every skill on cooldown." Language and ConfigManager has been changed to fit those changes.
+        - Regen Bonus (HP/s): 2 + 1% max HP -> <b>2% max HP</b>
+        - Regen Extra Bonus (HP/s): 1.5 + 0.5% max HP -> <b>0.5% max HP</b>
+    - <b>Life Orb</b><br>Because of its lack of damage scaling and output, this item is practically useless. Hopefully, the damage amplification will scale it better to some extent, even if it is situational.
+        - Damage Amp: 0% -> <b>150%</b>
+        - Damage Amp Per Extra Stack: 0% -> <b>50%</b>
+- More changes in coding:
+    - Moved LifeOrb down the list in language file
+    - ConfigDefinition is added
+    - RiskOfOptionsManager now links to ConfigManager to further refactor the code
+    - Some misc changes to make stricter conditions in AirBalloon and ExpShare
+    - Fixed reversed condition for checking buffs when there are no stacks in BerryJuice
+    - Some documentation added
+
 ## New Models and Heal Rework - 0.4.3
 - New models and icons given to Weakness Policy, Quick Claw, and Berry Juice. Life Orb only has new model.
 - Fixed a bug where enemies for some reason have a stack of BerryLevel buff.

@@ -76,7 +76,7 @@ be balanced throughout the patches.
 			<b>GREEN</b>
 		</td>
 		<td>
-			Increase health regeneration by <b>2 + 1% max HP</b> (HP/s) (+<b>1.5 + 0.5% max HP</b> (HP/s) per stack).
+			Increase health regeneration by <b>2% max HP</b> (HP/s) (+<b>0.5% max HP</b> (HP/s) per stack) for every skill currently on cooldown. If the skill has multiple charges, bonus is only applied when all charges are depleted.
 		</td>
 	</tr>
 	<tr>
@@ -263,6 +263,7 @@ Items within this section are currently in development and so will include defau
 		</td>
 		<td>
 			Deal more damage based on a percentage of max health. <b>2</b>% (+<b>2</b>% per stack) max HP is sacrificed and converted into extra damage. If the sacrifice amount is bigger than the current HP, the holder will survive on 1 HP but the sacrifice amount will be reduced.
+			Deal more damage based on a percentage of max health. <b>2</b>% (+<b>2</b>% per stack) max HP is sacrificed and converted into extra damage. Extra damage output is then amplified by <b>150%</b> (+<b>50%</b> per stack). If the sacrifice amount is bigger than the current HP, the holder will survive on 1 HP but the sacrifice amount will be reduced.
 		</td>
 	</tr>
 </table>
