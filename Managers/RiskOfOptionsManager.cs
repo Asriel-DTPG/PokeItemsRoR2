@@ -53,6 +53,7 @@ namespace PokeItems.Managers
             }
         }
 
+        // Look through each Config entry and translate values into RiskOfOption values
         [MethodImpl(MethodImplOptions.NoInlining)]
         private static void RegisterOptions()
         {

@@ -153,27 +153,29 @@ namespace PokeItems.Items
             On.RoR2.CharacterBody.orig_OnDestroy orig,
             CharacterBody self)
         {
-            if (self != null)
+            try
             {
-                List<GenericSkill> skillsToRemove = new();
-
-                foreach (GenericSkill skill in activeRechargeMultipliers.Keys)
+                if (!ReferenceEquals(self, null))
                 {
-                    if (skill == null || skill.characterBody == self)
-                        skillsToRemove.Add(skill);
-                }
+                    List<GenericSkill> skillsToRemove = new(activeRechargeMultipliers.Keys);
 
-                foreach (GenericSkill skill in skillsToRemove)
-                {
-                    RemoveQuickClawState(skill);
+                    foreach (GenericSkill skill in skillsToRemove)
+                    {
+                        if (ReferenceEquals(skill, null) || skill == null || skill.characterBody == self)
+                            RemoveQuickClawState(skill);
+                    }
                 }
+            }
+            finally
+            {
+                orig(self);
             }
         }
 
         // Helper function to clean up state
         private static void RemoveQuickClawState(GenericSkill skill)
         {
-            if (skill == null)
+            if (ReferenceEquals(skill, null))
                 return;
 
             activeRechargeMultipliers.Remove(skill);

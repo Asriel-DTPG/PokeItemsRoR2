@@ -6,8 +6,8 @@
 {
   "en": {
     "Item_Leftovers_Name": "Leftovers",
-    "Item_Leftovers_Pickup": "Increase health regeneration by a flat amount.",
-    "Item_Leftovers_Desc": "Increase health regeneration by <style=cIsHealing>{0} + {1}% max HP (HP/s)</style> <style=cStack>(+{2} + {3}% max HP (HP/s) per stack)</style>.",
+    "Item_Leftovers_Pickup": "Increase health regeneration for every skill on cooldown.",
+    "Item_Leftovers_Desc": "Increase health regeneration by <style=cIsHealing>{0}% max HP (HP/s)</style> <style=cStack>(+{1}% max HP (HP/s) per stack)</style> for every skill currently on cooldown. If the skill has multiple charges, bonus is only applied when all charges are depleted.",
     "Item_Leftovers_Lore": "Lore not found...",
 
     "Item_FlameOrb_Name": "Flame Orb",

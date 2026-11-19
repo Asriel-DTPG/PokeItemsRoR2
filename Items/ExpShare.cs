@@ -162,12 +162,14 @@ namespace PokeItems.Items
             // Award EXP via the ExperienceManager. Ignore bonus gain
             isPassiveEXP = true;
 
-            ExperienceManager.instance.AwardExperience(
-                body.corePosition,
-                body,
-                experience);
-
-            isPassiveEXP = false;
+            try
+            {
+                ExperienceManager.instance.AwardExperience(body.corePosition, body, experience);
+            }
+            finally
+            {
+                isPassiveEXP = false;
+            }
         }
 
         // Initialize or reset tracking for prev run time and personal timer

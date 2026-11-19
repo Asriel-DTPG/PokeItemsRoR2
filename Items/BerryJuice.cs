@@ -85,7 +85,7 @@ namespace PokeItems.Items
             if (itemCount <= 0)
             {
                 // Reset buff count if it still exists
-                if (self.GetBuffCount(berryLevel) <= 0)
+                if (self.GetBuffCount(berryLevel) > 0)
                     self.SetBuffCount(berryLevel.buffIndex, 0);
 
                 return;

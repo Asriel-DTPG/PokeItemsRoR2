@@ -124,29 +124,15 @@ namespace PokeItems.Managers
             // LEFTOVERS CONFIG
             Leftovers_RegenBonus = BindOption(Config,
                 "Leftovers",
-                "Initial Regeneration Bonus",
-                Leftovers.regenBonus,
-                "Health regeneration applied from initial stack.",
-                0f, 1000f
-            );
-            Leftovers_RegenBonusPercent = BindOption(Config,
-                "Leftovers",
                 "Initial Regeneration Bonus Percent",
-                Leftovers.regenBonusPercent,
+                Leftovers.regenBonus,
                 "Health regeneration scaled by max HP (%) applied from initial stack.",
                 0f, 100f
             );
             Leftovers_RegenBonusPerExtraStack = BindOption(Config,
                 "Leftovers",
-                "Regeneration Bonus Per Extra Stack",
-                Leftovers.regenBonusPerExtraStack,
-                "Health regeneration applied per extra stack.",
-                0f, 1000f
-            );
-            Leftovers_RegenBonusPercentPerExtraStack = BindOption(Config,
-                "Leftovers",
                 "Regeneration Bonus Percent Per Extra Stack",
-                Leftovers.regenBonusPercentPerExtraStack,
+                Leftovers.regenBonusPerExtraStack,
                 "Health regeneration scaled by max HP (%) applied per extra stack.",
                 0f, 100f
             );
@@ -163,7 +149,7 @@ namespace PokeItems.Managers
                 "Flame Orb",
                 "Burn Duration",
                 FlameOrb.debuffDuration,
-                "How long the burn debuff lasts.",
+                "How long the burn debuff lasts (sec).",
                 0f, 60f
             );
 

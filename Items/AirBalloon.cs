@@ -65,23 +65,27 @@ namespace PokeItems.Items
         // Pop all active Air Balloons into unusable state
         private static void PopAllBalloons(Inventory inventory)
         {
+            if (inventory == null || AirBalloonBroken.itemDef == null)
+                return;
+            
             // Get the count of how many of this item is in the inventory
             int itemCount = inventory.GetItemCountEffective(itemDef);
 
             if (itemCount <= 0)
                 return;
 
+            CharacterMaster master = inventory.GetComponent<CharacterMaster>();
+
             // Replace all Air Balloons with Popped Air Balloons
             inventory.RemoveItem(itemDef.itemIndex, itemCount);
             inventory.GiveItem(AirBalloonBroken.itemDef, itemCount);
 
             // Begin setting up the pickup notification for the transformation
-            CharacterMaster master = inventory.GetComponent<CharacterMaster>();
-            if (master)
+            if (master != null)
             {
                 CharacterBody body = master.GetBody();
 
-                if (body && body.isPlayerControlled)
+                if (body != null && body.isPlayerControlled)
                 {
                     CharacterMasterNotificationQueue.PushItemTransformNotification(
                         master,
