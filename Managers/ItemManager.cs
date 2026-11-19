@@ -58,10 +58,6 @@ namespace PokeItems.Managers
             if (itemDef.tier == ItemTier.VoidBoss || itemDef.tier == ItemTier.VoidTier1 ||
                 itemDef.tier == ItemTier.VoidTier2 || itemDef.tier == ItemTier.VoidTier3)
                 itemDef.requiredExpansion = PokeItems.sotvDLC;
-            if (itemDef.tier == ItemTier.FoodTier)
-                itemDef.requiredExpansion = PokeItems.acDLC;
-            if (itemDef.tier == ItemTier.Hex || itemDef.tier == ItemTier.Page || itemDef.tier == ItemTier.Cursed)
-                itemDef.requiredExpansion = PokeItems.hcDLC;
 
             // If this item can be removed by any means in-game (typically for no-tier items)
             itemDef.canRemove = canRemove;
