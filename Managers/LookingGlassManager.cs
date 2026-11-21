@@ -63,6 +63,7 @@ namespace PokeItems.Managers
             RegisterWeaknessPolicy();
             RegisterQuickClaw();
             RegisterBerryJuice();
+            RegisterLifeOrb();
         }
 
         // Get or create designated item stats
@@ -102,9 +103,9 @@ namespace PokeItems.Managers
             if (stats == null)
                 return;
 
-            stats.descriptions.Add("Regeneration Bonus: ");
+            stats.descriptions.Add("Regeneration Bonus (%HP/s): ");
             stats.valueTypes.Add(ItemStatsDef.ValueType.Healing);
-            stats.measurementUnits.Add(ItemStatsDef.MeasurementUnits.FlatHealing);
+            stats.measurementUnits.Add(ItemStatsDef.MeasurementUnits.PercentHealth);
 
             stats.calculateValuesNew = (luck, stackCount, procChance) =>
             {
@@ -121,7 +122,7 @@ namespace PokeItems.Managers
 
                 return new List<float>
                 {
-                    value
+                    value / 100f
                 };
             };
         }
@@ -413,7 +414,7 @@ namespace PokeItems.Managers
                 return;
 
             stats.descriptions.Add("Max Buff Stacks: ");
-            stats.valueTypes.Add(ItemStatsDef.ValueType.Stack);
+            stats.valueTypes.Add(ItemStatsDef.ValueType.Utility);
             stats.measurementUnits.Add(ItemStatsDef.MeasurementUnits.Number);
 
             stats.calculateValuesNew = (luck, stackCount, procChance) =>
@@ -487,9 +488,9 @@ namespace PokeItems.Managers
             if (stats == null)
                 return;
 
-            stats.descriptions.Add("Regeneration Bonus (%HP): ");
+            stats.descriptions.Add("Regeneration Bonus (%HP/s): ");
             stats.valueTypes.Add(ItemStatsDef.ValueType.Healing);
-            stats.measurementUnits.Add(ItemStatsDef.MeasurementUnits.Percentage);
+            stats.measurementUnits.Add(ItemStatsDef.MeasurementUnits.PercentHealth);
 
             stats.calculateValuesNew = (luck, stackCount, procChance) =>
             {
@@ -503,6 +504,50 @@ namespace PokeItems.Managers
                 return new List<float>
                 {
                     value / 100f
+                };
+            };
+        }
+
+        // Register stats for Life Orb
+        private static void RegisterLifeOrb()
+        {
+            if (LifeOrb.itemDef == null)
+                return;
+
+            ItemStatsDef stats = GetItemStats(LifeOrb.itemDef);
+
+            if (stats == null)
+                return;
+
+            stats.descriptions.Add("HP Sacrifice Amount: ");
+            stats.valueTypes.Add(ItemStatsDef.ValueType.Health);
+            stats.measurementUnits.Add(ItemStatsDef.MeasurementUnits.PercentHealth);
+
+            stats.descriptions.Add("Bonus Damage Amplification: ");
+            stats.valueTypes.Add(ItemStatsDef.ValueType.Damage);
+            stats.measurementUnits.Add(ItemStatsDef.MeasurementUnits.Percentage);
+
+            stats.calculateValuesNew = (luck, stackCount, procChance) =>
+            {
+                float hpSacrifice = ConfigManager.GetFloatValue(
+                    ConfigManager.LifeOrb_HpPercentSacrificePerStack,
+                    LifeOrb.hpPercentSacrificePerStack);
+
+                float totalSacrifice = MathUtility.GetLinearStacking(hpSacrifice, stackCount);
+
+                float bonusAmp = ConfigManager.GetFloatValue(
+                    ConfigManager.LifeOrb_DamageOutputMultPercent,
+                    LifeOrb.damageOutputMultPercent);
+                float bonusExtraAmp = ConfigManager.GetFloatValue(
+                    ConfigManager.LifeOrb_DamageOutputMultPercentPerExtraStack,
+                    LifeOrb.damageOutputMultPercentPerExtraStack);
+
+                float totalBonusAmp = MathUtility.GetLinearWithExtraStacking(bonusAmp, bonusExtraAmp, stackCount);
+
+                return new List<float>
+                {
+                    totalSacrifice / 100f,
+                    totalBonusAmp / 100f
                 };
             };
         }

@@ -24,7 +24,7 @@ namespace PokeItems
         public const string PluginGUID = PluginAuthor + "." + PluginName;
         public const string PluginAuthor = "DTPGStudios";
         public const string PluginName = "PokeItems";
-        public const string PluginVersion = "0.4.4";
+        public const string PluginVersion = "0.4.5";
 
         public static PluginInfo PInfo { get; private set; }
         public static ConfigFile PConfig { get; private set; }
@@ -73,13 +73,14 @@ namespace PokeItems
             WeaknessPolicy.Init();
             QuickClaw.Init();
             BerryJuice.Init();
+            LifeOrb.Init();
 
             isUnfinishedEnabled = ConfigManager.UnfinishedItemsEnabled.Value;
 
             // Unfinished Items
             if (isUnfinishedEnabled)
             {
-                LifeOrb.Init();
+                
             }
 
             // Looking Glass (Optional)
