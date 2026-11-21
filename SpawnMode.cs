@@ -76,7 +76,7 @@ namespace PokeItems
 
                 // Life Orb
                 if (Input.GetKeyDown(KeyCode.F5))
-                    spawnItem(LifeOrb.itemDef.itemIndex, true);
+                    spawnItem(LifeOrb.itemDef.itemIndex, false);
             }
         }
 

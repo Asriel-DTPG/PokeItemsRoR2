@@ -177,6 +177,20 @@ be balanced throughout the patches.
 			Deal <b>100</b>% (+<b>50</b>% per stack) more damage for Utility and Special skills. Choosing a skill will create a choice lock for that skill, and all other skills will recharge <b>20</b>% (+<b>20</b>% per stack) slower. Choice lock resets next stage or respawn.
 		</td>
 	</tr>
+	<tr>
+		<td>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Textures/LifeOrb.png" width="192px"/>
+		</td>
+		<td>
+			<b>Life Orb</b>
+		</td>
+		<td>
+			<b>LUNAR</b>
+		</td>
+		<td>
+			Deal more damage based on a percentage of max health. <b>2</b>% (+<b>2</b>% per stack) max HP is sacrificed and converted into extra damage. Extra damage output is then amplified by <b>150%</b> (+<b>50%</b> per stack). If the sacrifice amount is bigger than the current HP, the holder will survive on 1 HP but the sacrifice amount will be reduced.
+		</td>
+	</tr>
 </table>
 
 ## Buffs/Debuffs
@@ -255,15 +269,7 @@ Items within this section are currently in development and so will include defau
 
 <table>
 	<tr>
-		<td>
-			<b>Life Orb</b>
-		</td>
-		<td>
-			<b>LUNAR</b>
-		</td>
-		<td>
-			Deal more damage based on a percentage of max health. <b>2</b>% (+<b>2</b>% per stack) max HP is sacrificed and converted into extra damage. Extra damage output is then amplified by <b>150%</b> (+<b>50%</b> per stack). If the sacrifice amount is bigger than the current HP, the holder will survive on 1 HP but the sacrifice amount will be reduced.
-		</td>
+		<td>N/A</td>
 	</tr>
 </table>
 
@@ -285,7 +291,7 @@ Press the following keys to spawn the item (early-access items will need to be e
 - <b>F2</b>: Weakness Policy
 - <b>F3</b>: Quick Claw
 - <b>F4</b>: Berry Juice
-- <b>F5</b>: Life Orb [Early Access]
+- <b>F5</b>: Life Orb
 
 ## Suggestions?
 If you like to share your reviews and suggestions about this mod, please post your responses under this link. I'd be more than happy to listen to your ideas!

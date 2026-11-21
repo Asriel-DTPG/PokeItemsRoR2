@@ -1,3 +1,13 @@
+## New Icons and Support - 0.4.5
+- New mod icon!
+- Air Balloon, Air Balloon (Broken), Flame Orb, and Leftovers now have new icons.
+- Air Balloon positioning has been slightly adjusted.
+- Fixed a bug in Leftovers which still acted like a normal regen bonus instead of applying regen bonus per depleted skill.
+- More changes in coding:
+    - Life Orb is now fully accessible with Config, SpawnMode, and LookingGlass support
+    - Misc changes with LookingGlassManager
+    - Fixed duplication error for Life Orb in README
+
 ## 0.4.3 Hotfix and Rework - 0.4.4
 - New models for Air Balloon, Flame Orb, and Leftovers. Icons remain the same.
 - Fixed a major bug in QuickClaw that no longer interact with pickup models but stacks tremendously when attempting.
