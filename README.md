@@ -179,7 +179,7 @@ be balanced throughout the patches.
 	</tr>
 	<tr>
 		<td>
-			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/dev/Textures/LifeOrb.png" width="192px"/>
+			<img src="https://raw.githubusercontent.com/Asriel-DTPG/PokeItemsRoR2/refs/heads/main/Textures/LifeOrb.png" width="192px"/>
 		</td>
 		<td>
 			<b>Life Orb</b>
