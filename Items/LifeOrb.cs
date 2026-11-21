@@ -78,8 +78,13 @@ namespace PokeItems.Items
                 return;
             }
 
+            // Check if custom values are enabled
+            float hpSacrifice = ConfigManager.GetFloatValue(
+                ConfigManager.LifeOrb_HpPercentSacrificePerStack,
+                hpPercentSacrificePerStack);
+
             // Calculate total sacrifice decimal
-            float sacrificeFraction = MathUtility.GetLinearStacking(hpPercentSacrificePerStack, itemCount, damageInfo.procCoefficient) / 100f;
+            float sacrificeFraction = MathUtility.GetLinearStacking(hpSacrifice, itemCount, damageInfo.procCoefficient) / 100f;
 
             // Determine amount of HP sacrificed
             float sacrificeAmount = attackerBody.maxHealth * sacrificeFraction;
@@ -100,8 +105,16 @@ namespace PokeItems.Items
                 return;
             }
 
+            // Check if custom values are enabled
+            float damageAmp = ConfigManager.GetFloatValue(
+                ConfigManager.LifeOrb_DamageOutputMultPercent,
+                damageOutputMultPercent);
+            float damageExtraAmp = ConfigManager.GetFloatValue(
+                ConfigManager.LifeOrb_DamageOutputMultPercentPerExtraStack,
+                damageOutputMultPercentPerExtraStack);
+
             // Add sacrificed HP directly to attack trigger
-            damageInfo.damage += sacrificeAmount * (MathUtility.GetLinearWithExtraStacking(damageOutputMultPercent, damageOutputMultPercentPerExtraStack, itemCount) / 100f);
+            damageInfo.damage += sacrificeAmount * (MathUtility.GetLinearWithExtraStacking(damageAmp, damageExtraAmp, itemCount) / 100f);
 
             // Apply Life Orb's HP sacrifice (Don't kill the attacker and instead cap at 1 HP)
             attackerBody.healthComponent.health = Mathf.Max(1f, attackerBody.healthComponent.health - sacrificeAmount);

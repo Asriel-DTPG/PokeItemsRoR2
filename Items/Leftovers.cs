@@ -100,12 +100,25 @@ namespace PokeItems.Items
             if (itemCount <= 0)
                 return;
 
+            // Get the number of skills currently on cooldown
+            if (!cooldownStates.TryGetValue(body, out CooldownState state))
+                return;
+
+            int depletedSkills = state.DepletedSkillCount;
+
+            // Ignore bonus if no skills are depleted
+            if (depletedSkills <= 0)
+                return;
+
             // Check if custom values are enabled
-            float totalRegen = ConfigManager.GetFloatValue(ConfigManager.Leftovers_RegenBonusPercent, regenBonus) * body.maxHealth / 100f;
-            float totalExtraRegen = ConfigManager.GetFloatValue(ConfigManager.Leftovers_RegenBonusPercentPerExtraStack, regenBonusPerExtraStack) * body.maxHealth / 100f;
+            float regenAmount = ConfigManager.GetFloatValue(ConfigManager.Leftovers_RegenBonusPercent, regenBonus);
+            float regenExtraAmount = ConfigManager.GetFloatValue(ConfigManager.Leftovers_RegenBonusPercentPerExtraStack, regenBonusPerExtraStack);
+
+            // Scale regeneration by the number of depleted skills
+            float totalRegen = MathUtility.GetLinearWithExtraStacking(regenAmount, regenExtraAmount, itemCount) * depletedSkills;
 
             // Add HP/s per stack
-            args.baseRegenAdd += MathUtility.GetLinearWithExtraStacking(totalRegen, totalExtraRegen, itemCount);
+            args.baseRegenAdd += totalRegen * body.maxHealth / 100f;
         }
     }
 }

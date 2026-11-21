@@ -91,6 +91,11 @@ namespace PokeItems.Managers
         public static ConfigEntry<int> BerryJuice_ItemCap;
         public static ConfigEntry<int> BerryJuice_ItemCapPerExtraStack;
 
+        // LIFE ORB
+        public static ConfigEntry<float> LifeOrb_HpPercentSacrificePerStack;
+        public static ConfigEntry<float> LifeOrb_DamageOutputMultPercent;
+        public static ConfigEntry<float> LifeOrb_DamageOutputMultPercentPerExtraStack;
+
         public static void Init()
         {
             if (initialized)
@@ -355,6 +360,29 @@ namespace PokeItems.Managers
                 BerryJuice.itemCapPerExtraStack,
                 "Unusable item capacity per extra stack.",
                 0, 100
+            );
+
+            // LIFE ORB CONFIG
+            LifeOrb_HpPercentSacrificePerStack = BindOption(Config,
+                "Life Orb",
+                "HP Percent Sacrifice Per Stack",
+                LifeOrb.hpPercentSacrificePerStack,
+                "HP (%) to sacrifice as extra damage per stack.",
+                0f, 100f
+            );
+            LifeOrb_DamageOutputMultPercent = BindOption(Config,
+                "Life Orb",
+                "Initial Damage Bonus Amplification",
+                LifeOrb.damageOutputMultPercent,
+                "Initial bonus damage amplification (%).",
+                0f, 1000f
+            );
+            LifeOrb_DamageOutputMultPercentPerExtraStack = BindOption(Config,
+                "Life Orb",
+                "Damage Bonus Amplification Per Extra Stack",
+                LifeOrb.damageOutputMultPercent,
+                "Bonus damage amplification (%) per extra stack.",
+                0f, 1000f
             );
         }
 

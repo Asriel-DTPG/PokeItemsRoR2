@@ -1,5 +1,4 @@
-## 0.4.3 Hotfix and Rework
-- Alpha Release 4.1
+## 0.4.3 Hotfix and Rework - 0.4.4
 - New models for Air Balloon, Flame Orb, and Leftovers. Icons remain the same.
 - Fixed a major bug in QuickClaw that no longer interact with pickup models but stacks tremendously when attempting.
 - Item Changes:

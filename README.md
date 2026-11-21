@@ -262,7 +262,6 @@ Items within this section are currently in development and so will include defau
 			<b>LUNAR</b>
 		</td>
 		<td>
-			Deal more damage based on a percentage of max health. <b>2</b>% (+<b>2</b>% per stack) max HP is sacrificed and converted into extra damage. If the sacrifice amount is bigger than the current HP, the holder will survive on 1 HP but the sacrifice amount will be reduced.
 			Deal more damage based on a percentage of max health. <b>2</b>% (+<b>2</b>% per stack) max HP is sacrificed and converted into extra damage. Extra damage output is then amplified by <b>150%</b> (+<b>50%</b> per stack). If the sacrifice amount is bigger than the current HP, the holder will survive on 1 HP but the sacrifice amount will be reduced.
 		</td>
 	</tr>
